@@ -1,0 +1,15 @@
+Simple Java XML Parser - Library Dependencies
+---------------------------------------------
+
+* junit-4.8.2.jar - As expected, this library is only needed in the classpath
+	at runtime if you plan on running the test cases. For normal deployment
+	into production, you can leave junit off your classpath.
+	
+* xpp3-1.1.4c.jar - This library provides the default implementation for the
+	XML Pull Parsing spec that SJXP will use. You need this library in your
+	classpath in all cases *except* when deploying SJXP inside of an Android
+	application.
+	
+	Conveniently enough the Android runtime already provides an
+	XML Pull Parser implementation (it is a modified version of XPP3) so you can
+	just ship the tiny sjxp JAR with your Android app and that's all you need.
