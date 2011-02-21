@@ -1,0 +1,2047 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+<!DOCTYPE bugzilla SYSTEM "https://bugs.eclipse.org/bugs/bugzilla.dtd"> 
+ 
+<bugzilla version="3.6.3"
+          urlbase="https://bugs.eclipse.org/bugs/"
+          
+          maintainer="webmaster@eclipse.org"
+> 
+ 
+    <bug> 
+          <bug_id>35973</bug_id> 
+          
+          <creation_ts>2003-04-02 08:39:00 -0500</creation_ts> 
+          <short_desc>[resources] Better project organization</short_desc> 
+          <delta_ts>2011-02-02 15:43:55 -0500</delta_ts> 
+          <reporter_accessible>1</reporter_accessible> 
+          <cclist_accessible>1</cclist_accessible> 
+          <classification_id>2</classification_id> 
+          <classification>Eclipse</classification> 
+          <product>Platform</product> 
+          <component>Resources</component> 
+          <version>3.1</version> 
+          <rep_platform>All</rep_platform> 
+          <op_sys>All</op_sys> 
+          <bug_status>ASSIGNED</bug_status> 
+          
+          
+          
+          
+          
+          <keywords>investigate</keywords> 
+          <priority>P3</priority> 
+          <bug_severity>enhancement</bug_severity> 
+          <target_milestone>---</target_milestone> 
+          <dependson>15941</dependson> 
+    
+    <dependson>245412</dependson> 
+    
+    <dependson>15938</dependson> 
+          
+          <votes>207</votes> 
+          <everconfirmed>1</everconfirmed> 
+          <reporter name="Jeppe Cramon">jcn</reporter> 
+          <assigned_to name="Platform-Resources-Inbox">platform-resources-inbox</assigned_to> 
+          <cc>ahti</cc> 
+    
+    <cc>alex.blewitt</cc> 
+    
+    <cc>amuino</cc> 
+    
+    <cc>andreas</cc> 
+    
+    <cc>ankitp</cc> 
+    
+    <cc>anthony.berent</cc> 
+    
+    <cc>BCabe</cc> 
+    
+    <cc>ben.nospamplease</cc> 
+    
+    <cc>binyan357</cc> 
+    
+    <cc>bpasero</cc> 
+    
+    <cc>brett</cc> 
+    
+    <cc>brian.dillon</cc> 
+    
+    <cc>buckett</cc> 
+    
+    <cc>cameron</cc> 
+    
+    <cc>carlos</cc> 
+    
+    <cc>chris.lieb.hotmail</cc> 
+    
+    <cc>christian</cc> 
+    
+    <cc>ciantic</cc> 
+    
+    <cc>contact</cc> 
+    
+    <cc>cutebear103</cc> 
+    
+    <cc>d.nachev</cc> 
+    
+    <cc>dan.podwall</cc> 
+    
+    <cc>daniel_megert</cc> 
+    
+    <cc>danigredler</cc> 
+    
+    <cc>denis.kranjcec</cc> 
+    
+    <cc>dennis.portello</cc> 
+    
+    <cc>dev</cc> 
+    
+    <cc>digulla</cc> 
+    
+    <cc>eclipse.*.dserodio</cc> 
+    
+    <cc>eclipse.sf78wf</cc> 
+    
+    <cc>eclipse.sprigogin</cc> 
+    
+    <cc>eclipse</cc> 
+    
+    <cc>eclipse</cc> 
+    
+    <cc>eclipsebugs</cc> 
+    
+    <cc>elcapo+eclipsebugzilla</cc> 
+    
+    <cc>fawad</cc> 
+    
+    <cc>florin</cc> 
+    
+    <cc>gabriele.garuglieri</cc> 
+    
+    <cc>grylend</cc> 
+    
+    <cc>gunnar</cc> 
+    
+    <cc>herkule9s</cc> 
+    
+    <cc>hristo.sabev</cc> 
+    
+    <cc>ian</cc> 
+    
+    <cc>ittayd</cc> 
+    
+    <cc>IyadElian</cc> 
+    
+    <cc>jcompagner</cc> 
+    
+    <cc>jeff.myers</cc> 
+    
+    <cc>jerome_lanneluc</cc> 
+    
+    <cc>jfrantzius</cc> 
+    
+    <cc>joe.taylor</cc> 
+    
+    <cc>johan.walles</cc> 
+    
+    <cc>johnrizzo1</cc> 
+    
+    <cc>john_arthorne</cc> 
+    
+    <cc>juergen.kremp</cc> 
+    
+    <cc>kberthelot</cc> 
+    
+    <cc>kristof.vanbecelaere</cc> 
+    
+    <cc>lachlandeck</cc> 
+    
+    <cc>leif.hanack</cc> 
+    
+    <cc>mail</cc> 
+    
+    <cc>malaperle</cc> 
+    
+    <cc>Marco.Zuehlke</cc> 
+    
+    <cc>mark.melvin</cc> 
+    
+    <cc>markhobson</cc> 
+    
+    <cc>martin.gutschelhofer</cc> 
+    
+    <cc>martin.oberhuber</cc> 
+    
+    <cc>matthall</cc> 
+    
+    <cc>matthew-m.rose</cc> 
+    
+    <cc>matthias.sohn</cc> 
+    
+    <cc>matti.lindell</cc> 
+    
+    <cc>mauromol</cc> 
+    
+    <cc>max.andersen</cc> 
+    
+    <cc>max.knees</cc> 
+    
+    <cc>michael.flanakin</cc> 
+    
+    <cc>Michael.Scharf</cc> 
+    
+    <cc>Michael_Rennie</cc> 
+    
+    <cc>Michael_Valenta</cc> 
+    
+    <cc>mike.eclipse</cc> 
+    
+    <cc>mikko.taivainen</cc> 
+    
+    <cc>mindcrime</cc> 
+    
+    <cc>mkomor</cc> 
+    
+    <cc>nikolaymetchev</cc> 
+    
+    <cc>nitind</cc> 
+    
+    <cc>occasl</cc> 
+    
+    <cc>odilontalk</cc> 
+    
+    <cc>overholt</cc> 
+    
+    <cc>paulkimelman</cc> 
+    
+    <cc>pombredanne</cc> 
+    
+    <cc>rau.alex</cc> 
+    
+    <cc>recoskie</cc> 
+    
+    <cc>rehak.michal</cc> 
+    
+    <cc>remysuen</cc> 
+    
+    <cc>rob</cc> 
+    
+    <cc>robert.moloney</cc> 
+    
+    <cc>robert.watkins</cc> 
+    
+    <cc>robin.chaddock</cc> 
+    
+    <cc>rushealy</cc> 
+    
+    <cc>sartekin</cc> 
+    
+    <cc>sbushkov</cc> 
+    
+    <cc>Sebastian.Dietrich</cc> 
+    
+    <cc>slewis</cc> 
+    
+    <cc>sridhars</cc> 
+    
+    <cc>Szymon.Brandys</cc> 
+    
+    <cc>tfmorris</cc> 
+    
+    <cc>thierry.monney</cc> 
+    
+    <cc>tobrien</cc> 
+    
+    <cc>tom.schindl</cc> 
+    
+    <cc>uli</cc> 
+    
+    <cc>villane</cc> 
+    
+    <cc>vladimir.lapacek</cc> 
+    
+    <cc>walter.brunauer</cc> 
+    
+    <cc>wb-rel</cc> 
+    
+    <cc>werner.mueller</cc> 
+          
+ 
+      
+ 
+      
+ 
+      
+ 
+          <long_desc isprivate="0"> 
+            <commentid>152524</commentid> 
+            <who name="Jeppe Cramon">jcn</who> 
+            <bug_when>2003-04-02 08:39:46 -0500</bug_when> 
+            <thetext>The project organization views (such as Package Explorer, Navigator, etc.) 
+gets very big and confusing when you have a lot of projects. We run more 
+projects at the time, and by projects I mean Solutions which are a combination 
+of projects. In our Web project we have 1 J2EE project (we&apos;re using WSAD 5), 1 
+Web project and 7 Java projects. That&apos;s 9 projects all in all. We also have 
+other projects that we work on. All of these are also in the same workspace 
+(we want to be able to switch between projects, without having to go to swtich 
+worksspaces and run more than one instance of Eclipse).
+ 
+I would suggest a more advanced project view where you can have project groups 
+or solutions (like in Visual Studio.NET).
+Then we could have a solution called Web Solution which contained all our Web 
+project projects and a XX solution which contained all projects belonging to 
+project XX. You should be able to see all Solutions in the view (Navigator, 
+Package Explorer, etc.). It would also be nice if you could share projects 
+between solutions (visually).
+ 
+I hope I selected the right Component(s) for the bug as I&apos;m unaware of which 
+part of Eclipse is responsible for these views (the core of them).
+ 
+/Jeppe</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>154034</commentid> 
+            <who name="Nick Edgar">nick_edgar</who> 
+            <bug_when>2003-04-08 21:56:58 -0400</bug_when> 
+            <thetext>Solutions were considered in an early incarnation of Core, but were rejected.
+Moving to Core for comment.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>165424</commentid> 
+            <who name="DJ Houghton">dj_houghton</who> 
+            <bug_when>2003-06-09 10:44:08 -0400</bug_when> 
+            <thetext>*** Bug 38630 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>201628</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2003-11-11 10:54:09 -0500</bug_when> 
+            <thetext>*** Bug 46392 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>222877</commentid> 
+            <who name="Uwe Kubosch">donv</who> 
+            <bug_when>2004-01-31 17:01:16 -0500</bug_when> 
+            <thetext>Exuse my ramble if it is confusing, but I&apos;ll try to be clear :)
+ 
+I would like to see better handling of submodules.  This would also fix this 
+issue.  Currently if you have a cvs project with two submodules like this:
+ 
+/myproj
+    /doc
+        mydoc.txt
+    /subproj1
+        .project
+    /subproj2
+        .project
+    /subproj3
+        .project
+    .project
+ 
+The main project, &quot;myproj&quot;, has a &quot;doc&quot; directory and a .project file and each 
+of the subprojects also have .project files.  &quot;myproj&quot; does not have Java 
+nature.
+ 
+I would like to be able to check out &quot;subproj1&quot; (like I can today), but have it 
+placed below an otherwise empty &quot;myproj&quot; project in my workspace.  Likewise for 
+&quot;subproj2&quot;.
+ 
+When checking out &quot;myproj&quot;, I would like to be able to NOT check out subprojects 
+containing .project files since these are independent modules.  Checking out 
+&quot;myproj&quot; with this flag would give me the &quot;doc&quot; directory and .project file only 
+in the example above.
+ 
+This way I could have &quot;subproj1&quot; have relative links to &quot;subproj2&quot; and &quot;myproj&quot; 
+without having to check out &quot;subproj3&quot;.  I can also check out &quot;myproj&quot; and just 
+get the &quot;doc&quot; directory.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>226582</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2004-02-12 15:41:44 -0500</bug_when> 
+            <thetext>*** Bug 51245 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>357192</commentid> 
+            <who name="Mikhail Glushenkov">bbman</who> 
+            <bug_when>2004-10-26 15:15:06 -0400</bug_when> 
+            <thetext>I also need the ability to store
+eclipse project files in the non-root directory, i.e smthng like this:
+/project_root
+  /etc --project files go here
+  /src
+  /inc
+  /bin --binaries go here
+It is handy when working with more than one compiler/IDE pair.
+MSVC allows that.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>384127</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-01-04 16:44:52 -0500</bug_when> 
+            <thetext>No further changes are planned to the structure of projects, or to all
+sub-projects.  It sounds like the new working set browsing support in the
+package explorer will help you with your organization challenges with large sets
+of projects (Show &gt; Working Sets in Package Explorer context menu, in 3.1 M4).</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>399604</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-02-14 13:14:27 -0500</bug_when> 
+            <thetext>Reopening.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>399606</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-02-14 13:16:05 -0500</bug_when> 
+            <thetext>Although no current work is planned in this area, I will leave this bug open
+because it is a frequent request. This will allow us to accurately count
+duplicate requests and votes for this feature.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>399609</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-02-14 13:18:17 -0500</bug_when> 
+            <thetext>*** Bug 73350 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>399619</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-02-14 13:27:04 -0500</bug_when> 
+            <thetext>*** Bug 85108 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>400610</commentid> 
+            <who name="Joris Verschoor">j.verschoor</who> 
+            <bug_when>2005-02-16 02:25:35 -0500</bug_when> 
+            <thetext>Maybe there could an a merger between:
+projectset files
+working sets
+some settings (formatting settings for example)
+ 
+the settings would override your workbench defaults. We have multiple projects 
+we&apos;re working on, and some projects have different settings. Right now, 
+everything is shared..</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>400623</commentid> 
+            <who name="Nikolay">nikolaymetchev</who> 
+            <bug_when>2005-02-16 03:58:54 -0500</bug_when> 
+            <thetext>Pardon my ignorance but can you explain the difference between &quot;Solutions&quot; and
+working sets? Can working sets be used to achieve your desired goal?</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>400788</commentid> 
+            <who name="Alan Langford">eclipse.sf78wf</who> 
+            <bug_when>2005-02-16 09:46:13 -0500</bug_when> 
+            <thetext>I apologize in advance if I am insufficiently familiar with working sets; it
+appears that it is only possible to have one active working set at a time.
+However, multiple project groups (or solutions) can be open simultaneously. In
+my case it is common to be moving between groups and I would prefer not to have
+to set up new working sets that are a union of two smaller sets just because
+there are times when I need to work in both groups.
+ 
+Second, this goes to the &quot;enterprise support&quot; goals of the project. If, for
+example, I am working on two &quot;solutions&quot; both with a project named &apos;parser&apos;,
+then I need to pick an a non-conflicting project name for one of them. If
+another developer starts working on the same solutions, he has a 50% chance of
+their renaming the same project I did. With each added developer, the odds that
+we are using &apos;parser&apos; for different projects continues to rise. Now in order to
+exchange project-level data with others, I need to maintain a map between my
+project names and theirs. This is impractical and the odds of failure are high.
+If the names are consistent but in different groups, there is still a risk of
+conflict, but it is much lower since we&apos;re likely to a) be using the same
+solution name; and b) we&apos;re likely to verify which solution we&apos;re talking about.
+ 
+Third, different &quot;solutions&quot; tend to have different standards for the mechanics
+of programming such as indentation and code formatting rules. It would be useful
+to be able to inherit these rules at the project group level. I can&apos;t see how
+working sets could implement this requirement.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>424573</commentid> 
+            <who name="Ittay Dror">ittayd</who> 
+            <bug_when>2005-04-05 01:33:04 -0400</bug_when> 
+            <thetext>my 2 cents:
+we work with cvs branches a lot. this means that if our product has 5 projects, 
+then if i work on two branches, i&apos;ll need to have 10 projects in eclipse. 
+working sets help, but not much, the main reasons are:
+1. the project names still need to be unique, which means, for every new branch, 
+i have to recreate the projects (e.g., if i have a project named &apos;web&apos;, then if 
+i now work in a new branch, i need to create a project named &apos;web branch A&apos;, to 
+avoid a conflict)
+2. when finding types (classes) all of the projects are searched, not just the 
+active working set.
+3. source path resolution doesn&apos;t take into account the working set.
+4. the overall view is flat. if i want to compare files from two branches, i 
+can&apos;t use working sets.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>444580</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-05-06 10:23:37 -0400</bug_when> 
+            <thetext>*** Bug 93866 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>456029</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-05-19 10:29:14 -0400</bug_when> 
+            <thetext>*** Bug 95893 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>457001</commentid> 
+            <who name="Michael Flanakin">michael.flanakin</who> 
+            <bug_when>2005-05-20 08:34:55 -0400</bug_when> 
+            <thetext>I&apos;d like to see a simple .workspace file that would hold a list of named
+workspaces and the projects held within them. Personally, I don&apos;t see the need
+to have more than one workspace/solution/working set open at a time, but
+understand that others may need this. As I think someone else mentioned, it&apos;d
+even be nice to hold Eclipse settings in a single .workspace file (so all
+developers have the same formatter settings for a given workspace/solution). The
+latter solution would probably require each .workspace file to support one and
+only one workspace/solution, however.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>547169</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2005-10-18 08:30:02 -0400</bug_when> 
+            <thetext>I should provide a quick update to this bug.  Early in the Eclipse 3.2 planning
+cycle, the Platform and JDT teams spent some time exploring solutions to this
+bug.  One solution we considered was the possibility of allowing project nesting
+through reference rather than containment. The UI would then display referenced
+projects as children in the Navigator tree. This has the possible side benefit
+of allowing the same project to be nested within multiple other projects, for
+example if you have a utility project that is used by multiple other projects
+(which working sets allows).  We ultimately decided this solution would be too
+complex, with the UI having to artificially create this logical hierarchy that
+other plugins may not know about. For example, consider a search plugin that did
+not know about these references.  A user selects a project containing other
+projects, and starts a search. If the search plugin did not know about the
+project containment, it would not yield results from the nested projects.  Thus,
+just about any client traversing the workspace tree would need to know about
+these referential relationships and act accordingly.
+ 
+We decided in the end that the only viable solution is to support true nesting
+within the IWorkspace API.  One way to do this would be to add a sub-type of
+IProject called IProjectContainer, where IProjectContainer instances are normal
+projects that can also contain other projects.  While we decided that we didn&apos;t
+have room on the 3.2 plan to address this, it would be an interesting plan-level
+feature to tackle in a future release.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>614671</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2006-02-02 17:35:32 -0500</bug_when> 
+            <thetext>*** Bug 126283 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>614993</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2006-02-03 09:33:18 -0500</bug_when> 
+            <thetext>*** Bug 126283 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>660734</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2006-04-06 10:29:23 -0400</bug_when> 
+            <thetext>*** Bug 135239 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>660871</commentid> 
+            <who name="Johan Compagner">jcompagner</who> 
+            <bug_when>2006-04-06 11:23:27 -0400</bug_when> 
+            <thetext>do remember that i want to have 2 projects with the same name but in different solutions..
+ 
+This would be great for HEAD and BRANCH development of my projects/programs that i have. Now i have to create 2 workspaces for that to be able to do this.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>733712</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2006-06-19 10:20:15 -0400</bug_when> 
+            <thetext>*** Bug 147630 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>754706</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2006-07-21 16:24:39 -0400</bug_when> 
+            <thetext>*** Bug 151395 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>776326</commentid> 
+            <who name="JohnE">jeichels</who> 
+            <bug_when>2006-08-28 15:29:23 -0400</bug_when> 
+            <thetext>Oddly enough, a Maven 2 / eclipse integration bug lead me here.  With Maven 2 I have six &quot;modules&quot; each which produce jars or wars.  I work on each of these modules at the same time under a parent POM.  I want to be able to refactor and move code across projects.
+ 
+I can&apos;t seem to get this working well under eclipse and as a result of it, I began looking into other editors last night.  Considering many of the current open source projects use Maven 2, I am wondering how eclipse would anticipate managing a Maven 2 project.
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>780408</commentid> 
+            <who name="Tim O&apos;Brien">tobrien</who> 
+            <bug_when>2006-09-02 18:59:32 -0400</bug_when> 
+            <thetext>Just some additional comments.  Here&apos;s the requirement:
+ 
+Allow for .project file at an arbitrary location within a project.  If there is a .project file within an existing project, this .project can be listed as both a separate project and a nested project.
+ 
+Internally have a subproject type of IProjectContainer doesn&apos;t seem like the right approach.  Unless an IProject can contain references to IProjectContainer instances.  Getting the hierarchy correct is probably the most important idea here as most people, regardless of built tools, eventually start to represent large collections of projects are tree structures given the nature of the filesystem.
+ 
+Here&apos;s a proposed directory structure.   It would be nice to have a single Global Stuff project, in which I could set preferences across subprojects, and define dependencies between projects.
+ 
+Global Stuff
+     build.xml
+     src
+     build
+     dist
+     apps
+        cmd
+           report-builder
+              build.xml
+              src
+              build
+              dist
+           messaging-tool
+              build.xml
+              src
+              build
+              dist
+        web
+           report-war
+              build.xml
+              src
+              build
+              dist
+     modules
+        reporting
+             build.xml
+             src
+             build
+             dist
+        messaging
+             build.xml
+             src
+             build
+             dist
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>783461</commentid> 
+            <who name="JohnE">jeichels</who> 
+            <bug_when>2006-09-07 14:20:07 -0400</bug_when> 
+            <thetext>Just wanted to say up front...  I am just an end user of IDEs, and very unknowledgable, so forgive me if I am missing things.  But onward I go...
+ 
+You are suggesting a build layout that is different from lets say Maven&apos;s.   I believe that many projects will have different build structures and I hope the end result of this will work with each (esp Maven) almost transparently.  Perhaps Maven and it&apos;s plugins can work with the .project files to have things work out, but it would be good to know that these aspects are thought of up front.  What I do wish in the end, and I am finding it reasonably well done in Netbeans 5.5, is a reasonably transparent integration with Maven even with multi-module projects.  I had split my project out into 5 seperate sub-projects.
+ 
+If I have to do 20 things to make it work it is not making things easier as an IDE should.  I couldn&apos;t get it to work in Eclipse effectively despite following a set of directions. I am sure there will be other build tools/layouts in the future and it would be good if these have an adaptable way of setting up within the internal eclipse project structure.
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>784218</commentid> 
+            <who name="Jörg von Frantzius">jfrantzius</who> 
+            <bug_when>2006-09-08 13:02:33 -0400</bug_when> 
+            <thetext>(In reply to comment #19)
+&gt; We decided in the end that the only viable solution is to support true nesting
+&gt; within the IWorkspace API.  One way to do this would be to add a sub-type of
+&gt; IProject called IProjectContainer, where IProjectContainer instances are normal
+&gt; projects that can also contain other projects.  While we decided that we didn&apos;t
+&gt; have room on the 3.2 plan to address this, it would be an interesting plan-level
+&gt; feature to tackle in a future release.
+ 
+That sounds pretty good! Is there any news on whether this shall make it into 3.3, 3.4 or any release at all?
+ 
+Next to maven2, there is also maven1 projects that would profit from nested project structures being supported in Eclipse. </thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>784226</commentid> 
+            <who name="Mary Komor">mkomor</who> 
+            <bug_when>2006-09-08 13:12:42 -0400</bug_when> 
+            <thetext>I am also interested in the &quot;true nesting&quot; solution mentioned in comment #19. We&apos;ve had customers asking for subproject support. </thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>787625</commentid> 
+            <who name="JR">lefouduroi</who> 
+            <bug_when>2006-09-14 09:09:24 -0400</bug_when> 
+            <thetext>My comment is about how the CVS repositories view displays versions with a project hierarchy on the CVS side:
+ 
+1) I create two Java projects called Project1 and Project2.
+2) I share Project1 as module name Java/Project1 on a CVS and
+Project2 as Java/Project2 in the same repository.
+3) I tag two versions of Project1 (rc1 and rc2) and 
+one version for Project2 (rc1).
+ 
+ 
+1) Why do I have to refresh branches (deep search) to get tags for non-root projects?
+2) More importantly, why do I have the following hierarchy in the versions tree:
+ 
+Versions
+   Java
+      Java rc1
+         Project1
+         Project2
+      Java rc2
+         Project1 
+         Project2 (empty)
+ 
+instead of
+ 
+Versions
+      Java
+         Project1
+            Project1 rc1
+            Project1 rc2
+         Project2
+            Project2 rc1
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>788234</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2006-09-14 16:19:33 -0400</bug_when> 
+            <thetext>Re comment #31: JR, your comment doesn&apos;t seem relevant to this enhancement request. I suggest entering a separate bug against Platform CVS.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>850697</commentid> 
+            <who name="Leif Hanack">leif.hanack</who> 
+            <bug_when>2006-12-14 11:15:24 -0500</bug_when> 
+            <thetext>I&apos;m looking for the subproject feature as well! This feature will be a burner:)
+ 
+Using maven2 with a parent pom and a hierarchical project structure is not well supported within eclipse right now.
+ 
+Nested project structures would be really great!
+ 
+I see that this feature request is assigned. How could I see for which eclipse release a integration is planned?
+ 
+TIA, Leif</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>850722</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2006-12-14 11:37:30 -0500</bug_when> 
+            <thetext>This enhancement is not currently planned or targetted for any release.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>851243</commentid> 
+            <who name="Leif Hanack">leif.hanack</who> 
+            <bug_when>2006-12-15 03:54:17 -0500</bug_when> 
+            <thetext>How many voters are necessary to let you focus on this feature and take it into release planning?
+ 
+I know a lot people missing maven 2 hierarchie project structure support:(
+ 
+TIA, Leif
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>851245</commentid> 
+            <who name="Gunnar Wagenknecht">gunnar</who> 
+            <bug_when>2006-12-15 04:00:28 -0500</bug_when> 
+            <thetext>I&apos;m not sure what is still necessary here. As for the initial request, this is possible in the Package Explorer using Working Sets as top level elements. Maybe someone should open a separate enhancement request for the generic &quot;Project Explorer&quot; if it doesn&apos;t support this viewing mode yet. 
+ 
+(In reply to comment #33)
+&gt; I&apos;m looking for the subproject feature as well! 
+ 
+It&apos;s not visually a real subproject feature but it is possible to have nested projects in Eclipse, i.e. projects within projects.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>851264</commentid> 
+            <who name="Johan Compagner">jcompagner</who> 
+            <bug_when>2006-12-15 04:28:39 -0500</bug_when> 
+            <thetext>this feature is still really needed.
+The only workaround currently is multiply workspaces, working sets don&apos;t cut it!
+ 
+I liked to have this:
+ 
+Wicket Head Development (solution,super project)
+  &gt;wicket (project) 
+  &gt;wicket-extentions (project)
+  &gt;wicket-examples (project)
+Wicket 1.x Developerment (solution,super project)
+  &gt;wicket (project) 
+  &gt;wicket-extentions (project)
+  &gt;wicket-examples (project)
+ 
+As you can see. I have multiply projects with the same name. Because i do head and branch development. So i need another kind of container around projects so that i can say these projects belong to each other.
+The only workaround for this is currently multiply workspaces (i have already 3)
+(of course you can &quot;rename&quot; the projects but this is really not a solution.)</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>855329</commentid> 
+            <who name="Philippe Grenet">ph_grenet</who> 
+            <bug_when>2006-12-23 10:35:30 -0500</bug_when> 
+            <thetext>I believe this is a very important feature for Eclipse. The current project model for Eclipse is unflexible because it only allows for 1 level of projects directly under the workspace. This doesn&apos;t map to a CVS module hierarchy for instance where you can have a hierarchy of projects/subprojects/subsubprojects etc. each with their own build.xml or makefile. There are ways to get Eclipse to work with such a hierarchy of modules but they are inconvenient and especially they require some knowledge of Eclipse:
+ 
+1) Check out each module in an independent project: this means that the workspace flattens out the hierarchy of modules. To get this to work you need to write your makefiles and build.xml so that they discover what the directory structure looks like (if you want to be able to build in Eclipse or build straight from the command line after checking out the root module).
+ 
+2) Checkout the root module in a unique root project, and then create other projects where the source folder is a link to a folder somewhere in the root project. You then use the root project for checkin/checkout and the other projects for building. It works but it is not intuitive.
+ 
+3) Checkout the root module in a directory separate from your workspace, then create a workspace using a directory that does not contain the root module, and create projects linking to the modules in the root module&apos;s directory. This way you don&apos;t need to modify your makefiles and build.xml because the directory structure you have checked out corresponds exactly to the hierarchy structure of modules in CVS. Same story: works but not intuitive.
+ 
+In my experience (I&apos;m trying to get more people to use Eclipse in a large software house) this is the most difficult thing to explain to newbies, and the reason why some people give up with Eclipse.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>878777</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-02-06 09:50:04 -0500</bug_when> 
+            <thetext>*** Bug 172870 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>879918</commentid> 
+            <who name="Walter Brunauer">walter.brunauer</who> 
+            <bug_when>2007-02-07 07:58:21 -0500</bug_when> 
+            <thetext>From my original report (bug 172870) I got redirected to this bug. As the CC list here seems to be quite long with many interested people, maybe somebody here is able to enlighten me.
+ 
+My current understanding is, that the Eclipse platform resource model simply does not consider something like nested project management yet (whatever this would be is TBD). However, it allows to create these. These two facts seem to be the root of all problems for any visualization or traversing usage on nested projects. So solving this problem first, independent of any view or service problem, seems most logical to me.
+ 
+Question #1: How many plugins/products out there truly support or at least consider nested projects (projects physically located somewhere inside another project)?
+ 
+Question #2: How many plugins/products out there would be broken by providing nested project management?
+ 
+Question #3: How could nested project management look like?
+ 
+I would think, any nested project management solution within the Eclipse platform resource model would not necessarily break any existing plugins/products (well, maybe except those currently working around this themselves), but eventually could allow to overcome this historical, architectural, ... restriction of Eclipse.
+ 
+Proposal:
+ 
+IContainer objects managing IProject objects at any level in the resource tree.
+ 
+The most logical way how this could be implemented IMO would be to traverse from IWorkspaceRoot over all &apos;real&apos; root projects, into these, an instead of providing IFolder objects provide IProject objects, wherever a .project file is found recursively.
+ 
+This would avoid duplicated resource objects and all the problems introduced by these, because currently if one has outer projects and nested projects open in the same workspace, the outer project represents any content of any nested project again.
+ 
+So it would only be a property of IProject, if it is nested or not. Additionally providing the corresponding access method to an outer project would allow to traverse back and forth. 
+ 
+Thoughts? Or am I off-topic anyway?
+ 
+Best regards,
+ 
+Walter
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>902011</commentid> 
+            <who name="Daniel Gredler">danigredler</who> 
+            <bug_when>2007-03-14 14:08:55 -0400</bug_when> 
+            <thetext>Please support nested projects. It&apos;s painful to use the maven2/eclipse combo with modularized projects right now...</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>906975</commentid> 
+            <who name="Axel Mueller">aegges</who> 
+            <bug_when>2007-03-20 03:34:29 -0400</bug_when> 
+            <thetext>See also bug #144610.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>932143</commentid> 
+            <who name="Lachlan Deck">lachlandeck</who> 
+            <bug_when>2007-04-14 18:31:04 -0400</bug_when> 
+            <thetext>(In reply to comment #38)
+&gt; I believe this is a very important feature for Eclipse.
+ 
+This is really a show-stopper; the restriction upon real nested projects is nonsensical and, as you say, completely inflexible.
+ 
+I would like to be able to:
+a) right-click on an existing folder within a project and turn it (and what it contains) into a nested project (but remember that there may already be nested projects beneath the aforementioned folder which will become nested projects of this new project).
+b) have the current new project dialog show an option for creating a project beneath a project within the current workspace (remembering that projects open/closed in the workspace may not be located in the workspace but in some external directory.
+ 
+ The current project
+&gt; 3) Checkout the root module in a directory separate from your workspace, then
+&gt; create a workspace using a directory that does not contain the root module, and
+&gt; create projects linking to the modules in the root module&apos;s directory. This way
+&gt; you don&apos;t need to modify your makefiles and build.xml because the directory
+&gt; structure you have checked out corresponds exactly to the hierarchy structure
+&gt; of modules in CVS. Same story: works but not intuitive.
+ 
+This is unfortunately still the same inflexible work-a-round. i.e., you&apos;ve simply moved the single level restriction down one level. This still means that any of those modules cannot contain submodule projects!
+ 
+The solution to this problem, in order to be a real solution, cannot restrictive on how many levels of nested projects are allowed.
+ 
+&gt; In my experience (I&apos;m trying to get more people to use Eclipse in a large
+&gt; software house) this is the most difficult thing to explain to newbies, and the
+&gt; reason why some people give up with Eclipse. 
+ 
+In the end, if the tool makes it more difficult then it certainly brings into question the usefulness of the tool in terms of productivity. Eclipse has a lot of great things in place - but this current restriction is really noticeable.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>932144</commentid> 
+            <who name="Lachlan Deck">lachlandeck</who> 
+            <bug_when>2007-04-14 18:38:16 -0400</bug_when> 
+            <thetext>Woops, forgot to add, I&apos;d like to see this feature in the near future :-). In time for 3.3 would be ideal.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>937213</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-04-19 16:28:46 -0400</bug_when> 
+            <thetext>*** Bug 183255 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>963614</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-05-16 12:16:45 -0400</bug_when> 
+            <thetext>*** Bug 187281 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>964732</commentid> 
+            <who name="Alex Blewitt">alex.blewitt</who> 
+            <bug_when>2007-05-17 03:03:23 -0400</bug_when> 
+            <thetext>Kimberly Horne suggests adding &apos;helpwanted&apos; to this bug as a keyword
+ 
+http://www.eclipsezone.com/eclipse/forums/t94621.html#92146648
+ 
+Alex.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>965880</commentid> 
+            <who name="Genady Beryozkin">eclipse</who> 
+            <bug_when>2007-05-17 18:20:22 -0400</bug_when> 
+            <thetext>I think that adding a new type of container in the IWorkspace API will have serious damaging effect on both eclipse.org projects and other plugins.
+I&apos;m sure there is lots of code that implicitly relies on having the IProject as a direct child of IWorkspaceRoot, and all that code would have to be re-read and partially re-written.
+ 
+In 3.2 the introduction of EFS requires additional checks to support virtual file systems. I haven&apos;t used an EFS implementation yet, but I&apos;m sure that it breaks some existing code. Introducing yet another API-breaking change won&apos;t do any good.
+(Even linked folders are not fully supported everywhere yet (bug 41929) and they were introduced some 4-5 years ago).
+ 
+I don&apos;t say there isn&apos;t a problem, but maybe a higher level solution (at the JDT/CDT/Team provider level) is more appropriate here.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>965887</commentid> 
+            <who name="Genady Beryozkin">eclipse</who> 
+            <bug_when>2007-05-17 18:25:17 -0400</bug_when> 
+            <thetext>If we go with the IProjectContainer suggestion, will it still reference the entire subtree of projects and their children as its own children? Or it will be a &quot;childless&quot; IProjectContainer with no children and just an API for project references?</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>965908</commentid> 
+            <who name="Binyan">binyan357</who> 
+            <bug_when>2007-05-17 18:47:40 -0400</bug_when> 
+            <thetext>Comment 37 shows what really needs to happen.  Now how we get there is where the focus should be IMHO.  If this will break backward compatibility then let&apos;s discuss the issues broken and a migration story.  Also keep in mind that this only (in theory) breaks backwards compatibility, as forward compatibility would be just fine.  For plug-ins that don&apos;t work well in the new Workspace, you could keep your current 3.x eclipse and jump through the same hoops that you do now. 
+ 
+Working sets don&apos;t address the problem where you check out code from the HEAD and the same code from one or more branches.  You either have to rename each project and update all the project references and remember not to check the project changes in or you use separate workspaces.  Really what&apos;s the difference 3.3 for one workspace and 3.4+ for another workspace.  I personally fight this battle now as I track all the milestone release so that I can report bugs.  Some plug-ins work moving forward and others don&apos;t.  I fire of the old eclipse if I really need to do something.  WTP being roughly 2 weeks behind and Eclipse platform release is a good example.
+ 
+Nonetheless, if this was fixed in the mythical 3.4/4.x series, then honestly I believe the following would happen:
+ 
+1. Rejoicing in the streets.
+2. Shutting up the IDEA and NetBeans fanboys.
+3. People would take advantage of the new layout capabilities.
+4. Plug-ins would be updated/completely rewritten to take advantage of the new layouts.
+5. Some plug-ins would not be updated as the owner lost interest/went out of business.
+6. Some plug-ins would appear from new owners and new businesses started.
+7. Shutting up the IDEA and NetBeans fanboys (this can never be under stated).
+8. I would latch on to some new long standing eclipse bug to bit*h about.  History has shown this to be true as I now have drag-n-drop in the editor and need a new &quot;lost cause&quot; to battle for.
+9. In for a penny, in for a pound, so let&apos;s fix a bunch of other gotcha&apos;s since we have caused this big change anyway.
+10. Companies will just salivate at the thought of instant upgrades and the ability to sell the new software.
+11. Book publishers will be pushing out new books to teach people the &quot;new new&quot; way of doing things.
+12. We&apos;ll be busy reading the blogs and buying the books, articles and neural implants to learn the &quot;new new&quot; way so that our code too can use the new layouts.
+13. The world will not end.
+14. History _will_ repeat itself.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>972531</commentid> 
+            <who name="Tod Creasey">Tod_Creasey</who> 
+            <bug_when>2007-05-24 07:42:27 -0400</bug_when> 
+            <thetext>*** Bug 188705 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>973239</commentid> 
+            <who name="Paul Kimelman">paulkimelman</who> 
+            <bug_when>2007-05-24 13:02:39 -0400</bug_when> 
+            <thetext>If I can add my two-cents (unsolicited as it is), I agree with the premise of this request. Right now, Eclipse makes users severely change how they build applications rather than Eclipse adapting to them. It is very very common for larger projects to have nested directories and &quot;packaging&quot; concepts (project groupings). This is because they may be building for multiple platforms (hosts, targets, configurations, etc), are likely large in terms of number of files, have engineers assigned to subsets of the code (and source control works best if you have directory level isolation), and include test harnesses for unit, black box, and white box testing. Expecting you to put everything flattened to one workspace directory, creating harsh obstacles where you have to manually create out-of-workspace directories to &quot;fool&quot; Eclipse, forcing large sets of different configuration files to be in the same directory and Excluded one-by-one, and the like, all make Eclipse hard to switch to from existing projects and/or ones that have to be multi-platform (not all being Eclipse built). It is even worse when you consider the impact on source control and the like.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>973331</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-05-24 14:01:23 -0400</bug_when> 
+            <thetext>I just wanted to point out the project configuration tutorial for those who aren&apos;t aware of it. Although it is tailored to Java development, the basic principles may apply to other kinds of projects. See Help &gt; Help Contents &gt; Java Development User Guide &gt; Getting Started &gt; Project configuration tutorial.
+ 
+&gt; Expecting you to put everything flattened to one workspace directory, creating 
+&gt; harsh obstacles where you have to manually create out-of-workspace directories 
+&gt; to &quot;fool&quot; Eclipse
+ 
+There is nothing that forces you to flatten all your projects in one directory.  Each project in Eclipse has its own file system root.  It is true that by default, if you don&apos;t specify a file system root, it will use the workspace directory as a default. However, a project&apos;s contents can be located anywhere, including nested within another project&apos;s location (in principle the project location doesn&apos;t even need to be in the local file system).</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>974069</commentid> 
+            <who name="Johan Walles">johan.walles</who> 
+            <bug_when>2007-05-25 02:55:05 -0400</bug_when> 
+            <thetext>What&apos;s *not* supported though (sorry if this is redundant) is the scenario where you have test code and production code.  Test code can depend on production code, but not the other way around.
+ 
+Getting complaints from Eclipse when you try to use test code from production code can be achieved using two projects:
+* Project &quot;production&quot;, doesn&apos;t depend on any other project.
+* Project &quot;test&quot;, depends on project &quot;production&quot;.
+ 
+If that&apos;s doable inside of a single Eclipse project I&apos;d *love* to hear about it.  Currently what&apos;s in my mind a single project needs two independent copies of all &quot;project specific&quot; settings like indentation, warning levels etc...</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>974083</commentid> 
+            <who name="Gunnar Wagenknecht">gunnar</who> 
+            <bug_when>2007-05-25 03:06:21 -0400</bug_when> 
+            <thetext>(In reply to comment #54)
+&gt; If that&apos;s doable inside of a single Eclipse project I&apos;d *love* to hear about
+&gt; it.  Currently what&apos;s in my mind a single project needs two independent copies
+&gt; of all &quot;project specific&quot; settings like indentation, warning levels etc...
+ 
+Mhm. Just a workaround, though, but if both projects are hosted in an SCM that supports some kind of linking or external references (like Subversion for example) the test projects &quot;.settings&quot; folder could simply be a references to the on in the production project.
+ 
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>974138</commentid> 
+            <who name="Alex Blewitt">alex.blewitt</who> 
+            <bug_when>2007-05-25 04:00:30 -0400</bug_when> 
+            <thetext>What you can do (wrt test/production code) is to have two source folders in one project; that way, the test code and source code are on the classpath. Your (external) build system then just ignores the test/ folder.
+ 
+Of course, this doesn&apos;t prevent the the production code depending on the test code; and even if there were a perfect solution, you wouldn&apos;t have the ability to share settings between multiple projects on (logically) the same system you&apos;re building. This is particularly noticable in the J2EE editors where there&apos;s one EAR project and one WAR (and one EJB) that are all separate projects (reasonable separation; they&apos;ve got different .project natures etc.) but you&apos;d ideally like to be able go group them and share settings as a set rather than many independent projects.
+ 
+NB Eclipse already has a project-tree type concept; the .project &apos;project references&apos; are effectively a one-direction graph. One could consider an &apos;inheritable&apos; setting to be derived from all the project references .settings folders, although that would almost certainly be way too impractical for even medium sized projects.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>974151</commentid> 
+            <who name="Johan Walles">johan.walles</who> 
+            <bug_when>2007-05-25 04:07:28 -0400</bug_when> 
+            <thetext>(In reply to comment #56)
+&gt; Of course, this doesn&apos;t prevent the the production code depending on the test
+&gt; code;
+ 
+That was the problem I was trying to solve, and that&apos;s the reason I&apos;m a voter for this bug.  A solution / workaround which doesn&apos;t solve that problem isn&apos;t one.
+ 
+Gunnar&apos;s workaround in comment 55 might be doable though, I&apos;ll look into that.
+ 
+  Cheers //Johan
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>974445</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-05-25 09:45:35 -0400</bug_when> 
+            <thetext>Johan, that is an interesting problem that others are also interested in. The question is, do you really want the production and test code in a single project, or are you forced into that due to a limitation in the preference mechanism? In plan item bug 154097 there has been discussion about sharing settings at scopes other than a single project or the entire workspace. 
+ 
+This is part of what makes this bug such a difficult problem - there are many mechanisms in eclipse that use the project as the main unit of granularity - one SCM per project, one classpath per project, one build spec per project, one preference scope per project, etc.  Teasing these separate concerns apart, or reasoning about how they would interact in a nested project structure, is a tough nut to crack.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>974466</commentid> 
+            <who name="Johan Walles">johan.walles</who> 
+            <bug_when>2007-05-25 09:58:02 -0400</bug_when> 
+            <thetext>To me there&apos;s nothing sacred about having both production and test code in the same project, that was just the only way I could see of achieving this.
+ 
+As long as I can...
+* Have one instance of settings for several source code trees.
+* Have one-way dependencies between the source trees.
+... I&apos;m happy.
+ 
+If I understood bug 154097 correctly, that was only about being able to import / export settings, not to actually *share* them between projects.  I&apos;m looking for sharing.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>974802</commentid> 
+            <who name="Andreas Schildbach">andreas</who> 
+            <bug_when>2007-05-25 12:33:16 -0400</bug_when> 
+            <thetext>Regarding production vs. test code: You should have a look at Maven2, and how eclipse:eclipse creates Eclipse projects (and which aspects it can&apos;t create, because of the Eclipse &quot;build system&quot; being more limited than Maven2).
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>975096</commentid> 
+            <who name="Paul Kimelman">paulkimelman</who> 
+            <bug_when>2007-05-25 16:33:03 -0400</bug_when> 
+            <thetext>(In reply to comment #53)
+...
+&gt; There is nothing that forces you to flatten all your projects in one directory.
+&gt;  Each project in Eclipse has its own file system root.  It is true that by
+&gt; default, if you don&apos;t specify a file system root, it will use the workspace
+&gt; directory as a default. However, a project&apos;s contents can be located anywhere,
+&gt; including nested within another project&apos;s location (in principle the project
+&gt; location doesn&apos;t even need to be in the local file system).
+ 
+Only if neither are under the workspace root. That is, you are saying that if you create all your projects in a directory tree unrelated to the workspace, you can (manually) do what you want. The problem is that you then have to manually do that for all of them. The real question then is why? What is gained by allowing this when not related to the workspace, but enforcing an arbitrary rule when within the tree of the workspace? For those of us who use source control, it makes far more sense to have all the files, including the workspace ones, in one tree, so that you can create variants easily and quickly.
+ 
+My point is that workarounds are not design. If there is a clear model that says that such issues *should* be enforced vs. simply the &quot;default&quot; (auto-filled in, etc), that is different. But, no one seems to be able to explain it other than &quot;that is the way it is&quot;. Fair?
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>975137</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-05-25 17:09:36 -0400</bug_when> 
+            <thetext>&gt; Only if neither are under the workspace root. That is, you are saying that if
+&gt; you create all your projects in a directory tree unrelated to the workspace,
+&gt; you can (manually) do what you want. The problem is that you then have to
+&gt; manually do that for all of them. The real question then is why? What is
+&gt; gained by allowing this when not related to the workspace, but enforcing 
+&gt; an arbitrary rule when within the tree of the workspace?
+ 
+There is no such arbitrary rule - you can nest project locations on disk regardless of whether projects are in the default location or not. There was such a restriction in the past, but it was lifted in 3.2. See bug 44967. I&apos;m also not quite sure what you mean by &quot;manually&quot; - the only extra step when using a non-default location is to uncheck the &quot;use default location&quot; checkbox, and specify a location...</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>975223</commentid> 
+            <who name="Paul Kimelman">paulkimelman</who> 
+            <bug_when>2007-05-25 18:47:35 -0400</bug_when> 
+            <thetext>(In reply to comment #62)
+...
+&gt; There is no such arbitrary rule - you can nest project locations on disk
+&gt; regardless of whether projects are in the default location or not. There was
+&gt; such a restriction in the past, but it was lifted in 3.2. See bug 44967. I&apos;m
+ 
+I am sorry, but there is such a limitation. I filed bug 188705 on 3.2.2 precisely because of this. When you create a project and uncheck default and pick a directory nested within the workspace, it gives an error and refuses to let you create the project (saying it is &quot;within&quot; the workspace). This is an arbitrary rule (in my view). A similar bug report was filed on Eclipse a while back and rejected as WONTFIX. I filed mine under CDT originally as I assumed it was a CDT error, but was told it is an Eclipse IDE problem. So, I filed the above mentioned bug. Tod tried to couple it to this one a few days ago, but I reopened since it is not the same (this one is a broader issue related to the idea of project containers (sets of related projects acted on together).
+I will note that this one is more similar to one I filed regarding active configurations. In that, I am asking for the ability to have &quot;configuration sets&quot; equivalent to &quot;working sets&quot; which allows selecting the active configuration of a set of projects at once. For example, switch all to debug or release or test-debug or test-release. That would also allow batch-build (better than the parallel build control, which is not controllable in context). But, this request is related more to what projects are visible/loaded/selected as in the Solution explorer concept of VS.net as I understand it.
+Hope this clarifies.
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>976059</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-05-28 09:59:02 -0400</bug_when> 
+            <thetext>Paul: Sorry, I forgot a bit of the history. Support for nesting project locations was added in Eclipse 3.2 release, but there was a bug in the UI wizard that prevented you from doing this within the workspace directory.  This was fixed early in the 3.3 release - see bug 147727.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>976186</commentid> 
+            <who name="Paul Kimelman">paulkimelman</who> 
+            <bug_when>2007-05-28 11:50:49 -0400</bug_when> 
+            <thetext>(In reply to comment #64)
+&gt; Paul: Sorry, I forgot a bit of the history. Support for nesting project
+&gt; locations was added in Eclipse 3.2 release, but there was a bug in the UI
+&gt; wizard that prevented you from doing this within the workspace directory.  This
+&gt; was fixed early in the 3.3 release - see bug 147727.
+&gt; 
+ 
+Ah, good to know. So, my other report is fixed, but not released. Excellent. Thanks.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>976680</commentid> 
+            <who name="Michael Scharf">Michael.Scharf</who> 
+            <bug_when>2007-05-28 23:32:38 -0400</bug_when> 
+            <thetext>What if there would be an implementation of EFS that can deal with nested
+projects (let&apos;s call it nEFS for &quot;nested Eclipse File System&quot;)? 
+ 
+The big advantage of this solution would be that no changes in the resource
+system is needed, because the resources only see what the nEFS exposes.
+ 
+Obviously, nEFS would somehow violate the layering, because EFS does not know
+about resources. But nEFS could look at some marker-files (e.g. .eclipseroot or
+simply the .project file) to hide sub-trees that are part of nested projects.
+ 
+If a user wants nested projects, he has to choose the nEFS as the underlying
+file system (for the parent projects). That means, nothing would change in the
+default case.
+ 
+Hidden sub-trees could be shown as artificial nodes (like the content  of
+&quot;Plug-in Dependencies&quot; in the Package Explorer, also known as &quot;synthetic
+members&quot;).
+ 
+There are also potential problems with external tools (make, SCM etc) that
+would see the entire tree. But isn&apos;t that true for any resource model that
+hides part of the tree?
+ 
+I remember that I discussed this idea with some other developers and they gave
+me some good reasons why this is not a good idea, but I forgot those reasons.
+I&apos;m sure someone here will tell my why this is a bad idea....
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>976744</commentid> 
+            <who name="Paul Kimelman">paulkimelman</who> 
+            <bug_when>2007-05-29 00:13:05 -0400</bug_when> 
+            <thetext>(In reply to comment #66)
+&gt; What if there would be an implementation of EFS that can deal with nested
+&gt; projects (let&apos;s call it nEFS for &quot;nested Eclipse File System&quot;)? 
+...
+ 
+I agree that the presence of .project should be enough. Alternatively, you just say that the project only includes the project&apos;s directory and not sub-directories (I personally dislike this automatic inclusion of sub-directories as candidates for more source files - it leads to all kinds of special rules and the like (including not searching .svn for example)). I wish that the model was inverted - projects are the directory of the project only, but you can add sub-directories if you want.
+ 
+&gt; There are also potential problems with external tools (make, SCM etc) that
+&gt; would see the entire tree. But isn&apos;t that true for any resource model that
+&gt; hides part of the tree?
+ 
+The 1st and obvious question is what the goal for this model is? Note that we have two cases of &quot;nesting&quot;: nested directories but not nested projects, and nested projects (intentional or not). The former is typified  by the projects never being nested within another projects directory. For example, workspace/core has proj1, proj1, test/projt1, test/projt2, etc. The latter is about sub-projects 1st and sub-directories second. By that I mean that I think you want the interdependence of sub-projects as a concept, and sub-directories is just a convenient way to do it. This allows container projects only (e.g. Dev Studio &quot;solutions&quot;) as well as true projects with sub-projects. The main difference of these from dependency is inheritance of settings/controls and inheritance of actions (open, close, configuration set, etc).
+ 
+Maybe you had other models in mind?
+ 
+&gt; I remember that I discussed this idea with some other developers and they gave
+&gt; me some good reasons why this is not a good idea, but I forgot those reasons.
+&gt; I&apos;m sure someone here will tell my why this is a bad idea....
+ 
+Again, depends on what you are trying to solve. 
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1004683</commentid> 
+            <who name="Tod Creasey">Tod_Creasey</who> 
+            <bug_when>2007-06-21 09:17:13 -0400</bug_when> 
+            <thetext>*** Bug 168193 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1017044</commentid> 
+            <who name="Sergey Prigogin">eclipse.sprigogin</who> 
+            <bug_when>2007-07-04 16:58:03 -0400</bug_when> 
+            <thetext>P5 priority for the bug with 76 votes signifying the main Eclipse weakness is ironic indeed.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1041364</commentid> 
+            <who name="Robert Elliot">rob</who> 
+            <bug_when>2007-08-09 07:46:00 -0400</bug_when> 
+            <thetext>I&apos;m currently having a very, very painful time using Maven 2, Subversion (whether with Subversive or Subclipse as the Eclipse client) and Continuum (as mandated by the large company for whom I am working), largely because Eclipse cannot support nested projects in the workspace.
+ 
+According to our build team, Continuum mandates that in a Maven 2 multi-module build, child projects must be folders within the parent project.  Instant problem.
+ 
+Doing a compare with branch or tag on all projects in a solution with Subclipse is a massive hassle unless you can do the compare on a common parent folder; you have to do it on each project in turn, and browse to the appropriate module project in the appropriate branch.  Subversion &amp; Maven 2, at least, are rapidly becoming commonplace technologies.
+ 
+P5 does seem a little low.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1041798</commentid> 
+            <who name="Alexander Rau">rau.alex</who> 
+            <bug_when>2007-08-09 13:53:38 -0400</bug_when> 
+            <thetext>I can just second comment #70. This is exactly the same problem I had to tackle already one year ago. The described setup is far from being anyhow *special*. Subversion, Maven 2 and even Continuum are *common* tools not less important/used than eclipse (ivory tower !?) !  There has been so much discussion about that issue and the first tries to propose workarounds have obviously not been sufficient enough. So please - why is this important issue not tackled timely (check the votes !) If it takes major changes to the Eclipse API this should be prepared early.
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1041927</commentid> 
+            <who name="Alex Blewitt">alex.blewitt</who> 
+            <bug_when>2007-08-09 15:39:14 -0400</bug_when> 
+            <thetext>I agree. Something of this scale of change needs to be tackled at the start of a major version change, and that time for 3.4 is now.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1042606</commentid> 
+            <who name="">grylend</who> 
+            <bug_when>2007-08-10 06:42:29 -0400</bug_when> 
+            <thetext>(In reply to comment #72)
+&gt; I agree. Something of this scale of change needs to be tackled at the start of
+&gt; a major version change, and that time for 3.4 is now.
+ 
+I proposed an Eclipse 4.0 version without workspaces. From my point of view, the workspace approach is the source of all these problems. 
+Take a look to bug 187281
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1042618</commentid> 
+            <who name="Johan Compagner">jcompagner</who> 
+            <bug_when>2007-08-10 06:58:52 -0400</bug_when> 
+            <thetext>where is then the .metadata dir?
+ 
+projects can already be from everywhere. The only problem is that they can&apos;t be nested inside the current &apos;views&apos;.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1042727</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-08-10 10:03:16 -0400</bug_when> 
+            <thetext>Someone inadvertently marked this bug as NEW, so I am marking it as ASSIGNED again. Don&apos;t interpret this as meaning anything - no need to blog about it.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1043082</commentid> 
+            <who name="Alex Blewitt">alex.blewitt</who> 
+            <bug_when>2007-08-10 18:10:57 -0400</bug_when> 
+            <thetext>Who, me? :-)</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1057823</commentid> 
+            <who name="Johan Walles">johan.walles</who> 
+            <bug_when>2007-09-05 08:06:26 -0400</bug_when> 
+            <thetext>Filed separate bug 202263 about the issue I summed up in comment 59:
+ 
+As long as I can...
+* Have one instance of settings for several source code trees.
+* Have one-way dependencies between the source trees.
+... I&apos;m happy.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1058245</commentid> 
+            <who name="Aaron Digulla">digulla</who> 
+            <bug_when>2007-09-05 16:24:31 -0400</bug_when> 
+            <thetext>Just like code formatter settings, it should be possible to save project settings under a name and then attach them to a project. Right now, I can only have a workspace-wide setting and one per project. I can&apos;t share the same settings (for example, compiler settings) with a subset of projects.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1058960</commentid> 
+            <who name="wm">werner.mueller</who> 
+            <bug_when>2007-09-06 11:31:57 -0400</bug_when> 
+            <thetext>as maven becomes more and more important nested projects are a must have at some point. both maven and subversion allow or work with (a lot of) nesting.
+ 
+one more vote :)</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059007</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-09-06 12:07:39 -0400</bug_when> 
+            <thetext>&gt; as maven becomes more and more important nested projects are a must have at
+&gt; some point. both maven and subversion allow or work with (a lot of) nesting.
+ 
+I find comments like this a bit odd. A &quot;project&quot; in Eclipse is a folder with a bunch of Eclipse-specific concepts attached to it (repository providers, builders, preferences, build paths, etc). What Eclipse effectively doesn&apos;t support is nesting of these Eclipse-specific concepts. From this view, an argument like &quot;Maven supports nested projects but Eclipse doesn&apos;t&quot; makes no sense.  Clearly Eclipse supports hierarchies of folders, so any hierarchy that you are using in Maven, Subversion, etc, can be represented as a single project in Eclipse. The question is, which of the Eclipse-specific projects do you want to nest? This is what makes this problem intractable - there is a large set of concepts in various Eclipse plugins that are rooted at the folders known as &quot;projects&quot;, and everyone means something slightly different when they say they want nested projects (nested preferences, nested Java build paths, nested repository mount points, etc).</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059099</commentid> 
+            <who name="Alan Langford">eclipse.sf78wf</who> 
+            <bug_when>2007-09-06 13:19:49 -0400</bug_when> 
+            <thetext>Aside from the obvious observation that a good requirements analysis is required before anyone jumps in on the design, from a conceptual viewpoint the request seems fairly simple.
+ 
+First, as it stands, projects inherit a number of characteristics from the workspace. If projects inherited these characteristics from their &quot;parent&quot;, which was either the workspace or a chain of parent projects, then I suspect a large number of people would be satisfied. This seems like a fairly straightforward first step that allows plugins that aren&apos;t aware of hierarchical projects to function as they do now, while newer plugins function hierarchically. 
+ 
+Second, placing all projects at the same level in the workspace/file system creates needless naming conflicts. Certainly it is possible to embed hierarchy into a project name, but it makes working with projects a chore. It may be possible to tease Eclipse into supporting more of a hierarchy, but I think that the tools should work for the user, not the other way around. The entire class of proposed solutions that boil down to adding some sort of a view layer on top of the current flat project structure are thus doomed to be unacceptable. As long as teams exchange information that reference file paths, developers will need to build matching structures across multiple systems. In other words, as soon as I have two clients with a project called &quot;installer&quot;, I&apos;m forced into using one workspace for each. No view based solution can deal with this issue.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059177</commentid> 
+            <who name="">kberthelot</who> 
+            <bug_when>2007-09-06 14:31:46 -0400</bug_when> 
+            <thetext>(In reply to comment #80)
+&gt; A &quot;project&quot; in Eclipse is a folder with a
+&gt; bunch of Eclipse-specific concepts attached to it (repository providers,
+&gt; builders, preferences, build paths, etc). What Eclipse effectively doesn&apos;t
+&gt; support is nesting of these Eclipse-specific concepts.
+ 
+I would submit that concepts such as builders, preferences and build paths are hardly Eclipse-specific concepts.  In fact, it&apos;s those types of concepts that commonly define projects in just about any development environment.  Being able to support the nesting of folders without the ability to attach those concepts individually to different levels in the hierarchy essentially means Eclipse doesn&apos;t support nested projects. There&apos;s a difference between supporting nested projects and simply allowing them to exist on the filesystem.
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059197</commentid> 
+            <who name="Paul Kimelman">paulkimelman</who> 
+            <bug_when>2007-09-06 14:54:42 -0400</bug_when> 
+            <thetext>...
+&gt; I would submit that concepts such as builders, preferences and build paths are
+&gt; hardly Eclipse-specific concepts.  In fact, it&apos;s those types of concepts that
+ 
+It is fine to start by decoupling the three concepts (dir nesting, inheritance of rules/prefs, and project naming disambiguation). 
+ 
+So, allow nesting of projects within directories (so, projects BA and CA are nested in the directory of A). This solves one class of problem that relates to use of source control (which preserves your directory structure).
+ 
+The second part is whether build rules and preferences which are stated to inherit from the workspace or project can also inherit from a &quot;parent&quot; project. The definition of a &quot;parent&quot; could be by assignment (such as build references use) or by relationship (which is not currently defined other than adhoc by reference).
+ 
+The third part is then name scope. It has been suggested that perhaps the project name&apos;s scope should be related to its nesting. It has been pointed out (rightly) that directory nesting does not necessarily mean project nesting, and project nesting does not necessarily mean directory nesting. So, if a relationship can be defined at project creation time, then name scope is also defined. Imagine a project creation dialog which allows you to select &quot;[] Make this project a child of another project&quot; and then allows you to select that project. It then could also have &quot;[] Inherit build rules and preferences from another project&quot;.
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059382</commentid> 
+            <who name="Alex Blewitt">alex.blewitt</who> 
+            <bug_when>2007-09-06 18:24:39 -0400</bug_when> 
+            <thetext>(In reply to comment #80)
+&gt; &gt; as maven becomes more and more important nested projects are a must have at
+&gt; &gt; some point. both maven and subversion allow or work with (a lot of) nesting.
+&gt; 
+&gt; I find comments like this a bit odd. A &quot;project&quot; in Eclipse is a folder with a
+&gt; bunch of Eclipse-specific concepts attached to it (repository providers,
+&gt; builders, preferences, build paths, etc). What Eclipse effectively doesn&apos;t
+&gt; support is nesting of these Eclipse-specific concepts. From this view, an
+&gt; argument like &quot;Maven supports nested projects but Eclipse doesn&apos;t&quot; makes no
+&gt; sense.  Clearly Eclipse supports hierarchies of folders, so any hierarchy that
+&gt; you are using in Maven, Subversion, etc, can be represented as a single project
+&gt; in Eclipse.
+ 
+No, that&apos;s not how maven works. Each maven-built artifact can be nested in one (or more) maven-built artifact. An artifact roughly corresponds to a bundle, in the sense that artifacts can depend on others, which in turn are dependent on others etc. 
+ 
+So each artifact has its own type (e.g. jar, war) and path information (dependencies) as well as separate source/test/resources trees.
+ 
+Your analogy of &apos;Hey, stick it in one project&apos; would be like trying to say &apos;Why don&apos;t you just build all or Eclipse in a single project?&apos; and expecting people to be happy with that response. 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059518</commentid> 
+            <who name="wm">werner.mueller</who> 
+            <bug_when>2007-09-07 03:34:54 -0400</bug_when> 
+            <thetext>(In reply to comment #80)
+&gt; A &quot;project&quot; in Eclipse is a folder with a
+&gt; bunch of Eclipse-specific concepts attached to it (repository providers,
+&gt; builders, preferences, build paths, etc). What Eclipse effectively doesn&apos;t
+&gt; support is nesting of these Eclipse-specific concepts. From this view, an
+&gt; argument like &quot;Maven supports nested projects but Eclipse doesn&apos;t&quot; makes no
+&gt; sense.  
+ 
+well thats what the &apos;vote&apos; thing is meant for? and it makes sense to just mention to the eclipse community things like &apos;other tools work like ... and i cannot use eclipse without external tools to work that way&apos;. otherwise explain why projects like pdt or c++ dev tools exist. eclipse should not be there only to create eclipse/eclipse-plufgins.
+ 
+ 
+&gt; Clearly Eclipse supports hierarchies of folders, so any hierarchy that
+&gt; you are using in Maven, Subversion, etc, can be represented as a single project
+&gt; in Eclipse. 
+ 
+well it is true i could put all in one folder. subfolders for server, client, webapp, ... all with the very same classpath. takes about a week until cycle dependencies are detected. i can live with flat folders but it does no longer feel &apos;natural&apos;. everything is nested: the project shares, the svn structures, the documentation.
+ 
+ 
+for a starter i am not sure one would actually need project inheritance. this is a thing a maven plugin should/could do. so settings apply to everything but sub-projects. when using mixed projects (c, java) a natural inheritance may cause other trouble. but i dont know much on eclipse internals.
+ 
+regards
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059652</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-09-07 09:17:03 -0400</bug_when> 
+            <thetext>In my comment #80, I didn&apos;t mean to suggest that there is no problem, or that putting everything in a single project is an appropriate solution. I was just trying to illustrate that the problem is more complicated that it may seem.  Various components in Eclipse have attached concepts onto the notion of &quot;project&quot;, and introducing nesting requires understanding how these concepts translate into a world in which projects are nested.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1059753</commentid> 
+            <who name="Matthew Hall">matthall</who> 
+            <bug_when>2007-09-07 11:18:09 -0400</bug_when> 
+            <thetext>Forgive me if this suggestion is naive, but rather than trying to add a &quot;project containment&quot; concept that may possibly break existing products, would it be possible to instead enhance projects to support workspace concepts?  In this way a project *is* a workspace, and therefore can contain everything a workspace does:
+ 
+Root Workspace
+|
++- SuperProject (instanceof IProject | IWorkspace)
+   |
+   +- SubProject1 (instanceof IProject | IWorkspace)
+   |
+   +- SubProject2 (instanceof IProject | IWorkspace)
+ 
+Since projects *are* workspaces in this approach, they can contain everything that workspaces do.  This also means that project settings, user preferences, build path, etc could be inherited from the super workspace, similar to how ClassLoaders inherit classes from their parent ClassLoader.  Would this approach be feasible?</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1083860</commentid> 
+            <who name="John">johnrizzo1</who> 
+            <bug_when>2007-10-18 17:49:08 -0400</bug_when> 
+            <thetext>I&apos;ve added my vote for this.  In my opinion (which is probably worth absolutely nothing since I&apos;m not the one coding the change) this is incredibly important and obviously not a trivial problem to resolve.  Everyone has their own logical structure for how they build enterprise applications and eclipse being the tooling platform that it is should be designed for flexibility since its stated goal is to build the proper tooling to support the user.  
+ 
+I can say that after long tedious efforts I&apos;ve been able to get multi module projects working in eclipse by following the example at http://maven.apache.org/guides/mini/guide-ide-eclipse.html.
+ 
+I&apos;m not sure if this will help anyone else but combining this with the m2eclipse plugin (you&apos;ll have to delete the M2_REPO variable created by mvn eclipse:eclipse) makes working with maven and eclipse bearable.  Now if the integration was a bit better I could make use of the incremental builds that eclipse has with multi projects.  The problem here is that you can&apos;t reference another project as a dependency in the pom.xml and in the eclipse configuration or you&apos;ll get a duplicate dependency error.  Basically eclipse thinks that you have the same dependency twice.  Taking the dependency out of the pom is not an option either since I need maven to be able to build the projects in a continuous build server.
+ 
+To be honest I wish this was the place to also vote for someone to tie eclipse plugins into the maven module concept (Or the other way around.  Whichever floats your boat).  I can&apos;t even understand how the eclipse team keeps everything in sync.  Perhaps I should check eclipse out and learn something but thats for another day.
+ 
+By the way, if I&apos;ve inadvertantly spoken out of turn and offended anyone in the maven or eclipse camps please take this as an apology as that was not my intent.  
+ 
+Great work on a fantastic product.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1089054</commentid> 
+            <who name="Mike Toth">mike.eclipse</who> 
+            <bug_when>2007-10-28 18:43:52 -0400</bug_when> 
+            <thetext>Hopefully my $0.02 is not redundant here, but this is an RFE I&apos;m dearly hoping gets improved. Eclipse has made development so much easier in many, many ways- this is really my only major issue with the platform. So I voted for this one, and here&apos;s my perspective.
+ 
+At a minimum, I would like to see nestable &quot;project containers&quot; or &quot;project groups&quot;- hereinafter &quot;Container&quot;, with the following features, loosely expressed from a user&apos;s perspective:
+ 
+1. A &quot;Container&quot; has a visual representation within the navigator/package explorer as an expandable item, and contains projects and/or other &quot;Containers&quot;.
+ 
+2. A &quot;Container&quot; encapsulates a project namespace. Projects/&quot;Containers&quot; contained within a given parent must be uniquely named within that parent. Thus, as a result, within the &quot;global&quot; or &quot;root&quot; workspace, individual projects are identified by their paths through the hierarchy of &quot;Containers&quot;, not their names alone.
+ 
+3. A &quot;Container&quot; has a 1-1 association with a directory in a filesystem, determined from user input when the &quot;container&quot; is imported into or created in the workspace/parent container, such that the projects checked out from an RCS (revision control system,CVS,SVN) into a &quot;Container&quot; will, by default, be checked out into the directory associated with that &quot;Container&quot;. (In much the same way projects behave when they are checked out)
+ 
+4. A &quot;Container&quot; definition -may- be associated with a path in the RCS (CVS,SVN) by checking in the .container file. When a &quot;Container&quot; is imported into the workspace or another Container, the associated directory should be created, but the nested projects and &quot;Containers&quot; should NOT be checked out automatically (more explicit control of this behavior can be considered).
+ 
+5. A &quot;Container&quot; imported from the RCS should remain associated with its RCS path to provide a convenient means for checking out subcontainers or projects from the rcs into the container. 
+ 
+6. The &quot;Container&quot; mechanism should support import/export to an XML file to automate the checkout of specific versions of specific projects into a workspace or another &quot;container&quot;, much like the &quot;Team Project Set&quot; functionality does, but in a manner which preserves the directory hierarchy associated with the &quot;container&quot;. 
+ 
+These features satisfy the following goals:
+ 
+A. Provide a means for managing a large number of projects in a single workspace. (#1)
+ 
+B. Provide a means for working on different versions of the same projects in the same workspace. (#1,2,5)
+ 
+C. Preserve the relative directory structure for multi-project development efforts where dependencies are coded using relative paths. (#3,6)
+ 
+D. Do not require the altering of code/project/module layouts to be able to efficiently use eclipse in multi-project development efforts structured for use with other tools. (#1,3,4,5)
+ 
+E. Provide a convenient means for a developer to checkout a set of projects contained in a predetermined directory structure as part of a workspace which already contain many unrelated projects and/or &quot;containers&quot;. (#1,2,3,6)
+ 
+As to whether &quot;containers&quot; can provide settings that are inherited by projects, I can see how that would provide some benefit, and how this proposed set of functionality may facilitate such a thing, but it doesn&apos;t rise to the level of necessity that the rest of this does.
+ 
+Thanks for considering this.
+ 
+Mike
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1098796</commentid> 
+            <who name="Sebastian Dietrich">Sebastian.Dietrich</who> 
+            <bug_when>2007-11-12 05:24:47 -0500</bug_when> 
+            <thetext>Since this enhancement request is currently in top 5 voted for enhancements requests I hope it will be resolved soon.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1102755</commentid> 
+            <who name="Carlos Sanchez">carlos</who> 
+            <bug_when>2007-11-18 00:25:05 -0500</bug_when> 
+            <thetext>Maven has been mentioned here a lot so I&apos;d like to shed some light
+ 
+1. Eclipse-Maven integration
+There&apos;s an Eclipse proposal to bring Maven integration into Eclipse
+http://www.eclipse.org/proposals/iam/
+based on the work done in Q4E
+http://code.google.com/p/q4e/
+There&apos;s an Eclipse newsgroup already setup eclipse.technology.iam
+ 
+2. Maven and project nesting
+I don&apos;t see this issue that much Maven specific but that Maven
+encourages an specific setup that points out the &quot;limitation&quot; of nested
+projects in Eclipse
+ 
+example
+/myproject
+/myproject/moduleA
+/myproject/moduleB
+ 
+Usually in Eclipse you would have moduleA and moduleB as projects, not
+/myproject because both modules may likely have different dependencies
+and you don&apos;t want to mix the classpath (imagine a web/service layer,
+you want to prevent adding web code to the service layer)
+ 
+Now let&apos;s say you have common files for both modules, like a maven
+parent pom that will provide common information for both projects, but
+it could be an ant script included by both projects, or any other kind
+of file, the previous approach won&apos;t let you edit the files under
+/myproject because you can&apos;t add that folder as an eclipse project.
+ 
+Now you can say that it could be solved by putting those common files
+under /myproject/common and add that as a project, and yes that will
+work, for maven you would just need to add a line to the pom to specify
+the location of the parent pom (by default looks for it in the parent
+folder)
+But although you can get this to work using that approach, most people
+feel that the natural place for those common files is the parent folder.
+ 
+3. Continuum
+Continuum uses the same Maven principle of convention over configuration
+so by default it will look for submodules in a subfolder, but still, you
+could add projects in any folder, it just requires more work and manual
+configuration to override the default behavior.
+ 
+Hope this helps, and I&apos;d like to invite everybody interested in Maven
+integration to join the eclipse.technology.iam newsgroup at news.eclipse.org</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104171</commentid> 
+            <who name="Michael Scharf">Michael.Scharf</who> 
+            <bug_when>2007-11-20 14:40:33 -0500</bug_when> 
+            <thetext>(In reply to comment #91)
+&gt; example
+&gt; /myproject
+&gt; /myproject/moduleA
+&gt; /myproject/moduleB
+&gt; 
+&gt; Usually in Eclipse you would have moduleA and moduleB as projects, not
+&gt; /myproject because both modules may likely have different dependencies
+&gt; and you don&apos;t want to mix the classpath (imagine a web/service layer,
+&gt; you want to prevent adding web code to the service layer)
+ 
+Is sounds like a solution based on EFS (as suggested in comment #66) could be a possible solution here. What do you think?
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104224</commentid> 
+            <who name="Alex Blewitt">alex.blewitt</who> 
+            <bug_when>2007-11-20 16:11:08 -0500</bug_when> 
+            <thetext>I don&apos;t think EFS will help. Besides, what would happen if you wanted to have a multi-project based on a WebDAV (or other EFS) share?</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104528</commentid> 
+            <who name="Danail Nachev">d.nachev</who> 
+            <bug_when>2007-11-21 02:46:01 -0500</bug_when> 
+            <thetext>(In reply to comment #93)
+&gt; I don&apos;t think EFS will help. Besides, what would happen if you wanted to have a
+&gt; multi-project based on a WebDAV (or other EFS) share?
+&gt; 
+ 
+You can base your EFS on any EFS available. EFS is used just circumvent the limitation of the Eclipse project structure.
+ 
+However, using EFS for such thing is just plain &quot;hack&quot;. It will probably work, but it shouldn&apos;t be solution in long term.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104541</commentid> 
+            <who name="Walter Brunauer">walter.brunauer</who> 
+            <bug_when>2007-11-21 03:25:47 -0500</bug_when> 
+            <thetext>This whole discussion tries to cover too much at a time. Furthermore, I don&apos;t
+think it is the responsibility of the platform to provide solutions outside of
+its scope. However, fact is, that physical project nesting is already possible
+from inside the platform scope. Its just not consistently supported by the
+platform itself, and usage and semantics are not clear at all. Why is it so
+hard to decide, how the Eclipse platform resource API should treat nested
+projects? How specific applications use the resource API is a complete separate
+story - just note, that the semantic of the resource API does not include any
+assumption how to manage or level properties, or how to represent or visualize
+resources in the UI. That&apos;s simply not part of the platform.
+ 
+So talking about the resource API, the only change IMO would simply be, that
+IContainer would need to return nested projects as project objects instead of
+folder objects (in other words, folders containing a .project file should
+simply be treated as projects). Its just natural. And I don&apos;t even think, this
+would have much any influence on any existing code, as if one uses e.g.
+IContainer.members() today, a list of IResources will be returned, and if one
+wants to do something with it, he already has to check, if an object its an
+IFile or IFolder. Besides, how much existing code truly supports nested
+projects by now? I guess everybody either developed its own semantics (and I
+bet these are not equal), or just doesn&apos;t consider (or care (or know) about) it
+yet anyway. Getting this clarified in the resource API will help developers
+unifying currently blurred and unspecific approaches. And who cares if
+something gets broken? Call it Eclipse 4.0 and you are done.
+ 
+BTW, reading this bug&apos;s initial description (4.5 years old), I still think this
+whole discussion is not at all related to the original problem of the reporter.
+Nevertheless, this discussion indeed is required, but all attempts to help the
+platform guys solving the underlying problem so far failed. On the other side,
+opening new bugs describing other point of views to this problem just ended in
+duplicates leading to nowhere. Thus, if the platform guys just could confirm,
+they are not going to do something about it ever (as it looks like anyway), I
+could finally give up on this task and eventually start thinking about my own
+solution within my own application for a problem which is not going to get
+fixed in the platform.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104594</commentid> 
+            <who name="Aaron Digulla">digulla</who> 
+            <bug_when>2007-11-21 04:52:34 -0500</bug_when> 
+            <thetext>(In reply to comment #95)
+&gt; This whole discussion tries to cover too much at a time.
+ 
+I concur. The idea to have the platform treat folders which contain .project files as projects is the right way to go. Of course, this will break a lot of existing code but that&apos;s what we want: The resulting bugs will be resolved one after the other - but in their own reports.
+ 
+What we do need is a commitment of the platform team, though: This is a change which will create a avalanche of bugs, so this is something the project heads must take into account, they must plan resources for this, etc.
+ 
+Question to the Eclipse guys on this bug: How do you go about requesting such a change? Can someone please raise this issue on the next planning meeting and see what the stance of the project leads is?</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104715</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-11-21 09:25:38 -0500</bug_when> 
+            <thetext>&gt; What we do need is a commitment of the platform team, though: This is a change
+&gt; which will create a avalanche of bugs, so this is something the project heads
+&gt; must take into account, they must plan resources for this, etc.
+ 
+It&apos;s unlikely this kind of change will happen in any future 3.x release. It&apos;s possible something like this could be tackled in Eclipse 4.0, but it will depend on what other changes are being considered. The problem is, this kind of change would require significant work for just about every component that sits on top of resources, meaning a lot of interesting feature work would need to fall off the table to make it happen.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104730</commentid> 
+            <who name="Johan Walles">johan.walles</who> 
+            <bug_when>2007-11-21 09:45:12 -0500</bug_when> 
+            <thetext>This is the fourth most wanted Eclipse Platform enhancement ever:
+http://tinyurl.com/ytt5lg
+ 
+Giving priority to this over other things for 4.0 doesn&apos;t sound unreasonable IMO.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104744</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-11-21 10:08:50 -0500</bug_when> 
+            <thetext>Johan, that is interesting data, but not a definitive reason to drop other work. A hundred or even a thousand people is a drop in the bucket compared to the *millions* of downloads of the platform every year.  Note that the #2 and #3 issues are specific to the SWT-AWT bridge on Mac, although Mac represents a tiny fraction of Eclipse users. It&apos;s still debatable for me whether addressing this is in the best interest of the broad user community - I&apos;m sure the power users (the ones who use bugzilla) will love it, but for the novice user it makes Eclipse that much more complicated.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104776</commentid> 
+            <who name="Alan Langford">eclipse.sf78wf</who> 
+            <bug_when>2007-11-21 10:32:37 -0500</bug_when> 
+            <thetext>That sounds more like a rationalization than a reason.
+ 
+More or less by definition, &quot;novice&quot; eclipse users are software developers. As an Eclipse novice, I wound up spending quite some time trying to figure out how to reorganize my projects in order to deal with the flat project limitations in Eclipse. Thus it was the _absence_ of this capability that made Eclipse &quot;that much more complicated&quot;. Not the other way around.
+ 
+I truly appreciate that resources are severely limited, and I&apos;m sympathetic to the conflicting demands on them. But surely it is possible to initially implement hierarchical projects in a way that is backwards compatible. This would allow the migration of resources to occur over time, rather than forcing a wholesale change. Then at least you would be dealing with &quot;please migrate to&quot; requests, which would allow you to prioritize. Meanwhile third party developers could get on with adding their support.
+ 
+This issue just seems like a choke point for a lot of other development.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104799</commentid> 
+            <who name="Martin Oberhuber">martin.oberhuber</who> 
+            <bug_when>2007-11-21 10:56:39 -0500</bug_when> 
+            <thetext>(In reply to comment #99)
+John you&apos;re questioning the entire bugzilla voting system? What do we have this voting system for, if it&apos;s being totally ignored?
+ 
+I agree that the needs of those (&quot;novice users&quot;) who are not expected to vote need to be considered as well. But where do you have your data about the needs of those &quot;novice users&quot; from? What are those &quot;other features&quot; you&apos;re referring to, that you consider more important than the highly voted-for ones? I thought that the Eclipse community is Open and Transparent so everyone would have access to that data?
+ 
+Your argument is not an excuse for ignoring the votes that are there. I think that every possible effort should be made on those bugs that are highly ranked by order of votes.
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104804</commentid> 
+            <who name="Walter Brunauer">walter.brunauer</who> 
+            <bug_when>2007-11-21 11:04:57 -0500</bug_when> 
+            <thetext>(In reply to comment #101)
+Thanks, Martin, for reminding me one could vote for a bug - just added mine, so we are currently at 125:-)
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104809</commentid> 
+            <who name="Martin Oberhuber">martin.oberhuber</who> 
+            <bug_when>2007-11-21 11:08:21 -0500</bug_when> 
+            <thetext>(In reply to comment #96)
+I&apos;m not sure if an approach to supporting hierarchical projects necessarily
+breaks so much existing code. Especially in the light of the fact that the
+Resources system DOES allow nesting projects already, but the semantics of
+nested projects are inconsistent -- I think it should be possible to build on
+existing functionality but clearly define the semantics of that functionality.
+ 
+Here is a concrete proposal of what I&apos;m thinking might make sense:
+ 
+1 Given an existing open project A
+2 If a child folder of A contain another &quot;.project&quot;  file, try to find that
+  other (nested) project in the list of projects.
+  2a) If that (nested) project is not currently open, treat the folder as
+      a normal folder (==current behavior)
+  2b) If that (nested) project is currently open, treat the folder like a
+      normal project B with the following special characteristics:
+      2b1) Resources below B are considered children of B only. In other
+           words, hide B&apos;s root folder from A&apos;s children -- simply stop
+           recursion.
+ 
+2b1) would be the new functionality that&apos;s not currently implemented. More
+thought would need to be invested in what happens when opening/closing the root
+project A (should nested projects automatically be opened/closed too?) or the
+nested project B (should this be disallowed at all?)
+ 
+Also, my proposal would still present the physically nested projects in the
+current (flat) Eclipse Project list, and not solve the issue of name clashes /
+multiple name spaces with projects of the same name (comment #83 and others).
+But I believe that these should be relatively simple to solve compared to the
+issue of physical nesting, which in my opinion is more a matter of giving
+correct semantics to already existing functionality rather than inventing
+something new.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104813</commentid> 
+            <who name="John Arthorne">john_arthorne</who> 
+            <bug_when>2007-11-21 11:17:24 -0500</bug_when> 
+            <thetext>&gt; John you&apos;re questioning the entire bugzilla voting system? What do we have this
+&gt; voting system for, if it&apos;s being totally ignored?
+ 
+Interestingly, we have a voting system because Johan asked for it (see bug 12115). I didn&apos;t say the voting system was totally ignored; I said it provided interesting data. It&apos;s just not the sole mechanism committers and contributors use to decide what to work on. Each committer/contributor decides what to work on using their own criteria.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104901</commentid> 
+            <who name="Matthew Hall">matthall</who> 
+            <bug_when>2007-11-21 12:48:55 -0500</bug_when> 
+            <thetext>(In reply to comment #104)
+&gt; Interestingly, we have a voting system because Johan asked for it (see bug
+&gt; 12115). I didn&apos;t say the voting system was totally ignored;
+ 
+As a community member I find the voting system vital.  There are two ways of bringing attention to a bug:
+1) Commenting (noisy and difficult to quantify interest)
+2) Voting (silent but easy to quantify interest)
+ 
+If I want to see a bug resolved but don&apos;t have a useful comment, I vote for it.  Less spam means less committers to hate me for it. :)</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1104904</commentid> 
+            <who name="Robert Elliot">rob</who> 
+            <bug_when>2007-11-21 12:52:04 -0500</bug_when> 
+            <thetext>(In reply to comment #103)
+&gt; (In reply to comment #96)
+&gt; I&apos;m not sure if an approach to supporting hierarchical projects necessarily
+&gt; breaks so much existing code. ...&lt;suggestion for implementation&gt;...
+ 
+Could this suggestion just be spiked, to see how many things it breaks?  Perhaps Martin is right and it&apos;s easier than it seems?
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1105065</commentid> 
+            <who name="Aaron Digulla">digulla</who> 
+            <bug_when>2007-11-21 15:05:21 -0500</bug_when> 
+            <thetext>I, for one, would love to see this bug fixed in 3.4. My reasoning goes like this: You don&apos;t *have* to organize your projects hierarchical. If someone implements this, flat project layout will still work. So the feature could be there, unused but for the people reading this bug. If you like, you can add a setting or a system property to enable it, so users can&apos;t accidentally run into issues.
+ 
+That would allow for a two-year time frame to iron out the bugs which this new feature creates, therefore lessen the stress on the teams to fix bugs.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1105300</commentid> 
+            <who name="Michael Scharf">Michael.Scharf</who> 
+            <bug_when>2007-11-21 21:38:22 -0500</bug_when> 
+            <thetext>I think Walters proposal (comment #95) and especially Martins proposal (Comment #103) sound good. However from Johns reaction (Comment  #99), it is more than questionable that this gets done....
+ 
+So, maybe a hack, outside the platform could help with that problem. The EFS &quot;solution&quot; (Comment #92) could be such a hack solution.
+ 
+(In reply to comment #94)
+&gt; However, using EFS for such thing is just plain &quot;hack&quot;. It will probably work,
+&gt; but it shouldn&apos;t be solution in long term.
+ 
+Absolutely! This *is* a hack! But this &quot;hack&quot; (Comment #92) would not require any change in the platform and could be applied to older versions of eclipse...
+ 
+One of the biggest problems of an EFS based solution is probably the Team support.
+ 
+Therefore: my vote is for the real solution! If this is a real NO NO, EFS could be a second choice....
+ 
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1105377</commentid> 
+            <who name="Walter Brunauer">walter.brunauer</who> 
+            <bug_when>2007-11-22 02:33:06 -0500</bug_when> 
+            <thetext>(In reply to comment #106)
+&gt; (In reply to comment #103)
+&gt; &gt; (In reply to comment #96)
+&gt; &gt; I&apos;m not sure if an approach to supporting hierarchical projects necessarily
+&gt; &gt; breaks so much existing code. ...&lt;suggestion for implementation&gt;...
+&gt; 
+&gt; Could this suggestion just be spiked, to see how many things it breaks? 
+&gt; Perhaps Martin is right and it&apos;s easier than it seems?
+ 
+I already did a prototype (and FWIW, it basically looked pretty much the same like Martin&apos;s suggestions in comment #103, with some more useful things to simplify traversing the resource tree back and forth) quite some time ago (see comment #40, plus the whole proposal in bug 172870) for our commercial IDE, and it did not break anything. However, it was done in our own resource model (which at this time was based 100% on the Eclipse platform resource API), so it was not good enough for providing a patch for it. Nevertheless, the effort was a few days of work only.
+ 
+(In reply to comment #105)
+&gt; Less spam means less committers to hate me for it. :)
+ 
+More attention means more voters to love committers for it :-))
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1108017</commentid> 
+            <who name="Robin Chaddock">robin.chaddock</who> 
+            <bug_when>2007-11-27 12:19:41 -0500</bug_when> 
+            <thetext>This is essential for our use case too.
+ 
+In the domain of mobile development a single project will typically be ported to run on upward of 200 handsets. For this code to be maintainable it is vital that as much as possible is shared between the devices.
+The device projects may also make use of different bootclasspaths, as certain abstraction layers may make use of manufacturer specific api libs.
+ 
+Currently we have to work-around the lack of nested projects using linked folders, however this does not allow for refactoring operations to propagate between sibling projects. It also causes problems trying to keep the project views in-sync, frequently requiring manual refresh/clean to ensure changes in sibling projects are visible to one-another.
+ 
+This problem is further compounded by subclipse lacking support for linked folders, which essentially breaks refactoring operations when they effect svn managed folders.
+ 
+Earlier today I tried out IntelliJ (investigating a completely unrelated issue) and was amazed at how clean the project organisation process was.
+It addressed all of the issues mentioned above!</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1113952</commentid> 
+            <who name="Mikko Taivainen">mikko.taivainen</who> 
+            <bug_when>2007-12-07 00:48:29 -0500</bug_when> 
+            <thetext>(In reply to comment #99)
+...
+&gt; this is in the best interest of the broad user community - I&apos;m sure the power
+&gt; users (the ones who use bugzilla) will love it, but for the novice user it
+&gt; makes Eclipse that much more complicated.
+&gt; 
+ 
+I&apos;ve been using Eclipse for Java SE, EE and ME development for more than four years and this issue is the only reason why I still keep looking for a more flexible IDE. I&apos;m a little bit confused about the quoted sentence above: is Eclipse really targeted to novice users? And how would the subproject support make Eclipse more complicated (from user&apos;s point of view)? As far as I remember, every Java coder in our company has mentioned that Eclipse is quite complicated but very  powerful when you learn to use it well. Nobody thinks that Eclipse is simple or easy to learn but still everybody likes it (I know one person who prefers Emacs over Eclipse).
+ 
+BTW, yesterday I downloaded latest revision of NetBeans IDE and (for my surprise) it actually works. Ok, there&apos;s no Mylyn or all the great features of WTP around, but it just works. I&apos;m not saying that everybody should switch to NB, but it doesn&apos;t harm to try it and see how it handles this issue. (And it supports Maven 2 almost out-of-the-box [just one checkbox and click &quot;Install&quot;]).
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1114028</commentid> 
+            <who name="Ittay Dror">ittayd</who> 
+            <bug_when>2007-12-07 04:55:03 -0500</bug_when> 
+            <thetext>In addition to comment #111, I think that eclipse&apos;s bugzilla shouldn&apos;t  be targeted for power users only. If I&apos;m a beginner, and I encounter a bug, or a missing feature, it should be easy for me to submit a bug report (or find an existing bug report for the issue). 
+ 
+For the issue discussed here, I also think Eclipse should make it easy for novice users to use it the way that is natural for them. Currently, all workarounds suggested here are for power users (links, EFS).</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1114241</commentid> 
+            <who name="Paul Kimelman">paulkimelman</who> 
+            <bug_when>2007-12-07 11:16:26 -0500</bug_when> 
+            <thetext>(In reply to comment #111)
+&gt; (In reply to comment #99)
+&gt; ...
+&gt; &gt; this is in the best interest of the broad user community - I&apos;m sure the power
+&gt; &gt; users (the ones who use bugzilla) will love it, but for the novice user it
+&gt; &gt; makes Eclipse that much more complicated.
+&gt; &gt; 
+&gt; 
+&gt; I&apos;ve been using Eclipse for Java SE, EE and ME development for more than four
+&gt; years and this issue is the only reason why I still keep looking for a more
+&gt; flexible IDE. I&apos;m a little bit confused about the quoted sentence above: is
+ 
+Eclipse is hard to use for novices because it has menus with dozens of choices and no obvious place to start or look. But, the tutorials help a lot. None of that has anything to do with nested projects. A novice to programming is unlikely to be successful with Eclipse without a lot of guidance anyway. A novice to Eclipse is coming from MS Developer Studio (VC++, VBasic, etc), command line tools, an embedded IDE (e.g. Keil or ISI), or one of the few other choices out there. Most of those will want Eclipse to work the way they do - that is not true for many users (nor most Open Source projects, which are also not flat). 
+Many people are taught to nest and organize their projects hierarchically, so Eclipse does not suit well at all. Java does all this using class paths and hides the actual source location, but the concept of nesting is not only present but encouraged (so you have packages and then classes below as well as groups of classes). But, for C/C++ and other compiled language users, the directory structure is how you do this. So, even if coming from Java, you are used to this concept. The difference is that Java takes care of all the &quot;linking&quot;. Big monolithic builds (such as CDT tries to do by absorbing all sources down the directory tree) is messy and unwieldy since the tools do not support this well, and it certainly does not support the selective use model at all. Java again supports this since you just reference the package/class and it is brought in. For C/C++ you have to plan what you need and how you need it, and make sure it gets built properly (libs, DLLs, etc). Worse, Eclipse does not automatically create dependencies for libs, so even more care is needed on the part of the user.
+For embedded users, it is even more of an issue since you have different targets.
+But, my main point is that most people coming to Eclipse are already used to nested projects and the lack of them causes great heartburn when trying to make things work with Eclipse. So, to comment #99, I say you are making it harder for novices who need it. For those who do not, they do not have to use the nesting, so why do they care? If it is one field in the create dialog to say &quot;a child of&quot; and they can leave it blank, there is no problem. If you are really worried about novices, have a novice mode which hides 90% of the menus!
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1193001</commentid> 
+            <who name="Mauro Molinari">mauromol</who> 
+            <bug_when>2008-04-03 08:58:21 -0400</bug_when> 
+            <thetext>From my point of view, this enhancement would help to solve another problem highlighted in bug #153408: Eclipse&apos;s CVS support is based on the concept that a whole *project* must be shared (i.e.: linked to a CVS repository), not just a single folder. So, if you need to have multiple checkout points (from different repositories OR from the same folder of the same repository, just different branches) you can&apos;t go on without doing some acrobatics with linked folders, different projects references and so on. This caused lots of troubles in the past to my team, just partially solved by reorganizing our CVS structure. 
+Anyway, even now that our CVS is better organized, support for nested projects would help us a lot to set up an environment but on a condition: that you could right click on a folder and &quot;promote&quot; it to be a new Project (in particular: a Java Project). This has been already suggested by Lachlan Deck in his comment #43.
+ 
+This enhancement would also help in the case you store your tests inside the same &quot;project&quot; in your CVS, but you don&apos;t want the test sources to be treated the same way as the application source. Introducing the concept of &quot;test source folder&quot; (like in NetBeans) seems a no go for the JDT team (see bug #49611), so having the ability to create new subprojects inside another project where to put your tests, would at least help to manage also these situations.
+ 
+I agree with all the people that are saying that the way resources are handled by Eclipse is not very flexible: I struggled for years with Eclipse CVS support and with the difficulties of working with projects structures resulting from previous years of development with other development tools and I know that one of the (few) places where NetBeans is superior is in its flexibility in configuring a project resource structure. Eclipse is great in this area only if you do things in its own way, but this may not be a viable solution when your&apos;re working with huge and complex projects, especially if they are born before the adoption of Eclipse by the development team.
+ 
+Mauro.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1232715</commentid> 
+            <who name="Phillip Rhodes">mindcrime</who> 
+            <bug_when>2008-05-13 00:14:14 -0400</bug_when> 
+            <thetext>[quote] Opened: 2003-04-02 08:39 -0400[/quote]
+ 
+It&apos;s been 5 years, half a decade, and nothing has been done about this yet.  I think it&apos;s time to give up and move on.  The Eclipse team just do not seem terribly concerned with this class of bug/feature, for whatever reason.   And now with all the excitement and energy moving to E4, it seems even less likely that this will ever get addressed.
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1233086</commentid> 
+            <who name="Szymon Brandys">Szymon.Brandys</who> 
+            <bug_when>2008-05-13 08:39:26 -0400</bug_when> 
+            <thetext>(In reply to comment #115)
+&gt; [quote] Opened: 2003-04-02 08:39 -0400[/quote]
+&gt; 
+&gt; It&apos;s been 5 years, half a decade, and nothing has been done about this yet.  I
+&gt; think it&apos;s time to give up and move on.  The Eclipse team just do not seem
+&gt; terribly concerned with this class of bug/feature, for whatever reason.   And
+&gt; now with all the excitement and energy moving to E4, it seems even less likely
+&gt; that this will ever get addressed.
+&gt; 
+ 
+Hi Phillip. Please look at platform-core-dev mailing list and the discussion in the Flexible Resource Model thread. A part of the e4 effort is work towards more flexible resource model.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1234524</commentid> 
+            <who name="Phillip Rhodes">mindcrime</who> 
+            <bug_when>2008-05-13 22:47:38 -0400</bug_when> 
+            <thetext>Szymon: 
+ 
+That&apos;s great news!  I&apos;ll celebrate for joy when I recover from the heart-attack I just had! 
+ 
+Now if we could get bug #70683 sorted, Eclipse would be damn near perfect. :-)
+ 
+</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1320237</commentid> 
+            <who name="Dennis Portello">dennis.portello</who> 
+            <bug_when>2008-08-27 13:49:49 -0400</bug_when> 
+            <thetext>I ran into this problem years ago and worked around it. Now I&apos;m trying to integrate with a new build system called Gradle. To do multi-project builds, you need a nested directory structure. I&apos;ve voted to have their build layout more configurable and I;m voting there to have more flexibility in Eclipse. I think this is an unnecessary restriction in any tool or IDE.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1337433</commentid> 
+            <who name="Martin Oberhuber">martin.oberhuber</who> 
+            <bug_when>2008-09-24 12:59:54 -0400</bug_when> 
+            <thetext>FYI, discussions about improving the resource model for the next major release of Eclipse are now ongoing, see http://wiki.eclipse.org/E4/Resources
+ 
+We welcome your qualified input and contributions. Most discussions are on the
+https://dev.eclipse.org/mailman/listinfo/platform-core-dev
+ 
+Please join the discussions if you are interested.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1675940</commentid> 
+            <who name="Chuck Bridgham">cbridgha</who> 
+            <bug_when>2010-02-15 10:47:17 -0500</bug_when> 
+            <thetext>*** Bug 202483 has been marked as a duplicate of this bug. ***</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1729073</commentid> 
+            <who name="Ben Smith">ben.nospamplease</who> 
+            <bug_when>2010-05-05 13:46:16 -0400</bug_when> 
+            <thetext>I couldn&apos;t figure out exactly what the state of this request is, so I&apos;ll just add my thoughts here.
+ 
+The problem I have is that each executable needs to be it&apos;s own project.  In my case, I have conceptually one &quot;project&quot; that involves multiple executables, some of which are Linux and some of which are VxWorks.  Organizationally I would like to see maybe three top-level folders, &quot;linux&quot;, &quot;vxworks&quot;, &quot;shared&quot; with the corresponding projects sitting beneath the top-level folder.  The working set doesn&apos;t really provide any way to organize projects, it just lets you hide the projects you aren&apos;t working on.
+ 
+I&apos;ve seen this issue referred to somewhere as handling &quot;legacy&quot; projects, but most recent development projects I&apos;ve seen rely on a some kind of hierarchical tree structure to organize components.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1729521</commentid> 
+            <who name="Walter Brunauer">walter.brunauer</who> 
+            <bug_when>2010-05-06 03:38:31 -0400</bug_when> 
+            <thetext>(In reply to comment #121)
+ 
+&gt; The problem I have is that each executable needs to be it&apos;s own project.  In my
+&gt; case, I have conceptually one &quot;project&quot; that involves multiple executables,
+&gt; some of which are Linux and some of which are VxWorks.  Organizationally I
+&gt; would like to see maybe three top-level folders, &quot;linux&quot;, &quot;vxworks&quot;, &quot;shared&quot;
+&gt; with the corresponding projects sitting beneath the top-level folder.  The
+&gt; working set doesn&apos;t really provide any way to organize projects, it just lets
+&gt; you hide the projects you aren&apos;t working on.
+&gt; 
+&gt; I&apos;ve seen this issue referred to somewhere as handling &quot;legacy&quot; projects, but
+&gt; most recent development projects I&apos;ve seen rely on a some kind of hierarchical
+&gt; tree structure to organize components.
+ 
+If you talk about VxWorks, which Eclipse-based product do you use? CDT? Wind River Workbench? Note, that the latter provides support for all this for several years now already. Basically, we worked around the limitations of the Eclipse platform in these areas, and implemented our own build system. I.e., projects can be (virtually) structured, and also one can create multiple build targets within each project. We just would like to see that the Eclipse platform would solve the project organization issues we faced someday.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1852254</commentid> 
+            <who name="Joe Taylor">joe.taylor</who> 
+            <bug_when>2010-12-03 15:10:47 -0500</bug_when> 
+            <thetext>This bug has been open for how long? Good grief, it seems like there should be a workable solution by now. IntelliJ supports nested projects, and so does NetBeans. Please fix this! 
+ 
+The latest version of the m2eclipse (012.0.20101115-1102) has removed their &quot;multiple nested modules mapped to one workspace project&quot; feature, so I&apos;m faced with either sticking with the previous version of that plugin until Eclipse figures out that nested modules are a real world important thing, or switching IDEs for my entire team.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1852260</commentid> 
+            <who name="Sergey Prigogin">eclipse.sprigogin</who> 
+            <bug_when>2010-12-03 15:21:34 -0500</bug_when> 
+            <thetext>I find it completely appalling that virtually all E4 effort is going to UI sugar coating instead of concentrating resources on solving this issue and other limitations of the Eclipse workspace model.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1852275</commentid> 
+            <who name="Nitin Dahyabhai">nitind</who> 
+            <bug_when>2010-12-03 15:33:56 -0500</bug_when> 
+            <thetext>As a long time committer outside of the platform, I am skeptical of a solution supporting this that wouldn&apos;t easily break existing plug-ins.  I would eagerly try out a patch showing otherwise.  Not every great feature has to be started by the existing committers.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1852296</commentid> 
+            <who name="Martin Oberhuber">martin.oberhuber</who> 
+            <bug_when>2010-12-03 16:13:27 -0500</bug_when> 
+            <thetext>A *lot* of work around improving the resource model has actually been ongoing in e4, and has even been backported into Eclipse 3.6 - bug 298835 is just one of many examples that has made the Eclipse resource model a *lot* more flexible. 
+ 
+More work is ongoing in e4 resources for a 
+http://wiki.eclipse.org/E4/Resources/Semantic_File_System
+and Search console. More ideas had been discussed for e4 resources in the past:
+ http://wiki.eclipse.org/E4/Resources/Work_Areas 
+but few of these gained sufficient traction, critical mass and contributors to be actually implemented.
+ 
+As many of the comments on this bug have shown, different people have a very different understanding of what they mean by &quot;nested projects&quot;. 
+ 
+- Physical Nesting:
+  If you are mostly interested in physical project nesting in order to have
+  the project model reflect the physical layout of your files on disk,
+  please look at bug 245412. The Eclipse 3.6 improvements around linked
+  resources and exclusion filters could provide a viable workaround for you.
+ 
+- Nesting as Grouping:
+  If you are interested in project nesting just as a means of grouping,
+  such that actions like checkout / open / close can be applied to the 
+  group, consider using working sets or team project sets which provide a 
+  simple 2-level nesting; I also seem to remember that a concept of 
+  &quot;solutions&quot; as a group of projects was discussed at some point.
+ 
+- Nesting for Namespace disambiguation:
+  Nesting as a means of introducing separate namespaces is another aspect of
+  the topic (ie in order to support two different projects with the same
+  name in one workspace; this is related to allowing multiple workspaces
+  in a single Eclipse instance, eg in order to work on / compare different
+  branches of a system).
+ 
+- Logical Nesting and Attribute Inheritance:
+  Logical nesting with inheritatnce of settings is yet another aspect, though
+  this is IMO most unlikely to happen in the Eclipse world (Maven POM&apos;s
+  support this).
+ 
+The current bug has too long a discussion trail to be of much value, so if you have very concrete ideas of what you actually need, please use bug 245412 or file a new bug describing your user story as clearly as you can.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1852328</commentid> 
+            <who name="Ben Smith">ben.nospamplease</who> 
+            <bug_when>2010-12-03 17:45:59 -0500</bug_when> 
+            <thetext> 
+&gt; 
+&gt; If you talk about VxWorks, which Eclipse-based product do you use? CDT? Wind
+&gt; River Workbench? Note, that the latter provides support for all this for
+&gt; several years now already. Basically, we worked around the limitations of the
+&gt; Eclipse platform in these areas, and implemented our own build system. I.e.,
+&gt; projects can be (virtually) structured, and also one can create multiple build
+&gt; targets within each project. We just would like to see that the Eclipse
+&gt; platform would solve the project organization issues we faced someday.
+ 
+Sorry, I somehow didn&apos;t notice this reply until now.
+ 
+I use Workbench.  I have seen that Workbench does provide more options than standard Eclipse, but your organizational possibilities are still limited or, at least, I don&apos;t understand how to use them to do what I want.
+ 
+I&apos;m used to development projects being organized in a filesystem hierarchy.  Suppose the software is called SoftTool.  So if I organized this in a filesystem hierarchy it might look like this:
+ 
+softtool
+- server
+ - linux
+ - win32
+ - win64
+- runtime
+ - linux
+ - win32
+ - win64
+ - vxworks
+ - - VIP_SomeHardware
+ - - VIP_SomeOtherHardware
+ 
+Workbench can take care of the VIP subtree under vxworks with multiple build targets.  But I haven&apos;t figured out a way to make it do the rest.
+ 
+If you want a more complicated hierarchy with multiple products you have to use Working Sets which makes isn&apos;t ideal since it&apos;s easy to forget about a project if it&apos;s not in your current working set.</thetext> 
+          </long_desc> 
+          <long_desc isprivate="0"> 
+            <commentid>1852347</commentid> 
+            <who name="Martin Oberhuber">martin.oberhuber</who> 
+            <bug_when>2010-12-03 21:52:07 -0500</bug_when> 
+            <thetext>Ben, I think that Wind River Workbench already addresses your needs. Please initiate a request with Wind River Support.</thetext> 
+          </long_desc> 
+      
+      
+ 
+    </bug> 
+ 
+</bugzilla>
