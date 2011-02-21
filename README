@@ -1,0 +1,214 @@
+Simple Java XML Parser
+http://www.thebuzzmedia.com/software/simple-java-xml-parser-sjxp/
+
+
+Changelog
+---------
+
+1.1
+	* Initial public release.
+
+
+License
+-------
+This library is released under the Apache 2 License. See LICENSE.
+
+
+Description
+-----------
+A very small (4 classes) abstraction layer that sits on top of the XML Pull 
+Parser spec (http://xmlpull.org/) to provide a namespace-capable XML Parser with
+the ease-of-use of XPath with the performance of a native pull parser.
+
+SJXP was designed to work on any Java platform, including Android.
+
+This library supports parsing 2 types of data from an XML source:
+* Character data (text between tags)
+* Attribute values
+
+Parsing rules are defined as a series of XPath-esque "paths" pointing at
+elements or attribute names, for example the following rule would point at the 
+<title> tag inside the <item> tag of an RSS feed:
+/rss/channel/item/title
+
+Additionally, the library supports parsing namespace-qualified entities using a
+simple [] notation with the namespace's URI, for example:
+/rss/channel/item/[http://purl.org/dc/elements/1.1/]creator
+
+Where the "creator" tag is defined as <dc:creator> inside of the RSS feed, and
+the "dc" prefix is mapped to the "http://purl.org/dc/elements/1.1/" namespace
+URI. 
+
+Unfortunately, supporting the use of the 'prefix' in parse rules is too fragile
+as plenty of documents in the wild remap "well known" prefixes to their own
+custom names, like remapping the "dc" Dublin Core prefix to "core" or "dublin"
+that I have seen a few places. 
+
+To ensure parsing correctness, this library opted for explicit namespace URI 
+qualifications.
+
+
+Performance
+-----------
+Below are a range of test cases I used to benchmark the parser. I have tried to
+include a range of files so you can most closely predict the performance with
+regards to your intended use.
+
+You can run all these tests yourself, just look for the Benchmark suite inside
+the /src/test folder. 
+
+[Platform]
+* Java 1.6.0_24 on Windows 7 64-bit 
+* Dual Core Intel E6850 processor
+* 8 GB of ram
+
+[Examples]
+1.	Hacker News Feed - 10 KB, 30 stories
+	Parsed: Title and Link elements
+	news.ycombinator.com/rss
+
+2.	Bugzilla Bug Feed - 132 KB, 128 comments
+	Parsed: <who name=""> attribute and <thetext> elements
+	https://bugs.eclipse.org/bugs/show_bug.cgi?id=35973
+
+3.	New York Craigslist Feed - 278 KB, 100 listings
+	http://newyork.craigslist.org/sss/index.rss
+
+4.	TechCrunch Feed - 300 KB, 25 stories
+	feeds.feedburner.com/TechCrunch
+
+5.	Samsung News Feed - 500 KB, 100 stories
+	www.samsung.com/us/function/rss/rssFeedItemList.do?typeCd=NEWS
+
+6.	Eclipse XML Editor Stress Test File - 1.63 MB, 1054 additionallineitem entries
+	https://bugs.eclipse.org/bugs/show_bug.cgi?id=136935
+
+7.	Example Dictionary XML - 10 MB, 41,427 <w> entries
+	http://www.cs.umb.edu/~smimarog/xmlsample/
+
+[Results]
+1. Processed 11061 bytes, parsed 60 XML elements in 7ms
+	ELEMENTS: <title> and <link>
+
+2. Processed 132687 bytes, parsed 258 XML elements in 50ms
+	ELEMENTS: <who name=""> and <thetext>
+
+3. Processed 278771 bytes, parsed 200 XML elements in 61ms
+	ELEMENTS: <item rdf:about=""> and <description>
+	
+4. Processed 303726 bytes, parsed 50 XML elements in 41ms
+	ELEMENTS: <title> and <link>
+	
+5. Processed 724031 bytes, parsed 300 XML elements in 58ms
+	ELEMENTS: <title>, <link> and <description>
+	
+6. Processed 1633334 bytes, parsed 2108 XML elements in 219ms
+	ELEMENT: <quantityandweight> (from <additionalitem>)
+	
+7. Processed 10625983 bytes, parsed 41427 XML elements in 412ms
+	ELEMENT: <w> (from the /dictionary/e/ss/s/qp/q path)
+	
+NOTE: If all these tests are run back-to-back such that the running VM gets
+"warmed up", the performance is roughly 2x what it is from a cold-run, which is
+how I ran the tests above.
+
+Here is the output of the Benchmark class when all tests are run together:
+1. Processed 11061 bytes, parsed 60 XML elements in 7ms
+2. Processed 132687 bytes, parsed 258 XML elements in 33ms
+3. Processed 278771 bytes, parsed 200 XML elements in 143ms
+4. Processed 303726 bytes, parsed 50 XML elements in 9ms
+5. Processed 724031 bytes, parsed 300 XML elements in 19ms
+6. Processed 1633334 bytes, parsed 2108 XML elements in 120ms
+7. Processed 10625983 bytes, parsed 41427 XML elements in 241ms
+
+
+Example
+-------
+Defining a rule (instance of IRule) is as simple as using the DefaultRule class
+and added an impl for either of the two handler methods (1 for ATTRIBUTES and 1
+for CHARACTERS). 
+
+Here is an in-line example used to parse RSS2 feeds:
+
+	new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
+		@Override
+		public void handleParsedCharacters(String text) {
+			count++;
+		}
+	}
+	
+You pass that to the XMLParser constructor and you are off to the races parsing
+links out of an RSS feed at the speed of light!
+
+
+Runtime Requirements
+--------------------
+If you are deploying this library inside of an app to Android, you only need to
+include the sjxp JAR; it will utilize whatever underlying XML Pull Parser impl
+is provided by the platform.
+
+If you are deploying this library inside of any other kind of app in a Java
+runtime, be sure to include the xpp3-1.1.4c.jar file that contains the XPP3
+XML Pull Parser implementation (one of the fastest parsers).
+
+
+History
+-------
+This project was born out of 6 months of working on RDF, Atom and RSS 1 & 2
+parsing using XML pull parsing; hand-editing and writing test cases against
+well over 400 test feed documents from around the web in every language.
+
+Common themes arose and many eye-opening experiences of how broken some "valid"
+feed markup can be in addition to how sloppy some specs are with regards to
+required format.
+
+Spending all that time, I saw a lot of common themes and simplifications that
+boiled down to the same fundamental problems over and over again. At the time
+I wrote a fairly complex layer that sat on top of Sun's XML Pull Parser, but
+soon realized that the fundamental problem could be distilled, yet again, down
+to something even simpler and faster.
+
+This library is the final result of all that work.  
+
+
+Troubleshooting
+---------------
+Here are some issues you might run into and what you can do to correct it.
+
+* I get the following exception while parsing:
+	===
+	org.xmlpull.v1.XmlPullParserException: processing instruction can not have 
+	PITarget with reserveld xml name (position: START_DOCUMENT seen \r\n<?xml ... @2:7)
+	===
+	
+	This is a frustratingly vague exception; it is caused by your <?xml..?> 
+	directive at the beginning of your XML file having whitespace before it. If
+	you remove the whitespace, you should be fine (apparently it is against the
+	spec to have whitespace).
+	
+* I am getting no parsed values from an RDF feed doc (like Slashdot.org's feed),
+why?
+
+	This can be unexpected, especially if you haven't spent a lot of time with
+	name spaces and XML docs. The RDF doc *probably* defines a default namespace,
+	in the case of the Slashdot.org feed example, it does. Up in the header, you
+	see "xmlns=", that means every element reference you make needs to be qualified
+	with the namespace URI; something like this:
+	/[http://www.w3.org/1999/02/22-rdf-syntax-ns#]RDF/[http://purl.org/rss/1.0/]channel
+	
+	instead of what you were probably trying:
+	/[http://www.w3.org/1999/02/22-rdf-syntax-ns#]RDF/channel
+	 
+
+Reference
+---------
+XML Pull Parsing - http://www.xmlpull.org/
+XML Pull Parsing @ Indiana - http://www.extreme.indiana.edu/xmlpull-website/
+XPP3 - http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/index.html
+Android XML Pull Parsing - http://developer.android.com/reference/org/xmlpull/v1/package-summary.html
+
+
+Contact
+-------
+If you have questions, comments or bug reports for this software please contact
+us at: software@thebuzzmedia.com
