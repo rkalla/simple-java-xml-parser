@@ -130,6 +130,10 @@ public class XMLParser {
 			// Add the rule to the list for the given path
 			ruleList.add(rule);
 		}
+
+		if (DEBUG)
+			log("Initialized %d ATTRIBUTE rules and %d CHARACTER rules.",
+					attrRuleMap.size(), charRuleMap.size());
 	}
 
 	/**
@@ -219,6 +223,11 @@ public class XMLParser {
 		location.clear();
 		boolean continueParsing = true;
 
+		if (DEBUG)
+			log("Parsing starting...");
+
+		long startTime = System.currentTimeMillis();
+
 		while (continueParsing) {
 			switch (xpp.next()) {
 			case XmlPullParser.START_TAG:
@@ -241,6 +250,12 @@ public class XMLParser {
 				break;
 			}
 		}
+
+		if (DEBUG) {
+			long duration = System.currentTimeMillis() - startTime;
+			log("Parse COMPLETE, elapsed time: %dms (approx %f seconds)",
+					duration, (double) duration / (double) 1000);
+		}
 	}
 
 	protected void doStartTag() {
@@ -257,7 +272,13 @@ public class XMLParser {
 		if (ruleList == null || ruleList.isEmpty())
 			return;
 
+		if (DEBUG)
+			log("\t%d rules found for START_TAG...", ruleList.size());
+
 		for (IRule rule : ruleList) {
+			if (DEBUG)
+				log("\t\tRunning Rule: %s", rule);
+
 			String[] attrs = rule.getAttributeNames();
 
 			// Jump to the next rule if this one has no attribute entries
@@ -310,6 +331,9 @@ public class XMLParser {
 	}
 
 	protected void doText() {
+		if (DEBUG)
+			log("TEXT: %s", location);
+
 		// Get the rules for the current path
 		List<IRule> ruleList = charRuleMap.get(location.toString());
 
@@ -318,13 +342,17 @@ public class XMLParser {
 			return;
 
 		if (DEBUG)
-			log("TEXT, processing %d matching rules...", ruleList.size());
+			log("\t%d rules found for TEXT...", ruleList.size());
 
 		String text = xpp.getText();
 
 		// Give the parsed text to all matching IRules for this path
-		for (IRule rule : ruleList)
+		for (IRule rule : ruleList) {
+			if (DEBUG)
+				log("\t\tRunning Rule: %s", rule);
+
 			rule.handleParsedCharacters(text);
+		}
 	}
 
 	protected void doEndTag() {

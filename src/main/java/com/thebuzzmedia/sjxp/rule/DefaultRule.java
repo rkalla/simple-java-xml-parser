@@ -27,6 +27,17 @@ public class DefaultRule implements IRule {
 		if (locationPath == null || locationPath.length() == 0)
 			throw new IllegalArgumentException(
 					"locationPath cannot be null or empty");
+		/*
+		 * Pedantic, while we could remove a single trailing slash easily
+		 * enough, there is the very-small-chance the users has multiple
+		 * trailing slashes... again easy to remove, but at this point they are
+		 * being really sloppy and we are letting it slide. Instead, fire an
+		 * exception up-front and teach people how the API behaves immediately
+		 * and what is required. Makes everyone's lives easier.
+		 */
+		if (locationPath.charAt(locationPath.length() - 1) == '/')
+			throw new IllegalArgumentException(
+					"locationPath cannot end in a trailing slash (/), please remove it.");
 		if ((type == Type.ATTRIBUTE && (attributeNames == null || attributeNames.length == 0)))
 			throw new IllegalArgumentException(
 					"Type.ATTRIBUTE was specified but attributeNames was null or empty. One or more attribute names must be provided for this rule if it is going to match any attribute values.");
@@ -48,9 +59,25 @@ public class DefaultRule implements IRule {
 
 	@Override
 	public String toString() {
+		StringBuilder builder = null;
+
+		/*
+		 * toString is only used during debugging, so make the toString output
+		 * of the rule pretty so it is easier to track in debug messages.
+		 */
+		if (attributeNames != null && attributeNames.length > 0) {
+			builder = new StringBuilder();
+
+			for (String name : attributeNames)
+				builder.append(name).append(',');
+
+			// Chop the last stray comma
+			builder.setLength(builder.length() - 1);
+		}
+
 		return DefaultRule.class.getName() + "[type=" + type
 				+ ", locationPath=" + locationPath + ", attributeNames="
-				+ attributeNames + "]";
+				+ (builder == null ? "" : builder.toString()) + "]";
 	}
 
 	public Type getType() {
