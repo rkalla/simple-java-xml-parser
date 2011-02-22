@@ -1,0 +1,18 @@
+<!--
+	CHARACTER-ONLY - Only contains character data. 
+ -->
+ 
+<library>
+	<book>
+		<title>I Like Ham</title>
+		<author>Vincent Von Hamshoes</author>
+	</book>
+	<book>
+		<title>That's What She Said</title>
+		<author>Hardly Long</author>
+	</book>
+	<book>
+		<title>I Crack Myself Up</title>
+		<author>Hilarious McFunnynuts</author>
+	</book>
+</library>

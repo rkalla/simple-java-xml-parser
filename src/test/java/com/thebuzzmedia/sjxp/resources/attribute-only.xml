@@ -1,0 +1,12 @@
+<!--
+	ATTRIBUTE-ONLY - Only contains attribute values. 
+ -->
+ 
+<zoo>
+	<cage id="1">
+		<animal type="tiger" canHasCheezBurger="true" />
+	</cage>
+	<cage id="2">
+		<animal type="walrus" canHasCheezBurger="false" />
+	</cage>
+</zoo>

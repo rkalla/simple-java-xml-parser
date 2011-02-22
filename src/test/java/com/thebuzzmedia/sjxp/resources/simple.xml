@@ -1,0 +1,28 @@
+<!--
+	SIMPLE - Contains character data and attribute values.
+ -->
+ 
+<imdb>
+	<category name="Action">
+		<movie id="1234">
+			<name>Terminator 2</name>
+			<year>1991</year>
+			<cast>
+				<actor realName="Arnold Schwarzenegger" charName="The Terminator" />
+				<actor realName="Linda Hamilton" charName="Sarah Connor" />
+				<actor realName="Edward Furlong" charName="John Connor" />
+			</cast>
+		</movie>
+	</category>
+	<category name="Comedy">
+		<movie id="5678">
+			<name>Tommy Boy</name>
+			<year>1995</year>
+			<cast>
+				<actor realName="Chris Farley" charName="Tommy" />
+				<actor realName="David Spade" charName="Richard" />
+				<actor realName="Brian Dennehy" charName="Big Tom" />
+			</cast>
+		</movie>
+	</category>
+</imdb>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+	COMPLEX - Contains character data, attribute values, namespace-qualified
+	tags as well as namespace-qualified attributes. 
+ -->
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:syn="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0">
+
+<channel rdf:about="http://slashdot.org/">
+<title>Slashdot</title>
+<link>http://slashdot.org/</link>
+<description>News for nerds, stuff that matters</description>
+<dc:language>en-us</dc:language>
+<dc:rights>Copyright 1997-2010, Geeknet, Inc.  All Rights Reserved.</dc:rights>
+<dc:date>2011-02-21T23:30:16+00:00</dc:date>
+<dc:publisher>Geeknet, Inc.</dc:publisher>
+<dc:creator>help@slashdot.org</dc:creator>
+<dc:subject>Technology</dc:subject>
+<syn:updatePeriod>hourly</syn:updatePeriod>
+<syn:updateFrequency>1</syn:updateFrequency>
+<syn:updateBase>1970-01-01T00:00+00:00</syn:updateBase>
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="http://news.slashdot.org/story/11/02/21/2210212/Anonymous-Denies-Targeting-Westboro-Baptist-Church?from=rss" />
+  <rdf:li rdf:resource="http://ask.slashdot.org/story/11/02/21/215258/Ask-Slashdot-Is-There-a-War-Against-Small-Mail-Servers?from=rss" />
+  <rdf:li rdf:resource="http://news.slashdot.org/story/11/02/21/2058243/Physicists-Build-Bigger-Bottles-For-Antimatter?from=rss" />
+  <rdf:li rdf:resource="http://yro.slashdot.org/story/11/02/21/2034241/WA-Election-To-Try-Online-Voting?from=rss" />
+  <rdf:li rdf:resource="http://games.slashdot.org/story/11/02/21/1930238/emThe-Legend-of-Zeldaem-Turns-25?from=rss" />
+  <rdf:li rdf:resource="http://hardware.slashdot.org/story/11/02/21/1844203/Motorola-Xoom-Wont-Have-Flash-Support-At-Launch?from=rss" />
+  <rdf:li rdf:resource="http://mobile.slashdot.org/story/11/02/21/1754254/Would-the-Developing-World-Use-E-Readers-More-Than-Laptops?from=rss" />
+  <rdf:li rdf:resource="http://tech.slashdot.org/story/11/02/21/1734259/Why-You-Shouldnt-Reboot-Unix-Servers?from=rss" />
+  <rdf:li rdf:resource="http://games.slashdot.org/story/11/02/21/1652211/Late-Night-Gaming-Banned-In-Vietnam?from=rss" />
+  <rdf:li rdf:resource="http://apple.slashdot.org/story/11/02/21/1547245/Apple-To-Unveil-Light-Peak-New-MacBook-Pros-This-Week?from=rss" />
+  <rdf:li rdf:resource="http://mobile.slashdot.org/story/11/02/21/1444230/Laptop-Design-For-Disassembly?from=rss" />
+  <rdf:li rdf:resource="http://developers.slashdot.org/story/11/02/21/1336215/Python-32-Released?from=rss" />
+  <rdf:li rdf:resource="http://entertainment.slashdot.org/story/11/02/21/0234230/LotR-Rewritten-From-a-Mordor-Perspective?from=rss" />
+  <rdf:li rdf:resource="http://it.slashdot.org/story/11/02/21/024234/UK-Government-Wants-to-Spring-Ahead-Two-Hours?from=rss" />
+  <rdf:li rdf:resource="http://news.slashdot.org/story/11/02/21/0221230/Australian-Telco-Telstra-Complies-With-GPL?from=rss" />
+ </rdf:Seq>
+</items>
+<image rdf:resource="http://a.fsdn.com/sd/topics/topicslashdot.gif" />
+<textinput rdf:resource="http://slashdot.org/search.pl" />
+<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rdf+xml" href="http://rss.slashdot.org/Slashdot/slashdot" /><feedburner:info uri="slashdot/slashdot" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /></channel>
+
+<image rdf:about="http://a.fsdn.com/sd/topics/topicslashdot.gif">
+<title>Slashdot</title>
+<url>http://a.fsdn.com/sd/topics/topicslashdot.gif</url>
+<link>http://slashdot.org/</link>
+</image>
+
+<item rdf:about="http://news.slashdot.org/story/11/02/21/2210212/Anonymous-Denies-Targeting-Westboro-Baptist-Church?from=rss">
+<title>Anonymous Denies Targeting Westboro Baptist Church</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/EpOw1Rw3ZWw/Anonymous-Denies-Targeting-Westboro-Baptist-Church</link>
+<description>lenwood writes "Last week we discussed news that the hacking group Anonymous was staging an attack against Fred Phelps' Westboro Baptist Church. It turns out that this was a publicity stunt staged by WBC themselves. Anonymous issued a press release disassociating themselves from this."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fnews.slashdot.org%2Fstory%2F11%2F02%2F21%2F2210212%2FAnonymous-Denies-Targeting-Westboro-Baptist-Church%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Anonymous+Denies+Targeting+Westboro+Baptist+Church%3A+http%3A%2F%2Fbit.ly%2Ff9gv3O" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://news.slashdot.org/story/11/02/21/2210212/Anonymous-Denies-Targeting-Westboro-Baptist-Church?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005954&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/hpJ-tThGse2lh4ZRmGRQ_UCfDLY/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/hpJ-tThGse2lh4ZRmGRQ_UCfDLY/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/hpJ-tThGse2lh4ZRmGRQ_UCfDLY/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/hpJ-tThGse2lh4ZRmGRQ_UCfDLY/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/EpOw1Rw3ZWw" height="1" width="1"/&gt;</description>
+<dc:creator>Soulskill</dc:creator>
+<dc:date>2011-02-21T23:24:00+00:00</dc:date>
+<dc:subject>internet</dc:subject>
+<slash:department>listen-to-admiral-ackbar</slash:department>
+<slash:section>news</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://news.slashdot.org/story/11/02/21/2210212/Anonymous-Denies-Targeting-Westboro-Baptist-Church?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://ask.slashdot.org/story/11/02/21/215258/Ask-Slashdot-Is-There-a-War-Against-Small-Mail-Servers?from=rss">
+<title>Ask Slashdot: Is There a War Against Small Mail Servers?</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/mw4-28vwTIM/Ask-Slashdot-Is-There-a-War-Against-Small-Mail-Servers</link>
+<description>softegg writes "My company hosts our own mail server. We have high-speed business connections through Verizon and Comcast. Recently, Verizon and Comcast have been blocking port 25, causing our private mail server to stop functioning. Additionally, a lot of ISPs just started blocking any mail coming from any IP in the address block of cable modems. This caused us to start laundering our mail through a third-party service called DNSExit. Now, McAfee's MAPS anti-spam system tells us they are blocking DNSExit for spam. Essentially, we are finding ourselves increasingly cut off from sending any outgoing mail. What is a small company supposed to do if you want to host your own mail?"&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fask.slashdot.org%2Fstory%2F11%2F02%2F21%2F215258%2FAsk-Slashdot-Is-There-a-War-Against-Small-Mail-Servers%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Ask+Slashdot%3A+Is+There+a+War+Against+Small+Mail+Servers%3F%3A+http%3A%2F%2Fbit.ly%2FgMu4PC" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://ask.slashdot.org/story/11/02/21/215258/Ask-Slashdot-Is-There-a-War-Against-Small-Mail-Servers?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005896&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/Ab8jfc7ZsM6SFftOYDCIKp1iwow/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/Ab8jfc7ZsM6SFftOYDCIKp1iwow/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/Ab8jfc7ZsM6SFftOYDCIKp1iwow/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/Ab8jfc7ZsM6SFftOYDCIKp1iwow/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/mw4-28vwTIM" height="1" width="1"/&gt;</description>
+<dc:creator>Soulskill</dc:creator>
+<dc:date>2011-02-21T22:33:00+00:00</dc:date>
+<dc:subject>communications</dc:subject>
+<slash:department>lazy-spam-prevention</slash:department>
+<slash:section>askslashdot</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://ask.slashdot.org/story/11/02/21/215258/Ask-Slashdot-Is-There-a-War-Against-Small-Mail-Servers?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://news.slashdot.org/story/11/02/21/2058243/Physicists-Build-Bigger-Bottles-For-Antimatter?from=rss">
+<title>Physicists Build Bigger 'Bottles' For Antimatter</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/CLrAxB_J4r4/Physicists-Build-Bigger-Bottles-For-Antimatter</link>
+<description>intellitech writes "Once regarded as the stuff of science fiction, antimatter &amp;mdash; the mirror image of the ordinary matter in our observable universe &amp;mdash; is now the focus of laboratory studies around the world. While physicists routinely produce antimatter with radioisotopes and particle colliders, cooling these antiparticles and containing them for any length of time is another story. Clifford Surko, a professor of physics at UC San Diego, who is constructing what he hopes will be the world's largest antimatter container, said physicists have recently developed new methods to make special states of antimatter in which they can create large clouds of antiparticles, compress them and make specially tailored beams for a variety of uses."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fnews.slashdot.org%2Fstory%2F11%2F02%2F21%2F2058243%2FPhysicists-Build-Bigger-Bottles-For-Antimatter%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Physicists+Build+Bigger+'Bottles'+For+Antimatter%3A+http%3A%2F%2Fbit.ly%2Fg3F1Y8" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://news.slashdot.org/story/11/02/21/2058243/Physicists-Build-Bigger-Bottles-For-Antimatter?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005892&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/q1klZ0vthklTEGWrKWaa492d5fY/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/q1klZ0vthklTEGWrKWaa492d5fY/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/q1klZ0vthklTEGWrKWaa492d5fY/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/q1klZ0vthklTEGWrKWaa492d5fY/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/CLrAxB_J4r4" height="1" width="1"/&gt;</description>
+<dc:creator>Soulskill</dc:creator>
+<dc:date>2011-02-21T21:47:00+00:00</dc:date>
+<dc:subject>news</dc:subject>
+<slash:department>go-big-or-go-home</slash:department>
+<slash:section>news</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://news.slashdot.org/story/11/02/21/2058243/Physicists-Build-Bigger-Bottles-For-Antimatter?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://yro.slashdot.org/story/11/02/21/2034241/WA-Election-To-Try-Online-Voting?from=rss">
+<title>WA Election To Try Online Voting</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/Gt6bh8ANlY0/WA-Election-To-Try-Online-Voting</link>
+<description>AuMatar writes "According to the Seattle Times, the King Conservation District is going to allow online voting to combat chronic low turnouts. You can already view the voting portal. As a citizen of WA seriously concerned with politics, anything that completely removes a paper trail like this scares me. Luckily, this is probably the least important election in the state. I wonder if anyone will hack the election so 300% of voters vote for Firefly or Stephen Colbert or something."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fyro.slashdot.org%2Fstory%2F11%2F02%2F21%2F2034241%2FWA-Election-To-Try-Online-Voting%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=WA+Election+To+Try+Online+Voting%3A+http%3A%2F%2Fbit.ly%2FfPpJ1d" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://yro.slashdot.org/story/11/02/21/2034241/WA-Election-To-Try-Online-Voting?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005868&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/Xa89ggx--fj1-3dihYxempfNcWk/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/Xa89ggx--fj1-3dihYxempfNcWk/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/Xa89ggx--fj1-3dihYxempfNcWk/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/Xa89ggx--fj1-3dihYxempfNcWk/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/Gt6bh8ANlY0" height="1" width="1"/&gt;</description>
+<dc:creator>Soulskill</dc:creator>
+<dc:date>2011-02-21T20:57:00+00:00</dc:date>
+<dc:subject>government</dc:subject>
+<slash:department>opportunity-cost</slash:department>
+<slash:section>yro</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://yro.slashdot.org/story/11/02/21/2034241/WA-Election-To-Try-Online-Voting?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://games.slashdot.org/story/11/02/21/1930238/emThe-Legend-of-Zeldaem-Turns-25?from=rss">
+<title>&lt;em&gt;The Legend of Zelda&lt;/em&gt; Turns 25</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/X7D2qgPQVFg/emThe-Legend-of-Zeldaem-Turns-25</link>
+<description>harrymcc writes "The Legend of Zelda originated 25 years ago today, when Nintendo released the original game for its Famicom console in Japan on February 21st, 1986. Benj Edwards is celebrating with a look at some of the franchise's odder sidelights, from a version broadcast by satellite to the unexpected true story of where the game got its name."
+If you're in the mood for more nostalgia, 1Up has a collection of articles delving into the past two and a half decades of Zelda. And since it's cool, here's a link (sorry) to a guy who hacked an oscilloscope to display Gameboy games, using 1993's Link's Awakening as a demonstration.&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fgames.slashdot.org%2Fstory%2F11%2F02%2F21%2F1930238%2FThe-Legend-of-Zelda-Turns-25%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=The+Legend+of+Zelda+Turns+25%3A+http%3A%2F%2Fbit.ly%2FhbUDNv" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://games.slashdot.org/story/11/02/21/1930238/emThe-Legend-of-Zeldaem-Turns-25?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005778&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/TxT2HAA0dbYbutDZZo1HCE9vU6I/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/TxT2HAA0dbYbutDZZo1HCE9vU6I/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/TxT2HAA0dbYbutDZZo1HCE9vU6I/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/TxT2HAA0dbYbutDZZo1HCE9vU6I/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/X7D2qgPQVFg" height="1" width="1"/&gt;</description>
+<dc:creator>Soulskill</dc:creator>
+<dc:date>2011-02-21T20:09:00+00:00</dc:date>
+<dc:subject>classicgames</dc:subject>
+<slash:department>it's-dangerous-to-go-alone-take-this</slash:department>
+<slash:section>games</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://games.slashdot.org/story/11/02/21/1930238/emThe-Legend-of-Zeldaem-Turns-25?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://hardware.slashdot.org/story/11/02/21/1844203/Motorola-Xoom-Wont-Have-Flash-Support-At-Launch?from=rss">
+<title>Motorola Xoom Won't Have Flash Support At Launch</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/U-OifJ24tQM/Motorola-Xoom-Wont-Have-Flash-Support-At-Launch</link>
+<description>Several readers have sent word that Motorola's Xoom tablet, marketed as the iPad's first significant competitor, won't ship with Flash support. Quoting:
+"Support for Adobe's Flash technology has been an argument for the Android operating system since Apple CEO Steve Jobs notoriously said that Flash is a dying technology and that it won't make it onto iOS devices for several reasons. Flash support appeared in Android with version 2.2 and Google even flaunted it as a killer feature for tablets running Honeycomb (3.0), like the Motorola Xoom. But it looks like Adobe and/or Google have yet to put the finishing touches on Flash's implementation in Android 3.0. An advertisement for the Xoom on Verizon's site says (in 6 point text at the bottom) that Adobe Flash support on the Xoom is expected in Spring 2011, meaning this functionality won't be available at the launch of the first Honeycomb tablet on February 24. Considering how slow carriers and manufacturers are when it comes to software updates, this Spring 2011 update could mean more like late Spring 2011 ETA."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fhardware.slashdot.org%2Fstory%2F11%2F02%2F21%2F1844203%2FMotorola-Xoom-Wont-Have-Flash-Support-At-Launch%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Motorola+Xoom+Won't+Have+Flash+Support+At+Launch%3A+http%3A%2F%2Fbit.ly%2FenDYDr" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://hardware.slashdot.org/story/11/02/21/1844203/Motorola-Xoom-Wont-Have-Flash-Support-At-Launch?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005718&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/WTprsELE2LqXPaAL8Yt0B9rVkJ0/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/WTprsELE2LqXPaAL8Yt0B9rVkJ0/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/WTprsELE2LqXPaAL8Yt0B9rVkJ0/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/WTprsELE2LqXPaAL8Yt0B9rVkJ0/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/U-OifJ24tQM" height="1" width="1"/&gt;</description>
+<dc:creator>Soulskill</dc:creator>
+<dc:date>2011-02-21T19:19:00+00:00</dc:date>
+<dc:subject>graphics</dc:subject>
+<slash:department>it's-finished-when-it's-almost-finished</slash:department>
+<slash:section>hardware</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://hardware.slashdot.org/story/11/02/21/1844203/Motorola-Xoom-Wont-Have-Flash-Support-At-Launch?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://mobile.slashdot.org/story/11/02/21/1754254/Would-the-Developing-World-Use-E-Readers-More-Than-Laptops?from=rss">
+<title>Would the Developing World Use E-Readers More Than Laptops?</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/piDE74m_WZY/Would-the-Developing-World-Use-E-Readers-More-Than-Laptops</link>
+<description>Barence writes "Stuart Turton writes about how the local children reacted to his Kindle on a recent visit to the Nagpur region of India. 'About 20 kids stood in a big group, just watching me: big eyes, curious expressions, ridiculously cute and all intent on the Kindle,' he writes. 'Just turning the page caused them to drag their friends over, and there's no reality where changing the font size of your book should make you cooler than a Jimmy Hendrix guitar solo. That was just the warm-up act though; it was the text-to-speech feature that pretty much made me the best friend of the entire village. A charity could do a lot worse than to load a few up with dictionaries, school books and novels and send them to some remote schools in developing nations,' he observes."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fmobile.slashdot.org%2Fstory%2F11%2F02%2F21%2F1754254%2FWould-the-Developing-World-Use-E-Readers-More-Than-Laptops%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Would+the+Developing+World+Use+E-Readers+More+Than+Laptops%3F%3A+http%3A%2F%2Fbit.ly%2Fi61Mky" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://mobile.slashdot.org/story/11/02/21/1754254/Would-the-Developing-World-Use-E-Readers-More-Than-Laptops?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005662&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/n4v-dpN_PXiuxlGxFg0DgMX3ius/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/n4v-dpN_PXiuxlGxFg0DgMX3ius/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/n4v-dpN_PXiuxlGxFg0DgMX3ius/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/n4v-dpN_PXiuxlGxFg0DgMX3ius/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/piDE74m_WZY" height="1" width="1"/&gt;</description>
+<dc:creator>Soulskill</dc:creator>
+<dc:date>2011-02-21T18:30:00+00:00</dc:date>
+<dc:subject>books</dc:subject>
+<slash:department>keep-it-simple-stupid</slash:department>
+<slash:section>mobile</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://mobile.slashdot.org/story/11/02/21/1754254/Would-the-Developing-World-Use-E-Readers-More-Than-Laptops?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://tech.slashdot.org/story/11/02/21/1734259/Why-You-Shouldnt-Reboot-Unix-Servers?from=rss">
+<title>Why You Shouldn't Reboot Unix Servers</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/TLagHGVn_qE/Why-You-Shouldnt-Reboot-Unix-Servers</link>
+<description>GMGruman writes "It's a persistent myth: reboot your Unix box when something goes wrong or to clean it out. Paul Venezia explains why you should almost never reboot a Unix server, unlike say Windows."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Ftech.slashdot.org%2Fstory%2F11%2F02%2F21%2F1734259%2FWhy-You-Shouldnt-Reboot-Unix-Servers%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Why+You+Shouldn't+Reboot+Unix+Servers%3A+http%3A%2F%2Fbit.ly%2FdJ9kge" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://tech.slashdot.org/story/11/02/21/1734259/Why-You-Shouldnt-Reboot-Unix-Servers?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005646&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/YKmfPtrSySLAzPHV4XmPqYqqlr0/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/YKmfPtrSySLAzPHV4XmPqYqqlr0/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/YKmfPtrSySLAzPHV4XmPqYqqlr0/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/YKmfPtrSySLAzPHV4XmPqYqqlr0/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/TLagHGVn_qE" height="1" width="1"/&gt;</description>
+<dc:creator>CmdrTaco</dc:creator>
+<dc:date>2011-02-21T17:44:00+00:00</dc:date>
+<dc:subject>unix</dc:subject>
+<slash:department>we-measure-uptime-in-years</slash:department>
+<slash:section>technology</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://tech.slashdot.org/story/11/02/21/1734259/Why-You-Shouldnt-Reboot-Unix-Servers?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://games.slashdot.org/story/11/02/21/1652211/Late-Night-Gaming-Banned-In-Vietnam?from=rss">
+<title>Late Night Gaming Banned In Vietnam</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/-FBGjNu6DdM/Late-Night-Gaming-Banned-In-Vietnam</link>
+<description>R3d M3rcury writes "Vietnam's Ministry of Information and Communication has asked ISPs to block access to on-line games between 10:00PM and 8:00AM. 'The request, made on Wednesday, is another move from the authority to mitigate the side effects of online games. The request follows numerous stiff measures by the ministry to tackle the issue, including cutting internet access to agents at night beginning last September.'"&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fgames.slashdot.org%2Fstory%2F11%2F02%2F21%2F1652211%2FLate-Night-Gaming-Banned-In-Vietnam%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Late+Night+Gaming+Banned+In+Vietnam%3A+http%3A%2F%2Fbit.ly%2FgiXgXc" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://games.slashdot.org/story/11/02/21/1652211/Late-Night-Gaming-Banned-In-Vietnam?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005590&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/gMut24kbrClkgnx-WmhcHeP6yDs/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/gMut24kbrClkgnx-WmhcHeP6yDs/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/gMut24kbrClkgnx-WmhcHeP6yDs/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/gMut24kbrClkgnx-WmhcHeP6yDs/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/-FBGjNu6DdM" height="1" width="1"/&gt;</description>
+<dc:creator>CmdrTaco</dc:creator>
+<dc:date>2011-02-21T16:51:00+00:00</dc:date>
+<dc:subject>games</dc:subject>
+<slash:department>sleep-is-important</slash:department>
+<slash:section>games</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://games.slashdot.org/story/11/02/21/1652211/Late-Night-Gaming-Banned-In-Vietnam?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://apple.slashdot.org/story/11/02/21/1547245/Apple-To-Unveil-Light-Peak-New-MacBook-Pros-This-Week?from=rss">
+<title>Apple To Unveil Light Peak, New MacBook Pros This Week?</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/AfzYqCTaQfU/Apple-To-Unveil-Light-Peak-New-MacBook-Pros-This-Week</link>
+<description>An anonymous reader writes "Apple will reportedly soon make an announcement regarding a new high-speed connection technology. And as luck would have it, this comes hot on the heels of a report that Apple will release a slew of new MacBook Pros later this week. For some time now, reports have abounded detailing Apple and Intel's cooperation on a new transfer technology dubbed Light Peak capable of transferring data at 10GB/s both up and down. Could this find its way into Apple's new lineup of MacBook Pros as has been previously rumored?"&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fapple.slashdot.org%2Fstory%2F11%2F02%2F21%2F1547245%2FApple-To-Unveil-Light-Peak-New-MacBook-Pros-This-Week%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Apple+To+Unveil+Light+Peak%2C+New+MacBook+Pros+This+Week%3F%3A+http%3A%2F%2Fbit.ly%2Fhy9UUO" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://apple.slashdot.org/story/11/02/21/1547245/Apple-To-Unveil-Light-Peak-New-MacBook-Pros-This-Week?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005524&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/td_ViR0qV4N64C2_68pg999vh5A/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/td_ViR0qV4N64C2_68pg999vh5A/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/td_ViR0qV4N64C2_68pg999vh5A/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/td_ViR0qV4N64C2_68pg999vh5A/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/AfzYqCTaQfU" height="1" width="1"/&gt;</description>
+<dc:creator>CmdrTaco</dc:creator>
+<dc:date>2011-02-21T15:56:00+00:00</dc:date>
+<dc:subject>intel</dc:subject>
+<slash:department>because-they-can</slash:department>
+<slash:section>apple</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://apple.slashdot.org/story/11/02/21/1547245/Apple-To-Unveil-Light-Peak-New-MacBook-Pros-This-Week?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://mobile.slashdot.org/story/11/02/21/1444230/Laptop-Design-For-Disassembly?from=rss">
+<title>Laptop Design For Disassembly</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/TwHRVkkTgbQ/Laptop-Design-For-Disassembly</link>
+<description>retroworks writes "Stanford and Finland are cooperating on a project to make a 'modular' laptop which can be more easily disassembled and upgraded, and eventually recycled. Video presentation by smarterplanet.com is a sober answer to the Jaime Guittierez 'Clean the Fan' video."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fmobile.slashdot.org%2Fstory%2F11%2F02%2F21%2F1444230%2FLaptop-Design-For-Disassembly%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Laptop+Design+For+Disassembly%3A+http%3A%2F%2Fbit.ly%2FgoNmAX" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://mobile.slashdot.org/story/11/02/21/1444230/Laptop-Design-For-Disassembly?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005478&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/A7A-lnSCLZBX7R5iNGMDjGe-9lM/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/A7A-lnSCLZBX7R5iNGMDjGe-9lM/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/A7A-lnSCLZBX7R5iNGMDjGe-9lM/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/A7A-lnSCLZBX7R5iNGMDjGe-9lM/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/TwHRVkkTgbQ" height="1" width="1"/&gt;</description>
+<dc:creator>CmdrTaco</dc:creator>
+<dc:date>2011-02-21T14:53:00+00:00</dc:date>
+<dc:subject>earth</dc:subject>
+<slash:department>no-disassemble-stephanie</slash:department>
+<slash:section>mobile</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://mobile.slashdot.org/story/11/02/21/1444230/Laptop-Design-For-Disassembly?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://developers.slashdot.org/story/11/02/21/1336215/Python-32-Released?from=rss">
+<title>Python 3.2 Released</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/NEfURWkrxw8/Python-32-Released</link>
+<description>digitalderbs writes "Python 3.2 was released on Feb 20th 2011 with many new improvements. New features include many useful updates to the unittest module, a stable ABI for extensions, pyc repository directories, improvements to the email and ssl modules and many others. This also marks the first release in the 3000-series that is no longer backported to the 2.0-series."&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fdevelopers.slashdot.org%2Fstory%2F11%2F02%2F21%2F1336215%2FPython-32-Released%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Python+3.2+Released%3A+http%3A%2F%2Fbit.ly%2Fi5hO74" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://developers.slashdot.org/story/11/02/21/1336215/Python-32-Released?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2005378&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/-AN-n7KfDXf5P8i4lOSsUbJPX4o/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/-AN-n7KfDXf5P8i4lOSsUbJPX4o/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/-AN-n7KfDXf5P8i4lOSsUbJPX4o/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/-AN-n7KfDXf5P8i4lOSsUbJPX4o/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/NEfURWkrxw8" height="1" width="1"/&gt;</description>
+<dc:creator>CmdrTaco</dc:creator>
+<dc:date>2011-02-21T13:55:00+00:00</dc:date>
+<dc:subject>programming</dc:subject>
+<slash:department>watch-out-for-teeth</slash:department>
+<slash:section>developers</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://developers.slashdot.org/story/11/02/21/1336215/Python-32-Released?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://entertainment.slashdot.org/story/11/02/21/0234230/LotR-Rewritten-From-a-Mordor-Perspective?from=rss">
+<title>LotR Rewritten From a Mordor Perspective</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/JwcPjJVoBic/LotR-Rewritten-From-a-Mordor-Perspective</link>
+<description>Hugh Pickens writes writes "It's been said that history is written by the winners but Laura Miller writes in Salon about a counterexample as she reviews a new version of Lord of the Rings. The Last Ring-bearer was published to acclaim in Russia by Kirill Yeskov, a paleontologist whose job is reconstructing long-extinct organisms and their way of life. Yeskov performs essentially the same feat in his book. The Last Ring-bearer is set during and after the end of the War of the Ring and told from the perspective of the losers. In Yeskov's retelling, available in translation as a free download, the wizard Gandalf is a war-monger intent on crushing the scientific and technological initiative of Mordor and its southern allies because science 'destroys the harmony of the world and dries up the souls of men' and Aragorn is depicted by Yeskov as a ruthless Machiavellian schemer who is ultimately the puppet of his wife, the elf Arwen. Sauron's citadel Barad-dur is, by contrast, described as 'that amazing city of alchemists and poets, mechanics and astronomers, philosophers and physicians, the heart of the only civilization in Middle-earth to bet on rational knowledge and bravely pitch its barely adolescent technology against ancient magic.'"&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fentertainment.slashdot.org%2Fstory%2F11%2F02%2F21%2F0234230%2FLotR-Rewritten-From-a-Mordor-Perspective%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=LotR+Rewritten+From+a+Mordor+Perspective%3A+http%3A%2F%2Fbit.ly%2FfyZ6ym" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://entertainment.slashdot.org/story/11/02/21/0234230/LotR-Rewritten-From-a-Mordor-Perspective?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2004698&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/sYffOg-MMZdyLCNyshs1emjuV6g/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/sYffOg-MMZdyLCNyshs1emjuV6g/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/sYffOg-MMZdyLCNyshs1emjuV6g/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/sYffOg-MMZdyLCNyshs1emjuV6g/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/JwcPjJVoBic" height="1" width="1"/&gt;</description>
+<dc:creator>samzenpus</dc:creator>
+<dc:date>2011-02-21T13:11:00+00:00</dc:date>
+<dc:subject>books</dc:subject>
+<slash:department>up-is-down</slash:department>
+<slash:section>entertainment</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://entertainment.slashdot.org/story/11/02/21/0234230/LotR-Rewritten-From-a-Mordor-Perspective?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://it.slashdot.org/story/11/02/21/024234/UK-Government-Wants-to-Spring-Ahead-Two-Hours?from=rss">
+<title>UK Government Wants to Spring Ahead Two Hours</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/szdRDvqQsmo/UK-Government-Wants-to-Spring-Ahead-Two-Hours</link>
+<description>Anonymous Coward writes "In England it has been proposed that the clocks move forward by 2 hours this summer to give us more daylight time in the day, and hopefully in turn stimulate the economy. My question is what impact will this hold for computers that automatically adjust the time to British Summer Time? Could this cause another 'millennium Bug' fiasco?"&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fit.slashdot.org%2Fstory%2F11%2F02%2F21%2F024234%2FUK-Government-Wants-to-Spring-Ahead-Two-Hours%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=UK+Government+Wants+to+Spring+Ahead+Two+Hours%3A+http%3A%2F%2Fbit.ly%2FfhpHvS" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://it.slashdot.org/story/11/02/21/024234/UK-Government-Wants-to-Spring-Ahead-Two-Hours?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2004658&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/CsGvDNy6vTNhN7j5umjtdRPbRrQ/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/CsGvDNy6vTNhN7j5umjtdRPbRrQ/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/CsGvDNy6vTNhN7j5umjtdRPbRrQ/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/CsGvDNy6vTNhN7j5umjtdRPbRrQ/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/szdRDvqQsmo" height="1" width="1"/&gt;</description>
+<dc:creator>samzenpus</dc:creator>
+<dc:date>2011-02-21T10:11:00+00:00</dc:date>
+<dc:subject>government</dc:subject>
+<slash:department>what-time-is-now</slash:department>
+<slash:section>it</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://it.slashdot.org/story/11/02/21/024234/UK-Government-Wants-to-Spring-Ahead-Two-Hours?from=rss</feedburner:origLink></item>
+
+<item rdf:about="http://news.slashdot.org/story/11/02/21/0221230/Australian-Telco-Telstra-Complies-With-GPL?from=rss">
+<title>Australian Telco Telstra Complies With GPL</title>
+<link>http://rss.slashdot.org/~r/Slashdot/slashdot/~3/Lu_hlVMh_qU/Australian-Telco-Telstra-Complies-With-GPL</link>
+<description>An anonymous reader writes "Late last year, Australia's biggest telco Telstra was sharply criticised for using GPL'd code in several of its new products &amp;mdash; but not publicly distributing changes it made to the code when doing so. However, it looks as though the company has now come clean, publishing a source code CD of the files changed in its development effort and acknowledging the GPL and Lesser GPL. It's good to see companies responding to the open source community this way and engaging &amp;mdash; makes a change from the past!"&lt;p&gt;&lt;a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fnews.slashdot.org%2Fstory%2F11%2F02%2F21%2F0221230%2FAustralian-Telco-Telstra-Complies-With-GPL%3Ffrom%3Dfb" target="_blank" title="Share on Facebook"&gt;&lt;img src="http://a.fsdn.com/sd/facebook_icon_large.png"&gt;&lt;/a&gt;
+   
+      &lt;a href="http://twitter.com/home?status=Australian+Telco+Telstra+Complies+With+GPL%3A+http%3A%2F%2Fbit.ly%2FfhVQiL" target="_blank" title="Share on Twitter"&gt;&lt;img src="http://a.fsdn.com/sd/twitter_icon_large.png"&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://news.slashdot.org/story/11/02/21/0221230/Australian-Telco-Telstra-Complies-With-GPL?from=rss"&gt;Read more of this story&lt;/a&gt; at Slashdot.&lt;/p&gt;&lt;iframe src="http://slashdot.org/slashdot-it.pl?op=discuss&amp;amp;id=2004680&amp;amp;smallembed=1" style="height: 300px; width: 100%; border: none;"&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="http://feedads.g.doubleclick.net/~at/aM0C1FVEcAPLB-8MY7ucrmnvu1M/0/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/aM0C1FVEcAPLB-8MY7ucrmnvu1M/0/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;br/&gt;
+&lt;a href="http://feedads.g.doubleclick.net/~at/aM0C1FVEcAPLB-8MY7ucrmnvu1M/1/da"&gt;&lt;img src="http://feedads.g.doubleclick.net/~at/aM0C1FVEcAPLB-8MY7ucrmnvu1M/1/di" border="0" ismap="true"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/Slashdot/slashdot/~4/Lu_hlVMh_qU" height="1" width="1"/&gt;</description>
+<dc:creator>timothy</dc:creator>
+<dc:date>2011-02-21T07:07:00+00:00</dc:date>
+<dc:subject>australia</dc:subject>
+<slash:department>man-pays-utility-bill</slash:department>
+<slash:section>news</slash:section>
+<slash:hit_parade>0,0,0,0,0,0,0</slash:hit_parade>
+<feedburner:origLink>http://news.slashdot.org/story/11/02/21/0221230/Australian-Telco-Telstra-Complies-With-GPL?from=rss</feedburner:origLink></item>
+
+<textinput rdf:about="http://slashdot.org/search.pl">
+<title>Search Slashdot</title>
+<description>Search Slashdot stories</description>
+<name>query</name>
+<link>http://slashdot.org/search.pl</link>
+</textinput>
+
+</rdf:RDF>

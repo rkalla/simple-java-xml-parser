@@ -1,0 +1,91 @@
+<?xml version="1.0"?> 
+
+<!--
+	NAMESPACE - Contains character data, attribute values and 
+	namespace-qualified	tags. 
+ -->
+ 
+<?xml-stylesheet href="/css/rss20.xsl" type="text/xsl"?> 
+<rss	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+		xmlns:media="http://search.yahoo.com/mrss/" 
+		xmlns:atom="http://www.w3.org/2005/Atom" 
+		xmlns:nyt="http://www.nytimes.com/namespaces/rss/2.0"
+		xmlns:pheedo="http://www.pheedo.com/namespace/pheedo" 
+		version="2.0"> 
+	<channel> 
+		<title>NYT &gt; Home Page</title> 
+		<link>http://www.nytimes.com/pages/index.html?partner=rss&amp;emc=rss</link> 
+		<description/> 
+		<language>en-us</language> 
+		<copyright>Copyright 2011  The New York Times Company</copyright> 
+		<lastBuildDate>Mon, 21 Feb 2011 23:44:29 GMT </lastBuildDate> 
+		<image> 
+			<title>NYT &gt; Home Page</title> 
+			<url>http://graphics.nytimes.com/images/section/NytSectionHeader.gif</url> 
+			<link>http://www.nytimes.com/pages/index.html?partner=rss&amp;emc=rss</link> 
+		</image> 
+		<atom:link rel="hub" href="http://www.pheedo.com/api/hub/"/> 
+		<atom:link rel="self" href="http://feeds.nytimes.com/nyt/rss/HomePage" type="application/rss+xml"/> 
+		<item> 
+			<title>Wisconsin&#x2019;s Ties to Labor Fray as Its Economy Shifts</title> 
+			<link>http://feeds.nytimes.com/click.phdo?i=f4aeb2d243eaff8decb917762cbbfa6d</link> 
+			<pheedo:origLink>http://www.nytimes.com/2011/02/22/us/22union.html?partner=rss&amp;amp;emc=rss</pheedo:origLink> 
+			<guid isPermaLink="false">http://www.nytimes.com/2011/02/22/us/22union.html</guid> 
+			<description>Wisconsin, once a pioneer in supporting organized labor, has become a battleground over unionized public workers and their role in the budget woes.&lt;br clear=&quot;both&quot; style=&quot;clear: both;&quot;/&gt;
+&lt;br clear=&quot;both&quot; style=&quot;clear: both;&quot;/&gt;
+&lt;a href=&quot;http://ads.pheedo.com/click.phdo?s=f4aeb2d243eaff8decb917762cbbfa6d&amp;p=1&quot;&gt;&lt;img alt=&quot;&quot; style=&quot;border: 0;&quot; border=&quot;0&quot; src=&quot;http://ads.pheedo.com/img.phdo?s=f4aeb2d243eaff8decb917762cbbfa6d&amp;p=1&quot;/&gt;&lt;/a&gt;
+</description> 
+			<dc:creator>By A. G. SULZBERGER and MONICA DAVEY</dc:creator> 
+			<pubDate>Mon, 21 Feb 2011 23:40:19 GMT</pubDate> 
+			<category domain="http://www.nytimes.com/namespaces/nyt_geo">Wisconsin</category> 
+			<category domain="http://www.nytimes.com/namespaces/mdes">Organized Labor</category> 
+			<category domain="http://www.nytimes.com/namespaces/nyt_per">Walker, Scott K</category> 
+			<category domain="http://www.nytimes.com/namespaces/des">Politics and Government</category> 
+			<category domain="http://www.nytimes.com/namespaces/mdes">United States Politics and Government</category> 
+			<category domain="http://www.nytimes.com/namespaces/des">Labor and Jobs</category> 
+			<category domain="http://www.nytimes.com/namespaces/des">Budgets and Budgeting</category> 
+			<category domain="http://www.nytimes.com/namespaces/mdes">Government Employees</category> 
+		</item> 
+		<item> 
+			<title>American Held in Pakistan Shootings Worked With C.I.A.</title> 
+			<link>http://feeds.nytimes.com/click.phdo?i=b57540c4d32d5b674cac7612ce6c28d4</link> 
+			<pheedo:origLink>http://www.nytimes.com/2011/02/22/world/asia/22pakistan.html?partner=rss&amp;amp;emc=rss</pheedo:origLink> 
+			<guid isPermaLink="false">http://www.nytimes.com/2011/02/22/world/asia/22pakistan.html</guid> 
+			<media:content url="http://graphics8.nytimes.com/images/2011/02/22/22Pakistan_cnd/22Pakistan_cnd-thumbStandard-v2.jpg" medium="image" height="75" width="75"/> 
+			<media:description>Raymond A. Davis, center, was escorted to court by a Pakistani security official in Lahore on Jan. 28.</media:description> 
+			<media:credit>Hamza Ahmed/Associated Press</media:credit> 
+			<description>Raymond A. Davis, an American who was arrested after shooting two men at a traffic stop, worked with a covert team assigned to track Pakistani militant groups, officials said.&lt;br clear=&quot;both&quot; style=&quot;clear: both;&quot;/&gt;
+&lt;br clear=&quot;both&quot; style=&quot;clear: both;&quot;/&gt;
+&lt;a href=&quot;http://ads.pheedo.com/click.phdo?s=b57540c4d32d5b674cac7612ce6c28d4&amp;p=1&quot;&gt;&lt;img alt=&quot;&quot; style=&quot;border: 0;&quot; border=&quot;0&quot; src=&quot;http://ads.pheedo.com/img.phdo?s=b57540c4d32d5b674cac7612ce6c28d4&amp;p=1&quot;/&gt;&lt;/a&gt;
+</description> 
+			<dc:creator>By MARK MAZZETTI, ASHLEY PARKER, JANE PERLEZ and ERIC SCHMITT</dc:creator> 
+			<pubDate>Mon, 21 Feb 2011 23:18:52 GMT</pubDate> 
+			<category domain="http://www.nytimes.com/namespaces/nyt_geo">Pakistan</category> 
+			<category domain="http://www.nytimes.com/namespaces/nyt_org_all">Central Intelligence Agency</category> 
+			<category domain="http://www.nytimes.com/namespaces/mdes">Americans Abroad</category> 
+			<category domain="http://www.nytimes.com/namespaces/mdes">United States International Relations</category> 
+			<category domain="http://www.nytimes.com/namespaces/des">Private Military Contractors</category> 
+		</item> 
+		<item> 
+			<title>Danger Pent Up Behind Aging Dams</title> 
+			<link>http://feeds.nytimes.com/click.phdo?i=0267262f6c118e87eb2ec5286097517f</link> 
+			<pheedo:origLink>http://www.nytimes.com/2011/02/22/science/22dam.html?partner=rss&amp;amp;emc=rss</pheedo:origLink> 
+			<guid isPermaLink="false">http://www.nytimes.com/2011/02/22/science/22dam.html</guid> 
+			<media:content url="http://graphics8.nytimes.com/images/2011/02/22/science/jpDAM-1/jpDAM-1-thumbStandard.jpg" medium="image" height="75" width="75"/> 
+			<media:description> 
+				<em class="bold">NOT INACTIVE</em>Engineers now know that the Lake Isabella Dam lies on an active fault line. Below, a survey monument used to measure ground movement.</media:description> 
+			<media:credit>Michal Czerwonka for The New York Times</media:credit> 
+			<description>Of the nation&#x2019;s 85,000 dams, more than 4,400 are considered susceptible to failure, but repairing them all would cost billions.&lt;br clear=&quot;both&quot; style=&quot;clear: both;&quot;/&gt;
+&lt;br clear=&quot;both&quot; style=&quot;clear: both;&quot;/&gt;
+&lt;a href=&quot;http://ads.pheedo.com/click.phdo?s=0267262f6c118e87eb2ec5286097517f&amp;p=1&quot;&gt;&lt;img alt=&quot;&quot; style=&quot;border: 0;&quot; border=&quot;0&quot; src=&quot;http://ads.pheedo.com/img.phdo?s=0267262f6c118e87eb2ec5286097517f&amp;p=1&quot;/&gt;&lt;/a&gt;
+</description> 
+			<dc:creator>By HENRY FOUNTAIN</dc:creator> 
+			<pubDate>Mon, 21 Feb 2011 22:20:20 GMT</pubDate> 
+			<category domain="http://www.nytimes.com/namespaces/des">Levees and Dams</category> 
+			<category domain="http://www.nytimes.com/namespaces/des">Water</category> 
+			<category domain="http://www.nytimes.com/namespaces/des">Lakes</category> 
+			<category domain="http://www.nytimes.com/namespaces/mdes">Accidents and Safety</category> 
+			<category domain="http://www.nytimes.com/namespaces/mdes">Floods</category> 
+		</item> 
+	</channel> 
+</rss>
