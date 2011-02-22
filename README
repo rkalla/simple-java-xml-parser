@@ -26,9 +26,10 @@ This library supports parsing 2 types of data from an XML source:
 * Character data (text between tags)
 * Attribute values
 
-Parsing rules are defined as a series of XPath-esque "paths" pointing at
-elements or attribute names, for example the following rule would point at the 
-<title> tag inside the <item> tag of an RSS feed:
+Parsing rules (IRule instances) are defined as a series of XPath-esque 
+"location paths" pointing at elements or attribute names, for example the 
+following rule would point at the <title> tag inside the <item> tag of an RSS 
+feed:
 /rss/channel/item/title
 
 Additionally, the library supports parsing namespace-qualified entities using a
@@ -39,10 +40,9 @@ Where the "creator" tag is defined as <dc:creator> inside of the RSS feed, and
 the "dc" prefix is mapped to the "http://purl.org/dc/elements/1.1/" namespace
 URI. 
 
-Unfortunately, supporting the use of the 'prefix' in parse rules is too fragile
-as plenty of documents in the wild remap "well known" prefixes to their own
-custom names, like remapping the "dc" Dublin Core prefix to "core" or "dublin"
-that I have seen a few places. 
+Supporting the use of the 'prefix' in parse rules is too fragile as plenty of 
+documents in the wild remap "well known" prefixes to their own custom names, 
+like remapping the "dc" (Dublin Core) prefix to "core" or "dublin".
 
 To ensure parsing correctness, this library opted for explicit namespace URI 
 qualifications.
@@ -50,7 +50,7 @@ qualifications.
 
 Performance
 -----------
-Below are a range of test cases I used to benchmark the parser. I have tried to
+Below are a set of test cases I used to benchmark the parser. I have tried to
 include a range of files so you can most closely predict the performance with
 regards to your intended use.
 
@@ -62,13 +62,11 @@ the /src/test folder.
 * Dual Core Intel E6850 processor
 * 8 GB of ram
 
-[Examples]
+[Benchmark Files]
 1.	Hacker News Feed - 10 KB, 30 stories
-	Parsed: Title and Link elements
 	news.ycombinator.com/rss
 
 2.	Bugzilla Bug Feed - 132 KB, 128 comments
-	Parsed: <who name=""> attribute and <thetext> elements
 	https://bugs.eclipse.org/bugs/show_bug.cgi?id=35973
 
 3.	New York Craigslist Feed - 278 KB, 100 listings
@@ -108,11 +106,15 @@ the /src/test folder.
 7. Processed 10625983 bytes, parsed 41427 XML elements in 412ms
 	ELEMENT: <w> (from the /dictionary/e/ss/s/qp/q path)
 	
-NOTE: If all these tests are run back-to-back such that the running VM gets
-"warmed up", the performance is roughly 2x what it is from a cold-run, which is
-how I ran the tests above.
 
-Here is the output of the Benchmark class when all tests are run together:
+If all these tests are run back-to-back such that the running VM gets
+"warmed up" (as would be the case in an Android or Web application), the 
+performance is roughly 2x what it is from a cold-run.
+
+I ran the tests above from a "cold start" to try and be fair, below is the 
+entire benchmark suite run back-to-back with a warm VM, notice the greatly 
+improved parse times:
+
 1. Processed 11061 bytes, parsed 60 XML elements in 7ms
 2. Processed 132687 bytes, parsed 258 XML elements in 33ms
 3. Processed 278771 bytes, parsed 200 XML elements in 143ms
@@ -128,17 +130,60 @@ Defining a rule (instance of IRule) is as simple as using the DefaultRule class
 and added an impl for either of the two handler methods (1 for ATTRIBUTES and 1
 for CHARACTERS). 
 
-Here is an in-line example used to parse RSS2 feeds:
+Here is an in-line example used to parse links from an RSS2 feed:
 
 	new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
 		@Override
 		public void handleParsedCharacters(String text) {
-			count++;
+			// Do something with the link
 		}
 	}
 	
 You pass that to the XMLParser constructor and you are off to the races parsing
 links out of an RSS feed at the speed of light!
+
+You are certainly welcome to extend IRule yourself, but DefaultRule was written
+with the intent that it could easily be reused in all cases to define rules.
+
+
+How it Works
+------------
+As the underlying XML Pull Parser is parsing the stream of XML content you
+gave it, it keeps track of where it is within the doc by pushing and popping
+the element names (and namespace URIs if available) to a String representation.
+
+NOTE: No Strings are actually instantiated, it is a very optimized process that
+creates no objects.
+
+As the parser runs through the file, at every START_TAG and TEXT event, it 
+queries internal Maps of the IRule instances you gave it to see if any IRule'
+s have locationPaths that match its current location. If it does, the List of 
+matching rules are pulled out and processed.
+
+If no rules are matched, the parser moves on, having done no additional parsing
+work at that currently location (e.g. it doesn't even bother to try and pull out
+the values from the underlying stream unless you ask for them).
+
+It is a really simple design, but makes for a much easier API with next to no
+new overhead introduced into the parsing process.
+
+
+Memory/CPU Overhead
+-------------------
+The overhead added to the parsing process is microscopic, but I will outline it 
+here for the performance-minded folks that like reading this stuff (like me):
+
+1. Parser maintains an internal StringBuilder that it uses to represent its 
+current location in the file. As tags are closed and "popped" off the path,
+StringBuilder.setLength() is used to simply adjust the internal length int as
+opposed to causing a System.arraycopy call by using StringBuilder.delete
+
+2. At every START_TAG and TEXT even, an O(1) Map lookup is done for a matching
+path.
+
+3. Memory overhead for the parser's path (typically 128 bytes) and every IRule
+instance that defines a rule for the parser. You are probably looking at 1K or
+less of memory overhead added.
 
 
 Runtime Requirements
@@ -198,12 +243,21 @@ why?
 	
 	instead of what you were probably trying:
 	/[http://www.w3.org/1999/02/22-rdf-syntax-ns#]RDF/channel
-	 
+
+* I have my rule setup correctly but I never get a parse value from the parser!
+I have double-checked everything, why?!
+
+	This has hit me a few times while writing test-cases when I was getting
+	copy-paste happy... what you've probably done is changed the Type of the
+	rule from ATTRIBUTE to CATEGORY (or visa versa) and forgotten to implement
+	the OTHER handleXXX method so the default no-op method in DefaultRule is 
+	getting called.
+		 
 
 Reference
 ---------
 XML Pull Parsing - http://www.xmlpull.org/
-XML Pull Parsing @ Indiana - http://www.extreme.indiana.edu/xmlpull-website/
+XML Pull Parsing @ Indiana U - http://www.extreme.indiana.edu/xmlpull-website/
 XPP3 - http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/index.html
 Android XML Pull Parsing - http://developer.android.com/reference/org/xmlpull/v1/package-summary.html
 
