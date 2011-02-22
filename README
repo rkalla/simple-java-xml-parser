@@ -20,7 +20,7 @@ A very small (4 classes) abstraction layer that sits on top of the XML Pull
 Parser spec (http://xmlpull.org/) to provide a namespace-capable XML Parser with
 the ease-of-use of XPath with the performance of a native pull parser.
 
-SJXP was designed to work on any Java platform, including Android.
+SJXP was designed to work on any Java platform, including Android 1.5+.
 
 This library supports parsing 2 types of data from an XML source:
 * Character data (text between tags)
@@ -188,9 +188,9 @@ less of memory overhead added.
 
 Runtime Requirements
 --------------------
-If you are deploying this library inside of an app to Android, you only need to
-include the sjxp JAR; it will utilize whatever underlying XML Pull Parser impl
-is provided by the platform.
+If you are deploying this library inside of an app to Android (1.5+), you only 
+need to include the sjxp JAR; it will utilize whatever underlying XML Pull 
+Parser impl is provided by the platform.
 
 If you are deploying this library inside of any other kind of app in a Java
 runtime, be sure to include the xpp3-1.1.4c.jar file that contains the XPP3
