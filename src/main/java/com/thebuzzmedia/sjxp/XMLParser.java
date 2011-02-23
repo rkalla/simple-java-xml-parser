@@ -31,6 +31,8 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import com.thebuzzmedia.sjxp.rule.IRule;
 
 /**
+ * Class used to define a parser that makes parsing using the performance of an
+ * XML Pull Parser with the ease of XPath-like expressions possible.
  * 
  * <h3>Thread Safety</h3> This class is not thread-safe, however instances of
  * {@link XMLParser} can safely be re-used to parse multiple files back-to-back.
@@ -56,8 +58,8 @@ public class XMLParser {
 
 	/**
 	 * Flag used to indicate if this parser should be namespace-aware by setting
-	 * the "sjxp.namespace" system property to <code>true</code>. This value
-	 * will be <code>true</code> if the "sjxp.namespace" system property is
+	 * the "sjxp.namespaces" system property to <code>true</code>. This value
+	 * will be <code>true</code> if the "sjxp.namespaces" system property is
 	 * undefined. Namespace awareness can only be disabled by setting this
 	 * system property to <code>false</code>.
 	 * <p/>
@@ -68,15 +70,15 @@ public class XMLParser {
 	 * <p/>
 	 * This system property can be set on startup with:<br/>
 	 * <code>
-	 * -Dsjxp.namespace=true
+	 * -Dsjxp.namespaces=true
 	 * </code> or by calling {@link System#setProperty(String, String)} before
 	 * this class is loaded.
 	 * <p/>
 	 * This is <code>true</code> by default.
 	 */
 	public static final Boolean ENABLE_NAMESPACES = (System
-			.getProperty("sjxp.namespace") == null ? Boolean.TRUE : Boolean
-			.getBoolean("sjxp.namespace"));
+			.getProperty("sjxp.namespaces") == null ? Boolean.TRUE : Boolean
+			.getBoolean("sjxp.namespaces"));
 
 	/**
 	 * Flag used to indicate if this parser should validate the parsed XML
