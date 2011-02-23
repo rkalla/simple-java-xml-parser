@@ -134,7 +134,7 @@ Here is an in-line example used to parse links from an RSS2 feed:
 
 	new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			// Do something with the link
 		}
 	}
