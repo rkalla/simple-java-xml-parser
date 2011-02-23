@@ -29,6 +29,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.thebuzzmedia.sjxp.rule.IRule;
+import com.thebuzzmedia.sjxp.rule.IRule.Type;
 
 /**
  * Class used to define a parser that makes parsing using the performance of an
@@ -467,8 +468,8 @@ public class XMLParser {
 	 * Used to process a {@link XmlPullParser#START_TAG} event.
 	 * <p/>
 	 * By default this updates the internal location state of the parser and
-	 * processes all {@link IRule}s of type {@link IRule.Type#ATTRIBUTE} that
-	 * match the parser's current location.
+	 * processes all {@link IRule}s of type {@link Type#ATTRIBUTE} that match
+	 * the parser's current location.
 	 */
 	protected void doStartTag() {
 		// Update parser location
@@ -546,7 +547,7 @@ public class XMLParser {
 	 * Used to process a {@link XmlPullParser#TEXT} event.
 	 * <p/>
 	 * By default this processes all {@link IRule}s of type
-	 * {@link IRule.Type#CHARACTER} that match the parser's current location.
+	 * {@link Type#CHARACTER} that match the parser's current location.
 	 */
 	protected void doText() {
 		if (DEBUG)
