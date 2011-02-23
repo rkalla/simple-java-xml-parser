@@ -8,7 +8,7 @@ import com.thebuzzmedia.sjxp.rule.DefaultRuleTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ DefaultRuleTest.class, AttributeOnlyTest.class,
 		CharacterOnlyTest.class, ComplexTest.class, EmptyTest.class,
-		NamespaceTest.class, SimpleTest.class })
+		NamespaceTest.class, SimpleTest.class, StopTest.class })
 public class AllTests {
 	// no op
 }
