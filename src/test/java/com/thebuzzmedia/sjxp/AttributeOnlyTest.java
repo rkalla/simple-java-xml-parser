@@ -34,7 +34,6 @@ public class AttributeOnlyTest extends AbstractTest {
 
 	@Test
 	public void test() {
-		setDebug(true);
 		XMLParser parser = new XMLParser(new CageRule(), new AnimalRule());
 		parser.parse(this.getClass().getResourceAsStream(
 				"resources/attribute-only.xml"));
@@ -48,7 +47,7 @@ public class AttributeOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index, String value) {
 			assertEquals(CAGES[count], Integer.parseInt(value));
 			OK_CAGES[count] = true;
 		}
@@ -61,7 +60,7 @@ public class AttributeOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index, String value) {
 			switch (index) {
 			case 0:
 				assertEquals(TYPES[count], value);

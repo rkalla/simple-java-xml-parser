@@ -47,7 +47,7 @@ public class CharacterOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(TITLES[count], text);
 			OK_TITLES[count] = true;
 		}
@@ -59,7 +59,7 @@ public class CharacterOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(AUTHORS[count], text);
 			OK_AUTHORS[count++] = true;
 		}

@@ -25,7 +25,7 @@ import com.thebuzzmedia.sjxp.rule.IRule.Type;
 public class EmptyTest extends AbstractTest {
 	@Test
 	public void emptyTest() {
-		XMLParser p = new XMLParser(new DefaultRule(Type.CHARACTER, "/"));
+		XMLParser p = new XMLParser(new DefaultRule(Type.CHARACTER, "/test"));
 
 		try {
 			p.parse(EmptyTest.class.getResourceAsStream("resources/empty.xml"));

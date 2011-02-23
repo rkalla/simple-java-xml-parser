@@ -47,7 +47,6 @@ public class NamespaceTest extends AbstractTest {
 
 	@Test
 	public void test() {
-		setDebug(true);
 		XMLParser parser = new XMLParser(new TitleRule(), new OrigLinkRule(),
 				new CreatorRule(), new PubDateRule());
 		parser.parse(this.getClass().getResourceAsStream(
@@ -62,7 +61,7 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(TITLES[count], text);
 			OK_TITLES[count] = true;
 		}
@@ -75,7 +74,7 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(ORIG_LINKS[count], text);
 			OK_ORIG_LINKS[count] = true;
 		}
@@ -88,7 +87,7 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(CREATORS[count], text);
 			OK_CREATORS[count] = true;
 		}
@@ -100,7 +99,7 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(PUB_DATES[count], text);
 			OK_PUB_DATES[count++] = true;
 		}

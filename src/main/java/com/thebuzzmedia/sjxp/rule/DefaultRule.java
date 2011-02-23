@@ -15,11 +15,75 @@
  */
 package com.thebuzzmedia.sjxp.rule;
 
+import com.thebuzzmedia.sjxp.XMLParser;
+
+/**
+ * Class used to provide a default implementation of a rule in SJXP.
+ * <p/>
+ * It is intended that you only ever need to use this class and not implement
+ * your own {@link IRule} classes yourself (you are certainly welcome to
+ * though).
+ * <p/>
+ * Rules all consist of the same boiler plate:
+ * <ul>
+ * <li>A {@link IRule.Type}, so we know if the rule wants to match character
+ * data or attribute values.</li>
+ * <li>A <code>locationPath</code>, which tells us the path to the element in
+ * the XML document to match.</li>
+ * <li>OPTIONAL: 1 or more <code>attributeNames</code> from the matching element
+ * that we want values from.</li>
+ * </ul>
+ * All of that rudimentary behavior, along with some nice error-checking and an
+ * easy-to-debug and caching <code>toString</code> implementation are provided
+ * by this class so you can hit the ground running by simply creating an
+ * instance of this class, passing it a location path and provided an
+ * implementation for the handler you are interested in.
+ * <p/>
+ * An example would look like this:
+ * 
+ * <pre>
+ * new DefaultRule(Type.CHARACTER, &quot;/library/book/title&quot;) {
+ * 	&#064;Override
+ * 	public void handleParsedCharacters(String text) {
+ * 		// Handle the title text
+ * 	}
+ * };
+ * </pre>
+ * 
+ * <h3>Instance Reuse</h3>
+ * Instances of {@link DefaultRule} are immutable and maintain no internal
+ * state, so re-using the same {@link DefaultRule} among multiple instances of
+ * {@link XMLParser} is safe.
+ * 
+ * @author Riyad Kalla (software@thebuzzmedia.com)
+ */
 public class DefaultRule implements IRule {
+	private String toStringCache = null;
+
 	private Type type;
 	private String locationPath;
 	private String[] attributeNames;
 
+	/**
+	 * Create a new rule with the given values.
+	 * 
+	 * @param type
+	 *            The type of the rule.
+	 * @param locationPath
+	 *            The location path of the element to target in the XML.
+	 * @param attributeNames
+	 *            An optional list of attribute names to parse values for if the
+	 *            type of this rule is {@link IRule.Type#ATTRIBUTE}.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if <code>type</code> is <code>null</code>, if
+	 *             <code>locationPath</code> is <code>null</code> or empty, if
+	 *             <code>type</code> is {@link IRule.Type#ATTRIBUTE} and
+	 *             <code>attributeNames</code> is <code>null</code> or empty or
+	 *             if <code>type</code> is {@link IRule.Type#CHARACTER} and
+	 *             <code>attributeNames</code> <strong>is not</strong>
+	 *             <code>null</code> or empty.
+	 */
 	public DefaultRule(Type type, String locationPath, String... attributeNames)
 			throws IllegalArgumentException {
 		if (type == null)
@@ -57,27 +121,42 @@ public class DefaultRule implements IRule {
 		this.attributeNames = attributeNames;
 	}
 
+	/**
+	 * Overridden to provide a nicely formatted representation of the rule for
+	 * easy debugging.
+	 * <p/>
+	 * As an added bonus, since {@link IRule}s are intended to be immutable, the
+	 * result of <code>toString</code> is cached on the first call and the cache
+	 * returned every time to avoid re-computing the completed {@link String}.
+	 * 
+	 * @return a nicely formatted representation of the rule for easy debugging.
+	 */
 	@Override
-	public String toString() {
-		StringBuilder builder = null;
+	public synchronized String toString() {
+		if (toStringCache == null) {
+			StringBuilder builder = null;
 
-		/*
-		 * toString is only used during debugging, so make the toString output
-		 * of the rule pretty so it is easier to track in debug messages.
-		 */
-		if (attributeNames != null && attributeNames.length > 0) {
-			builder = new StringBuilder();
+			/*
+			 * toString is only used during debugging, so make the toString
+			 * output of the rule pretty so it is easier to track in debug
+			 * messages.
+			 */
+			if (attributeNames != null && attributeNames.length > 0) {
+				builder = new StringBuilder();
 
-			for (String name : attributeNames)
-				builder.append(name).append(',');
+				for (String name : attributeNames)
+					builder.append(name).append(',');
 
-			// Chop the last stray comma
-			builder.setLength(builder.length() - 1);
+				// Chop the last stray comma
+				builder.setLength(builder.length() - 1);
+			}
+
+			toStringCache = this.getClass().getName() + "[type=" + type
+					+ ", locationPath=" + locationPath + ", attributeNames="
+					+ (builder == null ? "" : builder.toString()) + "]";
 		}
 
-		return DefaultRule.class.getName() + "[type=" + type
-				+ ", locationPath=" + locationPath + ", attributeNames="
-				+ (builder == null ? "" : builder.toString()) + "]";
+		return toStringCache;
 	}
 
 	public Type getType() {
@@ -92,11 +171,21 @@ public class DefaultRule implements IRule {
 		return attributeNames;
 	}
 
-	public void handleParsedCharacters(String text) {
+	/**
+	 * Default no-op implementation. Please override with your own logic.
+	 * 
+	 * @see IRule#handleParsedCharacters(XMLParser, String)
+	 */
+	public void handleParsedCharacters(XMLParser parser, String text) {
 		// no-op impl
 	}
 
-	public void handleParsedAttribute(int index, String value) {
+	/**
+	 * Default no-op implementation. Please override with your own logic.
+	 * 
+	 * @see IRule#handleParsedAttribute(XMLParser, int, String)
+	 */
+	public void handleParsedAttribute(XMLParser parser, int index, String value) {
 		// no-op impl
 	}
 }

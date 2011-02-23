@@ -45,7 +45,6 @@ public class ComplexTest extends AbstractTest {
 
 	@Test
 	public void test() {
-		setDebug(true);
 		XMLParser parser = new XMLParser(new AboutRule(), new TitleRule(),
 				new SubjectRule(), new DeptRule());
 		parser.parse(this.getClass().getResourceAsStream(
@@ -63,7 +62,7 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index, String value) {
 			assertEquals(ABOUTS[count], value);
 			OK_ABOUTS[count] = true;
 		}
@@ -77,7 +76,7 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(TITLES[count], text);
 			OK_TITLES[count] = true;
 		}
@@ -91,7 +90,7 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(SUBJECTS[count], text);
 			OK_SUBJECTS[count] = true;
 		}
@@ -105,7 +104,7 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(DEPTS[count], text);
 			OK_DEPTS[count++] = true;
 		}

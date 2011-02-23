@@ -45,7 +45,6 @@ public class SimpleTest extends AbstractTest {
 
 	@Test
 	public void test() {
-		setDebug(true);
 		XMLParser parser = new XMLParser(new CategoryRule(), new MovieRule(),
 				new NameRule(), new YearRule(), new ActorRule());
 		parser.parse(this.getClass()
@@ -61,7 +60,7 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index, String value) {
 			assertEquals(CATEGORIES[count], value);
 			OK_CATEGORIES[count] = true;
 		}
@@ -73,7 +72,7 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index, String value) {
 			assertEquals(MOVIES[count], Integer.parseInt(value));
 			OK_MOVIES[count] = true;
 		}
@@ -85,7 +84,7 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(NAMES[count], text);
 			OK_NAMES[count] = true;
 		}
@@ -97,7 +96,7 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(String text) {
+		public void handleParsedCharacters(XMLParser parser, String text) {
 			assertEquals(YEARS[count], Integer.parseInt(text));
 			OK_YEARS[count++] = true;
 		}
@@ -110,7 +109,7 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index, String value) {
 			switch (index) {
 			case 0:
 				assertEquals(CAST_REAL[charCount], value);
