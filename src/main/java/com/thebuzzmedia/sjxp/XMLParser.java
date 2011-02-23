@@ -279,7 +279,8 @@ public class XMLParser {
 	 * <p/>
 	 * This is a safe operation that simply flips a flag to tell the underlying
 	 * {@link XmlPullParser} to stop working after it's done with its current
-	 * parse event.
+	 * parse event and return from whichever <code>parse</code> method was
+	 * called.
 	 */
 	public void stop() {
 		continueParsing = false;
@@ -292,6 +293,9 @@ public class XMLParser {
 	 * The underlying {@link XmlPullParser} will attempt to determine the
 	 * stream's encoding based on the pull parser spec or fall back to a default
 	 * of UTF-8.
+	 * <p/>
+	 * This class will make no attempt at closing the given {@link InputStream},
+	 * the caller must take care to clean up that resource.
 	 * <h3>Stopping Parsing</h3>
 	 * Parsing can be safely stopped by calling {@link #stop()}. This allows
 	 * {@link IRule} implementations control over stopping parsing, for example,
@@ -321,12 +325,14 @@ public class XMLParser {
 	 * Parse the XML out of the given stream (producing content matching the
 	 * given encoding) matching the {@link IRule}s provided when the
 	 * {@link XMLParser} was instantiated.
-	 * 
-	 * <h3>Stopping Parsing</h3> Parsing can be safely stopped by calling
-	 * {@link #stop()}. This allows {@link IRule} implementations control over
-	 * stopping parsing, for example, if an arbitrary threshold is hit. A
-	 * followup call to any of the <code>parse</code> methods will reset the
-	 * stopped state.
+	 * <p/>
+	 * This class will make no attempt at closing the given {@link InputStream},
+	 * the caller must take care to clean up that resource.
+	 * <h3>Stopping Parsing</h3>
+	 * Parsing can be safely stopped by calling {@link #stop()}. This allows
+	 * {@link IRule} implementations control over stopping parsing, for example,
+	 * if an arbitrary threshold is hit. A followup call to any of the
+	 * <code>parse</code> methods will reset the stopped state.
 	 * 
 	 * @param source
 	 *            The stream that XML content will be read out of.
