@@ -21,6 +21,7 @@ import com.thebuzzmedia.sjxp.rule.DefaultRule;
 
 import static junit.framework.Assert.*;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class AttributeOnlyTest extends AbstractTest {
 	public static final int[] CAGES = new int[] { 1, 2 };
 	public static final String[] TYPES = new String[] { "tiger", "walrus" };
@@ -47,7 +48,8 @@ public class AttributeOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(XMLParser parser, int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index,
+				String value, Object userObject) {
 			assertEquals(CAGES[count], Integer.parseInt(value));
 			OK_CAGES[count] = true;
 		}
@@ -60,7 +62,8 @@ public class AttributeOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(XMLParser parser, int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index,
+				String value, Object userObject) {
 			switch (index) {
 			case 0:
 				assertEquals(TYPES[count], value);

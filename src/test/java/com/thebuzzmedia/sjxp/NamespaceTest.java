@@ -21,6 +21,7 @@ import com.thebuzzmedia.sjxp.rule.DefaultRule;
 
 import static junit.framework.Assert.*;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class NamespaceTest extends AbstractTest {
 	public static final String[] TITLES = new String[] {
 			"Wisconsin’s Ties to Labor Fray as Its Economy Shifts",
@@ -61,7 +62,8 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(TITLES[count], text);
 			OK_TITLES[count] = true;
 		}
@@ -74,7 +76,8 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(ORIG_LINKS[count], text);
 			OK_ORIG_LINKS[count] = true;
 		}
@@ -87,7 +90,8 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(CREATORS[count], text);
 			OK_CREATORS[count] = true;
 		}
@@ -99,7 +103,8 @@ public class NamespaceTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(PUB_DATES[count], text);
 			OK_PUB_DATES[count++] = true;
 		}

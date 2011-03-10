@@ -55,9 +55,18 @@ import com.thebuzzmedia.sjxp.XMLParser;
  * state, so re-using the same {@link DefaultRule} among multiple instances of
  * {@link XMLParser} is safe.
  * 
+ * @param <T>
+ *            The class type of any user-supplied object that the caller wishes
+ *            to be passed through from one of the {@link XMLParser}'s
+ *            <code>parse</code> methods directly to the handler when a rule
+ *            matches. This is typically a data storage mechanism like a DAO or
+ *            cache used to store the parsed value in some valuable way, but it
+ *            can ultimately be anything. If you do not need to make use of the
+ *            user object, there is no need to parameterize the class.
+ * 
  * @author Riyad Kalla (software@thebuzzmedia.com)
  */
-public class DefaultRule implements IRule {
+public class DefaultRule<T> implements IRule<T> {
 	private String toStringCache = null;
 
 	private Type type;
@@ -174,18 +183,29 @@ public class DefaultRule implements IRule {
 	/**
 	 * Default no-op implementation. Please override with your own logic.
 	 * 
-	 * @see IRule#handleParsedCharacters(XMLParser, String)
+	 * @see IRule#handleTag(XMLParser, boolean, Object)
 	 */
-	public void handleParsedCharacters(XMLParser parser, String text) {
+	public void handleTag(XMLParser<T> parser, boolean isStartTag, T userObject) {
 		// no-op impl
 	}
 
 	/**
 	 * Default no-op implementation. Please override with your own logic.
 	 * 
-	 * @see IRule#handleParsedAttribute(XMLParser, int, String)
+	 * @see IRule#handleParsedAttribute(XMLParser, int, String, Object)
 	 */
-	public void handleParsedAttribute(XMLParser parser, int index, String value) {
+	public void handleParsedAttribute(XMLParser<T> parser, int index,
+			String value, T userObject) {
+		// no-op impl
+	}
+
+	/**
+	 * Default no-op implementation. Please override with your own logic.
+	 * 
+	 * @see IRule#handleParsedCharacters(XMLParser, String, Object)
+	 */
+	public void handleParsedCharacters(XMLParser<T> parser, String text,
+			T userObject) {
 		// no-op impl
 	}
 }

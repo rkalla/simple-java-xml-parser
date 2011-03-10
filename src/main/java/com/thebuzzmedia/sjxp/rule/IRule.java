@@ -33,9 +33,9 @@ import com.thebuzzmedia.sjxp.XMLParser;
  * <code>handleParsedXXX</code> method matching the <code>type</code> of rule
  * they have created. More specifically, if you are creating a
  * {@link Type#ATTRIBUTE} rule, you need to implement the
- * {@link #handleParsedAttribute(XMLParser, int, String)} method; if you are
- * implementing a {@link Type#CHARACTER} rule, you need to implement the
- * {@link #handleParsedCharacters(XMLParser, String)} method.
+ * {@link #handleParsedAttribute(XMLParser, int, String, Object)} method; if you
+ * are implementing a {@link Type#CHARACTER} rule, you need to implement the
+ * {@link #handleParsedCharacters(XMLParser, String, Object)} method.
  * <h3>Rule Matching</h3>
  * Rules will execute every single time they match an element in an XML
  * document. There is no XPath-like expression system to tell them to only get
@@ -128,23 +128,44 @@ import com.thebuzzmedia.sjxp.XMLParser;
  * applications, SJXP had to take a very conservative approach and be as
  * pedantic as possible so as not to hide any behavior from the caller.
  * 
+ * @param <T>
+ *            The class type of any user-supplied object that the caller wishes
+ *            to be passed through from one of the {@link XMLParser}'s
+ *            <code>parse</code> methods directly to the handler when an
+ *            {@link IRule} matches. This is typically a data storage mechanism
+ *            like a DAO or cache used to store the parsed value in some
+ *            valuable way, but it can ultimately be anything. If you do not
+ *            need to make use of the user object, there is no need to
+ *            parameterize the class.
+ * 
  * @author Riyad Kalla (software@thebuzzmedia.com)
  */
-public interface IRule {
+public interface IRule<T> {
 	/**
 	 * Used to describe the type of the parse rule.
 	 */
 	public static enum Type {
+		/**
+		 * Type used to indicate a rule interested in START_TAG and END_TAG
+		 * events for the matching location path.
+		 * <p/>
+		 * This can be handy when no parsed data is needed from the underlying
+		 * XML, but rather a simple notification that the location path existed
+		 * in the XML (e.g. counting element occurrences).
+		 */
+		TAG,
 		/**
 		 * Type used to indicate that this rule describes 1 or more attribute
 		 * values that the caller wants parsed.
 		 */
 		ATTRIBUTE,
 		/**
+		 * Used to describe a rule that will be called
+		 * 
 		 * Type used to indicate that this rule describes the character data
 		 * between an open and close tag that the caller wants parsed.
 		 */
-		CHARACTER
+		CHARACTER;
 	}
 
 	/**
@@ -165,10 +186,15 @@ public interface IRule {
 	 * This value is compared literally against the internal path state of the
 	 * {@link XMLParser} to see if they match before processing the rule. If you
 	 * have a rule that isn't executing, chances are your location path is
-	 * incorrect or mistyped.
+	 * incorrect or mistyped or it is possible that your location path is
+	 * correct but you have implemented the wrong <code>handleXXX</code> method
+	 * so the default no-op one in {@link DefaultRule} is getting called.
 	 * <h3>Namespaces</h3>
 	 * Please refer to the class notes on the correct format used to define a
 	 * path element that is namespace-qualified by using brackets.
+	 * <p/>
+	 * Namespace qualifiers can be specified for both element paths and
+	 * attribute names.
 	 * 
 	 * @return the location path of the element inside the XML document that
 	 *         this rule is interested in.
@@ -182,13 +208,75 @@ public interface IRule {
 	 * If the rule type is {@link Type#CHARACTER}, the attribute name list
 	 * should be ignored.
 	 * <h3>Namespaces</h3>
-	 * Please refer to the class notes on the correct format used to define an
-	 * attribute name that is namespace-qualified by using brackets.
+	 * Please refer to the class notes on the correct format used to define a
+	 * path element that is namespace-qualified by using brackets.
+	 * <p/>
+	 * Namespace qualifiers can be specified for both element paths and
+	 * attribute names.
 	 * 
 	 * @return a list of attribute names that are to be parsed from the element
 	 *         located at {@link #getLocationPath()}.
 	 */
 	public String[] getAttributeNames();
+
+	/**
+	 * Handler method called by the {@link XMLParser} when an {@link IRule} of
+	 * type {@link Type#TAG} matches the parser's current location in the
+	 * document.
+	 * <p/>
+	 * This is a notification-style method, no data is parsed from the
+	 * underlying document, the handler is merely called to give custom handling
+	 * code a chance to respond to the matching open or close tag.
+	 * 
+	 * @param parser
+	 *            The source {@link XMLParser} currently executing this rule.
+	 *            Providing access to the originating parser is handy if the
+	 *            rule wants to stop parsing by calling {@link XMLParser#stop()}
+	 *            .
+	 * @param isStartTag
+	 *            Used to indicate if this notification is being made because
+	 *            the START_TAG (<code>true</code>) was encountered or the
+	 *            END_TAG (<code>false</code>) was encountered.
+	 * @param userObject
+	 *            The user-supplied object passed through from the
+	 *            {@link XMLParser}'s <code>parse</code> method directly to this
+	 *            handler. This is typically a data storage mechanism like a DAO
+	 *            or cache used to hold parsed data or <code>null</code> if you
+	 *            do not need to make use of this pass-through mechanism and
+	 *            passed nothing to the {@link XMLParser} when you initiated the
+	 *            parse.
+	 */
+	public void handleTag(XMLParser<T> parser, boolean isStartTag, T userObject);
+
+	/**
+	 * Handler method called by the {@link XMLParser} when an {@link IRule} of
+	 * type {@link Type#ATTRIBUTE} matches the parser's current location in the
+	 * document.
+	 * 
+	 * @param parser
+	 *            The source {@link XMLParser} currently executing this rule.
+	 *            Providing access to the originating parser is handy if the
+	 *            rule wants to stop parsing by calling {@link XMLParser#stop()}
+	 *            .
+	 * @param index
+	 *            The index of the attribute name (from
+	 *            {@link #getAttributeNames()}) that this value belongs to.
+	 * @param value
+	 *            The value for the given attribute.
+	 * @param userObject
+	 *            The user-supplied object passed through from the
+	 *            {@link XMLParser}'s <code>parse</code> method directly to this
+	 *            handler. This is typically a data storage mechanism like a DAO
+	 *            or cache used to hold parsed data or <code>null</code> if you
+	 *            do not need to make use of this pass-through mechanism and
+	 *            passed nothing to the {@link XMLParser} when you initiated the
+	 *            parse.
+	 * 
+	 * @see #getLocationPath()
+	 * @see #getAttributeNames()
+	 */
+	public void handleParsedAttribute(XMLParser<T> parser, int index,
+			String value, T userObject);
 
 	/**
 	 * Handler method called by the {@link XMLParser} when an {@link IRule} of
@@ -207,29 +295,17 @@ public interface IRule {
 	 * @param text
 	 *            The character data contained between the open and close tags
 	 *            described by {@link #getLocationPath()}.
+	 * @param userObject
+	 *            The user-supplied object passed through from the
+	 *            {@link XMLParser}'s <code>parse</code> method directly to this
+	 *            handler. This is typically a data storage mechanism like a DAO
+	 *            or cache used to hold parsed data or <code>null</code> if you
+	 *            do not need to make use of this pass-through mechanism and
+	 *            passed nothing to the {@link XMLParser} when you initiated the
+	 *            parse.
 	 * 
 	 * @see #getLocationPath()
 	 */
-	public void handleParsedCharacters(XMLParser parser, String text);
-
-	/**
-	 * Handler method called by the {@link XMLParser} when an {@link IRule} of
-	 * type {@link Type#ATTRIBUTE} matches the parser's current location in the
-	 * document.
-	 * 
-	 * @param parser
-	 *            The source {@link XMLParser} currently executing this rule.
-	 *            Providing access to the originating parser is handy if the
-	 *            rule wants to stop parsing by calling {@link XMLParser#stop()}
-	 *            .
-	 * @param index
-	 *            The index of the attribute name (from
-	 *            {@link #getAttributeNames()}) that this value belongs to.
-	 * @param value
-	 *            The value for the given attribute.
-	 * 
-	 * @see #getLocationPath()
-	 * @see #getAttributeNames()
-	 */
-	public void handleParsedAttribute(XMLParser parser, int index, String value);
+	public void handleParsedCharacters(XMLParser<T> parser, String text,
+			T userObject);
 }

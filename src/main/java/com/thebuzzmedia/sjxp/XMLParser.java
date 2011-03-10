@@ -31,6 +31,15 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import com.thebuzzmedia.sjxp.rule.IRule;
 import com.thebuzzmedia.sjxp.rule.IRule.Type;
 
+/*
+ * TODO: Consider making this class thread-safe, or atleast behave itself better
+ * when multiple threads call it.
+ * 
+ * Either synchronize the methods or keep track of the currently-executing thread
+ * and if another thread calls parse, throw an exception with a reminder to the
+ * caller that this class is not thread-safe?
+ */
+
 /**
  * Class used to define a parser that makes parsing using the performance of an
  * XML Pull Parser with the ease of XPath-like expressions possible.
@@ -38,9 +47,19 @@ import com.thebuzzmedia.sjxp.rule.IRule.Type;
  * <h3>Thread Safety</h3> This class is not thread-safe, however instances of
  * {@link XMLParser} can safely be re-used to parse multiple files back-to-back.
  * 
+ * @param <T>
+ *            The class type of any user-supplied object that the caller wishes
+ *            to be passed through from one of the {@link XMLParser}'s
+ *            <code>parse</code> methods directly to the handler when an
+ *            {@link IRule} matches. This is typically a data storage mechanism
+ *            like a DAO or cache used to store the parsed value in some
+ *            valuable way, but it can ultimately be anything. If you do not
+ *            need to make use of the user object, there is no need to
+ *            parameterize the class.
+ * 
  * @author Riyad Kalla (software@thebuzzmedia.com)
  */
-public class XMLParser {
+public class XMLParser<T> {
 	/**
 	 * Flag used to indicate if debugging output has been enabled by setting the
 	 * "sjxp.debug" system property to <code>true</code>. This value will be
@@ -103,6 +122,8 @@ public class XMLParser {
 	 * Prefix to every log message this library logs. Using a well-defined
 	 * prefix helps make it easier both visually and programmatically to scan
 	 * log files for messages produced by this library.
+	 * <p/>
+	 * The value is "[sjxp] " (including the space).
 	 */
 	public static final String LOG_MESSAGE_PREFIX = "[sjxp] ";
 
@@ -114,7 +135,8 @@ public class XMLParser {
 	public static final XmlPullParserFactory XPP_FACTORY;
 
 	/**
-	 * Static initializer used to init the {@link XmlPullParserFactory}.
+	 * Static initializer used to init the {@link XmlPullParserFactory} with the
+	 * configured namespace and validation settings.
 	 */
 	static {
 		if (DEBUG)
@@ -137,87 +159,6 @@ public class XMLParser {
 					"An exception occurred while calling XmlPullParserFactory.newInstance(). A library providing the impl of the XML Pull Parser spec (e.g. XPP3 or Android SDK) must be available at runtime.",
 					e);
 		}
-	}
-
-	private String toStringCache;
-
-	private boolean continueParsing = true;
-	private Location location;
-	private XmlPullParser xpp;
-	private Map<String, List<IRule>> attrRuleMap;
-	private Map<String, List<IRule>> charRuleMap;
-
-	/**
-	 * Create a new parser that uses the given {@link IRule}s when parsing any
-	 * XML content.
-	 * 
-	 * @param rules
-	 *            The rules applied to any parsed content.
-	 * 
-	 * @throws IllegalArgumentException
-	 *             if <code>rules</code> is <code>null</code> or empty.
-	 * @throws XMLParserException
-	 *             if the {@link #XPP_FACTORY} is unable to create a new
-	 *             {@link XmlPullParser} instance and throws an exception.
-	 */
-	public XMLParser(IRule... rules) throws IllegalArgumentException,
-			XMLParserException {
-		if (rules == null || rules.length == 0)
-			throw new IllegalArgumentException(
-					"rules cannot be null or empty, you must provide at least 1 rule to execute otherwise parsing will do nothing.");
-
-		location = new Location();
-
-		try {
-			xpp = XPP_FACTORY.newPullParser();
-		} catch (XmlPullParserException e) {
-			throw new XMLParserException(
-					"An exception occurred while trying to create a new XmlPullParser instance using the XmlPullParserFactory.",
-					e);
-		}
-
-		// calculate a rough optimal size for the rule maps
-		int optSize = (rules.length > 64 ? rules.length * 2 : 64);
-
-		// init the rule maps
-		attrRuleMap = new HashMap<String, List<IRule>>(optSize);
-		charRuleMap = new HashMap<String, List<IRule>>(optSize);
-
-		// init the rules
-		List<IRule> ruleList = null;
-
-		for (IRule rule : rules) {
-			switch (rule.getType()) {
-			case ATTRIBUTE:
-				// Get the rule list for this path
-				ruleList = attrRuleMap.get(rule.getLocationPath());
-
-				// If there wasn't already a rule list, create and add it
-				if (ruleList == null) {
-					ruleList = new ArrayList<IRule>(3);
-					attrRuleMap.put(rule.getLocationPath(), ruleList);
-				}
-				break;
-
-			case CHARACTER:
-				// Get the rule list for this path
-				ruleList = charRuleMap.get(rule.getLocationPath());
-
-				// If there wasn't already a rule list, create and add it
-				if (ruleList == null) {
-					ruleList = new ArrayList<IRule>(3);
-					charRuleMap.put(rule.getLocationPath(), ruleList);
-				}
-				break;
-			}
-
-			// Add the rule to the list for the given path
-			ruleList.add(rule);
-		}
-
-		if (DEBUG)
-			log("Initialized %d ATTRIBUTE rules and %d CHARACTER rules.",
-					attrRuleMap.size(), charRuleMap.size());
 	}
 
 	/**
@@ -248,6 +189,49 @@ public class XMLParser {
 	protected static void log(String message, Object... params) {
 		if (DEBUG)
 			System.out.printf(LOG_MESSAGE_PREFIX + message + '\n', params);
+	}
+
+	private String toStringCache;
+	private boolean continueParsing = true;
+
+	private Location location;
+	private XmlPullParser xpp;
+
+	private Map<String, List<IRule<T>>> tagRuleMap;
+	private Map<String, List<IRule<T>>> attrRuleMap;
+	private Map<String, List<IRule<T>>> charRuleMap;
+
+	/**
+	 * Create a new parser that uses the given {@link IRule}s when parsing any
+	 * XML content.
+	 * 
+	 * @param rules
+	 *            The rules applied to any parsed content.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if <code>rules</code> is <code>null</code> or empty.
+	 * @throws XMLParserException
+	 *             if the {@link #XPP_FACTORY} is unable to create a new
+	 *             {@link XmlPullParser} instance and throws an exception.
+	 */
+	public XMLParser(IRule<T>... rules) throws IllegalArgumentException,
+			XMLParserException {
+		if (rules == null || rules.length == 0)
+			throw new IllegalArgumentException(
+					"rules cannot be null or empty, you must provide at least 1 rule to execute otherwise parsing will do nothing.");
+
+		location = new Location();
+
+		try {
+			xpp = XPP_FACTORY.newPullParser();
+		} catch (XmlPullParserException e) {
+			throw new XMLParserException(
+					"An exception occurred while trying to create a new XmlPullParser instance using the XmlPullParserFactory.",
+					e);
+		}
+
+		// Load all the rules
+		initRules(rules);
 	}
 
 	/**
@@ -318,7 +302,50 @@ public class XMLParser {
 	public void parse(InputStream source) throws IllegalArgumentException,
 			XMLParserException {
 		try {
-			parse(source, null);
+			parse(source, null, null);
+		} catch (UnsupportedEncodingException e) {
+			// no-op, this should never happen as null is a valid encoding.
+		}
+	}
+
+	/**
+	 * Parse the XML out of the given stream matching the {@link IRule}s
+	 * provided when the {@link XMLParser} was instantiated.
+	 * <p/>
+	 * The underlying {@link XmlPullParser} will attempt to determine the
+	 * stream's encoding based on the pull parser spec or fall back to a default
+	 * of UTF-8.
+	 * <p/>
+	 * This class will make no attempt at closing the given {@link InputStream},
+	 * the caller must take care to clean up that resource.
+	 * <h3>Stopping Parsing</h3>
+	 * Parsing can be safely stopped by calling {@link #stop()}. This allows
+	 * {@link IRule} implementations control over stopping parsing, for example,
+	 * if an arbitrary threshold is hit. A followup call to any of the
+	 * <code>parse</code> methods will reset the stopped state.
+	 * 
+	 * @param source
+	 *            The stream that XML content will be read out of.
+	 * @param userObject
+	 *            The user-supplied object passed through from this parse method
+	 *            to the matching {@link IRule}'s <code>handleXXX</code> method
+	 *            when a match is found, or <code>null</code> if no user object
+	 *            is needed. Passing through a user-object is just meant as a
+	 *            convenience for giving the handler methods on the
+	 *            {@link IRule}'s access to objects like DAOs that can be used
+	 *            to persist or process parsed data easily.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if <code>source</code> is <code>null</code>.
+	 * @throws XMLParserException
+	 *             if any error occurs with the underlying stream during parsing
+	 *             of if the XML content itself is malformed and the underlying
+	 *             pull parser cannot parse it.
+	 */
+	public void parse(InputStream source, T userObject)
+			throws IllegalArgumentException, XMLParserException {
+		try {
+			parse(source, null, userObject);
 		} catch (UnsupportedEncodingException e) {
 			// no-op, this should never happen as null is a valid encoding.
 		}
@@ -359,6 +386,52 @@ public class XMLParser {
 	public void parse(InputStream source, String encoding)
 			throws IllegalArgumentException, UnsupportedEncodingException,
 			XMLParserException {
+		parse(source, encoding, null);
+	}
+
+	/**
+	 * Parse the XML out of the given stream (producing content matching the
+	 * given encoding) matching the {@link IRule}s provided when the
+	 * {@link XMLParser} was instantiated.
+	 * <p/>
+	 * This class will make no attempt at closing the given {@link InputStream},
+	 * the caller must take care to clean up that resource.
+	 * <h3>Stopping Parsing</h3>
+	 * Parsing can be safely stopped by calling {@link #stop()}. This allows
+	 * {@link IRule} implementations control over stopping parsing, for example,
+	 * if an arbitrary threshold is hit. A followup call to any of the
+	 * <code>parse</code> methods will reset the stopped state.
+	 * 
+	 * @param source
+	 *            The stream that XML content will be read out of.
+	 * @param encoding
+	 *            The character encoding (e.g. "UTF-8") of the data from the
+	 *            given stream. If the encoding is not known, passing
+	 *            <code>null</code> or calling {@link #parse(InputStream)}
+	 *            instead will allow the underlying {@link XmlPullParser} to try
+	 *            and automatically determine the encoding.
+	 * @param userObject
+	 *            The user-supplied object passed through from this parse method
+	 *            to the matching {@link IRule}'s <code>handleXXX</code> method
+	 *            when a match is found, or <code>null</code> if no user object
+	 *            is needed. Passing through a user-object is just meant as a
+	 *            convenience for giving the handler methods on the
+	 *            {@link IRule}'s access to objects like DAOs that can be used
+	 *            to persist or process parsed data easily.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             if <code>source</code> is <code>null</code>.
+	 * @throws UnsupportedEncodingException
+	 *             if <code>encoding</code> represents an encoding name that is
+	 *             not recognized by {@link Charset#isSupported(String)}
+	 * @throws XMLParserException
+	 *             if any error occurs with the underlying stream during parsing
+	 *             of if the XML content itself is malformed and the underlying
+	 *             pull parser cannot parse it.
+	 */
+	public void parse(InputStream source, String encoding, T userObject)
+			throws IllegalArgumentException, UnsupportedEncodingException,
+			XMLParserException {
 		if (source == null)
 			throw new IllegalArgumentException("source cannot be null");
 		if (encoding != null) {
@@ -377,8 +450,9 @@ public class XMLParser {
 			xpp.setInput(source, encoding);
 
 			if (DEBUG)
-				log("Underlying XmlPullParser input set [type=InputStream, encoding=%s (null is OK)]",
-						xpp.getInputEncoding());
+				log("Underlying XmlPullParser input set [type=InputStream, encoding=%s (null is OK), userObject=%s]",
+						xpp.getInputEncoding(), (userObject == null ? ""
+								: userObject));
 		} catch (XmlPullParserException e) {
 			throw new XMLParserException(
 					"Unable to set the given InputStream (with an optional encoding of '"
@@ -388,7 +462,7 @@ public class XMLParser {
 		}
 
 		try {
-			doParse();
+			doParse(userObject);
 		} catch (IOException e) {
 			throw new XMLParserException(
 					"An exception occurred while parsing the given source, the XML document may be malformed.",
@@ -400,6 +474,63 @@ public class XMLParser {
 		}
 	}
 
+	protected void initRules(IRule<T>... rules) {
+		// calculate a rough optimal size for the rule maps
+		int optSize = (rules.length > 64 ? rules.length * 2 : 64);
+
+		// init the rule maps
+		tagRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
+		attrRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
+		charRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
+
+		// init the rules
+		List<IRule<T>> ruleList = null;
+
+		for (IRule<T> rule : rules) {
+			switch (rule.getType()) {
+			case TAG:
+				// Get the rule list for this path
+				ruleList = tagRuleMap.get(rule.getLocationPath());
+
+				// If there wasn't already a rule list, create and add it
+				if (ruleList == null) {
+					ruleList = new ArrayList<IRule<T>>(3);
+					tagRuleMap.put(rule.getLocationPath(), ruleList);
+				}
+				break;
+
+			case ATTRIBUTE:
+				// Get the rule list for this path
+				ruleList = attrRuleMap.get(rule.getLocationPath());
+
+				// If there wasn't already a rule list, create and add it
+				if (ruleList == null) {
+					ruleList = new ArrayList<IRule<T>>(3);
+					attrRuleMap.put(rule.getLocationPath(), ruleList);
+				}
+				break;
+
+			case CHARACTER:
+				// Get the rule list for this path
+				ruleList = charRuleMap.get(rule.getLocationPath());
+
+				// If there wasn't already a rule list, create and add it
+				if (ruleList == null) {
+					ruleList = new ArrayList<IRule<T>>(3);
+					charRuleMap.put(rule.getLocationPath(), ruleList);
+				}
+				break;
+			}
+
+			// Add the rule to the list for the given path
+			ruleList.add(rule);
+		}
+
+		if (DEBUG)
+			log("Initialized %d TAG rules, %d ATTRIBUTE rules and %d CHARACTER rules.",
+					tagRuleMap.size(), attrRuleMap.size(), charRuleMap.size());
+	}
+
 	/**
 	 * Uses the underlying {@link XmlPullParser} to begin parsing through the
 	 * XML content from the given stream. This method's implementation is
@@ -409,14 +540,23 @@ public class XMLParser {
 	 * events by calling the appropriate <code>doXXX</code> methods.
 	 * <p/>
 	 * Developers creating a subclass of {@link XMLParser} are meant to override
-	 * one of the {@link #doStartTag()}, {@link #doText()}, {@link #doEndTag()}
-	 * and {@link #doEndDocument()} methods to add custom behavior and not
-	 * necessarily override this central method.
+	 * one of the {@link #doStartTag(Object)}, {@link #doText(Object)},
+	 * {@link #doEndTag(Object)} and {@link #doEndDocument(Object)} methods to
+	 * add custom behavior and not necessarily override this central method.
 	 * <h3>Stopping Parsing</h3>
 	 * Parsing can be safely stopped by calling {@link #stop()}. This allows
 	 * {@link IRule} implementations control over stopping parsing, for example,
 	 * if an arbitrary threshold is hit. A followup call to any of the
 	 * <code>parse</code> methods will reset the stopped state.
+	 * 
+	 * @param userObject
+	 *            The user-supplied object passed through from this parse method
+	 *            to the matching {@link IRule}'s <code>handleXXX</code> method
+	 *            when a match is found, or <code>null</code> if no user object
+	 *            is needed. Passing through a user-object is just meant as a
+	 *            convenience for giving the handler methods on the
+	 *            {@link IRule}'s access to objects like DAOs that can be used
+	 *            to persist or process parsed data easily.
 	 * 
 	 * @throws IOException
 	 *             if an error occurs with reading from the underlying
@@ -427,7 +567,8 @@ public class XMLParser {
 	 *             underlying stream; typically resulting from malformed or
 	 *             invalid XML.
 	 */
-	protected void doParse() throws IOException, XmlPullParserException {
+	protected void doParse(T userObject) throws IOException,
+			XmlPullParserException {
 		location.clear();
 		continueParsing = true;
 
@@ -439,20 +580,20 @@ public class XMLParser {
 		while (continueParsing) {
 			switch (xpp.next()) {
 			case XmlPullParser.START_TAG:
-				doStartTag();
+				doStartTag(userObject);
 				break;
 
 			case XmlPullParser.TEXT:
-				doText();
+				doText(userObject);
 				break;
 
 			case XmlPullParser.END_TAG:
-				doEndTag();
+				doEndTag(userObject);
 				break;
 
 			case XmlPullParser.END_DOCUMENT:
 				continueParsing = false;
-				doEndDocument();
+				doEndDocument(userObject);
 				break;
 			}
 		}
@@ -467,11 +608,21 @@ public class XMLParser {
 	/**
 	 * Used to process a {@link XmlPullParser#START_TAG} event.
 	 * <p/>
-	 * By default this updates the internal location state of the parser and
-	 * processes all {@link IRule}s of type {@link Type#ATTRIBUTE} that match
-	 * the parser's current location.
+	 * By default this updates the internal location state of the parser,
+	 * processes all {@link IRule}s of type {@link Type#TAG} and processes all
+	 * {@link IRule}s of type {@link Type#ATTRIBUTE} that match the parser's
+	 * current location.
+	 * 
+	 * @param userObject
+	 *            The user-supplied object passed through from this parse method
+	 *            to the matching {@link IRule}'s <code>handleXXX</code> method
+	 *            when a match is found, or <code>null</code> if no user object
+	 *            is needed. Passing through a user-object is just meant as a
+	 *            convenience for giving the handler methods on the
+	 *            {@link IRule}'s access to objects like DAOs that can be used
+	 *            to persist or process parsed data easily.
 	 */
-	protected void doStartTag() {
+	protected void doStartTag(T userObject) {
 		// Update parser location
 		location.push(xpp.getName(), xpp.getNamespace());
 
@@ -479,66 +630,98 @@ public class XMLParser {
 			log("START_TAG: %s", location);
 
 		// Get the rules for the current path
-		List<IRule> ruleList = attrRuleMap.get(location.toString());
+		List<IRule<T>> tagRuleList = tagRuleMap.get(location.toString());
+		List<IRule<T>> attrRuleList = attrRuleMap.get(location.toString());
 
 		// If there are no rules for the current path, then we are done.
-		if (ruleList == null || ruleList.isEmpty())
+		if ((tagRuleList == null || tagRuleList.isEmpty())
+				&& (attrRuleList == null || attrRuleList.isEmpty()))
 			return;
 
 		if (DEBUG)
-			log("\t%d rules found for START_TAG...", ruleList.size());
+			log("\t%d TAG rules and %d ATTR rules found for START_TAG...",
+					(tagRuleList == null ? 0 : tagRuleList.size()),
+					(attrRuleList == null ? 0 : attrRuleList.size()));
 
-		for (IRule rule : ruleList) {
-			if (DEBUG)
-				log("\t\tRunning Rule: %s", rule);
+		// Process the TAG rules
+		if (tagRuleList != null) {
+			for (IRule<T> rule : tagRuleList) {
+				if (DEBUG)
+					log("\t\tRunning TAG Rule: %s", rule);
 
-			String[] attrs = rule.getAttributeNames();
+				rule.handleTag(this, true, userObject);
+			}
+		}
 
-			// Jump to the next rule if this one has no attribute entries
-			if (attrs == null || attrs.length == 0)
-				continue;
+		// Process the ATTR rules
+		if (attrRuleList != null) {
+			for (IRule<T> rule : attrRuleList) {
+				if (DEBUG)
+					log("\t\tRunning ATTR Rule: %s", rule);
 
-			for (int i = 0; i < attrs.length; i++) {
-				String attr = attrs[i];
-				String localName = null;
-				String namespaceURI = null;
+				String[] attrNames = rule.getAttributeNames();
 
-				// Parse the namespaceURI out of the attr if necessary
-				if (attr.charAt(0) == '[') {
-					int endIndex = attr.indexOf(']');
+				// Be safe, jump to the next rule if this one has no name
+				// entries
+				if (attrNames == null || attrNames.length == 0)
+					continue;
+
+				/*
+				 * PERFORMANCE: Generating the substrings is the fastest way to
+				 * parse out the matching rules as it shares the same underlying
+				 * char[] used to represent the entire location path or
+				 * attribute name and just creates a new simple String instance
+				 * with modified index/offset values that is GC'ed quickly and
+				 * easily (uses a special package-protected String constructor).
+				 * 
+				 * Using regexp to match, splitting the rule or just about any
+				 * other approach would have been magnitudes more expensive both
+				 * in memory and CPU requirements than doing a simple substring.
+				 */
+				for (int i = 0; i < attrNames.length; i++) {
+					String attrName = attrNames[i];
+					String localName = null;
+					String namespaceURI = null;
+
+					// Parse the namespaceURI out of the name if necessary
+					if (attrName.charAt(0) == '[') {
+						int endIndex = attrName.indexOf(']');
+
+						/*
+						 * Make sure the rule is valid so we avoid out of bounds
+						 * and keep the caller informed when their rules are
+						 * busted by failing fast.
+						 */
+						if (endIndex <= 2)
+							throw new XMLParserException(
+									"namespace URI for rule looks to be incomplete or empty for IRule: "
+											+ rule);
+
+						namespaceURI = attrName.substring(1, endIndex);
+					}
+
+					int startIndex = (namespaceURI == null ? 0 : namespaceURI
+							.length() + 2);
 
 					/*
 					 * Make sure the rule is valid so we avoid out of bounds and
 					 * keep the caller informed when their rules are busted by
 					 * failing fast.
 					 */
-					if (endIndex <= 2)
+					if (attrName.length() - startIndex <= 1)
 						throw new XMLParserException(
-								"namespace URI for rule looks to be incomplete or empty for IRule: "
+								"local name for rule looks to be missing for IRule: "
 										+ rule);
 
-					namespaceURI = attr.substring(1, endIndex);
+					// Parse the local name
+					localName = attrName.substring(startIndex,
+							attrName.length());
+
+					// Give the parsed attribute value to the matching rule
+					rule.handleParsedAttribute(this, i,
+							xpp.getAttributeValue(namespaceURI, localName),
+							userObject);
 				}
-
-				int startIndex = (namespaceURI == null ? 0 : namespaceURI
-						.length() + 2);
-
-				/*
-				 * Make sure the rule is valid so we avoid out of bounds and
-				 * keep the caller informed when their rules are busted by
-				 * failing fast.
-				 */
-				if (attr.length() - startIndex <= 1)
-					throw new XMLParserException(
-							"local name for rule looks to be missing for IRule: "
-									+ rule);
-
-				// Parse the local name
-				localName = attr.substring(startIndex, attr.length());
-
-				// Give the parsed attribute value to the matching rule
-				rule.handleParsedAttribute(this, i,
-						xpp.getAttributeValue(namespaceURI, localName));
 			}
 		}
 	}
@@ -548,13 +731,22 @@ public class XMLParser {
 	 * <p/>
 	 * By default this processes all {@link IRule}s of type
 	 * {@link Type#CHARACTER} that match the parser's current location.
+	 * 
+	 * @param userObject
+	 *            The user-supplied object passed through from this parse method
+	 *            to the matching {@link IRule}'s <code>handleXXX</code> method
+	 *            when a match is found, or <code>null</code> if no user object
+	 *            is needed. Passing through a user-object is just meant as a
+	 *            convenience for giving the handler methods on the
+	 *            {@link IRule}'s access to objects like DAOs that can be used
+	 *            to persist or process parsed data easily.
 	 */
-	protected void doText() {
+	protected void doText(T userObject) {
 		if (DEBUG)
 			log("TEXT: %s", location);
 
 		// Get the rules for the current path
-		List<IRule> ruleList = charRuleMap.get(location.toString());
+		List<IRule<T>> ruleList = charRuleMap.get(location.toString());
 
 		// If there are no rules for the current path, then we are done.
 		if (ruleList == null || ruleList.isEmpty())
@@ -566,20 +758,45 @@ public class XMLParser {
 		String text = xpp.getText();
 
 		// Give the parsed text to all matching IRules for this path
-		for (IRule rule : ruleList) {
+		for (IRule<T> rule : ruleList) {
 			if (DEBUG)
 				log("\t\tRunning Rule: %s", rule);
 
-			rule.handleParsedCharacters(this, text);
+			rule.handleParsedCharacters(this, text, userObject);
 		}
 	}
 
 	/**
 	 * Used to process a {@link XmlPullParser#END_TAG} event.
-	 * <p/>
-	 * By default this updates the internal location state of the parser.
+	 * 
+	 * @param userObject
+	 *            The user-supplied object passed through from this parse method
+	 *            to the matching {@link IRule}'s <code>handleXXX</code> method
+	 *            when a match is found, or <code>null</code> if no user object
+	 *            is needed. Passing through a user-object is just meant as a
+	 *            convenience for giving the handler methods on the
+	 *            {@link IRule}'s access to objects like DAOs that can be used
+	 *            to persist or process parsed data easily.
 	 */
-	protected void doEndTag() {
+	protected void doEndTag(T userObject) {
+		// Get the rules for the current path
+		List<IRule<T>> tagRuleList = tagRuleMap.get(location.toString());
+
+		// If there are no rules for the current path, then we are done.
+		if (tagRuleList == null || tagRuleList.isEmpty())
+			return;
+
+		if (DEBUG)
+			log("\t%d TAG rules found for END_TAG...", tagRuleList.size());
+
+		// Process the TAG rules
+		for (IRule<T> rule : tagRuleList) {
+			if (DEBUG)
+				log("\t\tRunning TAG Rule: %s", rule);
+
+			rule.handleTag(this, true, userObject);
+		}
+
 		// Update parser location
 		location.pop();
 
@@ -591,9 +808,19 @@ public class XMLParser {
 	 * Used to process a {@link XmlPullParser#END_DOCUMENT} event.
 	 * <p/>
 	 * By default this method simply logs a debug statement if debugging is
-	 * enabled.
+	 * enabled, but this stub is provided to make overriding the default
+	 * behavior easier if desired.
+	 * 
+	 * @param userObject
+	 *            The user-supplied object passed through from this parse method
+	 *            to the matching {@link IRule}'s <code>handleXXX</code> method
+	 *            when a match is found, or <code>null</code> if no user object
+	 *            is needed. Passing through a user-object is just meant as a
+	 *            convenience for giving the handler methods on the
+	 *            {@link IRule}'s access to objects like DAOs that can be used
+	 *            to persist or process parsed data easily.
 	 */
-	protected void doEndDocument() {
+	protected void doEndDocument(T userObject) {
 		if (DEBUG)
 			log("END_DOCUMENT, Parsing COMPLETE");
 	}

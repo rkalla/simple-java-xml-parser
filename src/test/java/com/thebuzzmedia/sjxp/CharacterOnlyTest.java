@@ -21,6 +21,7 @@ import com.thebuzzmedia.sjxp.rule.DefaultRule;
 
 import static junit.framework.Assert.*;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class CharacterOnlyTest extends AbstractTest {
 	public static final String[] TITLES = new String[] { "I Like Ham",
 			"That's What She Said", "I Crack Myself Up" };
@@ -47,7 +48,7 @@ public class CharacterOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text, Object userObject) {
 			assertEquals(TITLES[count], text);
 			OK_TITLES[count] = true;
 		}
@@ -59,7 +60,7 @@ public class CharacterOnlyTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text, Object userObject) {
 			assertEquals(AUTHORS[count], text);
 			OK_AUTHORS[count++] = true;
 		}

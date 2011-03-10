@@ -4,6 +4,30 @@ http://www.thebuzzmedia.com/software/simple-java-xml-parser-sjxp/
 
 Changelog
 ---------
+2.0
+	* New IRule.Type.TAG type is defined which allows rules to be called when
+	START and END tag events occur without the overhead of parsing data from the
+	underlying XML stream. This is valuable when you want to examine (e.g. count
+	elements) the XML content without actually parsing data out of it.
+	
+	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/3
+	
+	* Support for passing through a user-object from XMLParser to the IRule 
+	handlers was added. Given that in almost every parsing case *something* needs
+	to be done with the parsed value (processed, stored, etc.) you almost always
+	want to have access to some sort of DAO inside of your IRule handlers; that
+	is exactly what the user-object can be now.
+	
+	A truncated but quick example looks like this:
+	DBStore store = // some DAO creation
+	XMLParser<DBStore> parser = new XMLParser<DBStore>();
+	parser.parse(xmlInputStream, store);
+	
+	Then in the IRule handler code your "user object" object is the passed-through
+	store object that you can use to store the parsed value. This is just an
+	example, it can be anything.
+	
+	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/1
 
 1.1
 	* Initial public release.
@@ -227,9 +251,10 @@ Here are some issues you might run into and what you can do to correct it.
 	===
 	
 	This is a frustratingly vague exception; it is caused by your <?xml..?> 
-	directive at the beginning of your XML file having whitespace before it. If
-	you remove the whitespace, you should be fine (apparently it is against the
-	spec to have whitespace).
+	directive at the beginning of your XML file having whitespace before it
+	(meaning it isn't the VERY FIRST thing in the document). If	you remove the 
+	whitespace, you should be fine (apparently it is against the spec to have 
+	any whitespace before it).
 	
 * I am getting no parsed values from an RDF feed doc (like Slashdot.org's feed),
 why?
@@ -237,21 +262,52 @@ why?
 	This can be unexpected, especially if you haven't spent a lot of time with
 	name spaces and XML docs. The RDF doc *probably* defines a default namespace,
 	in the case of the Slashdot.org feed example, it does. Up in the header, you
-	see "xmlns=", that means every element reference you make needs to be qualified
-	with the namespace URI; something like this:
+	see "xmlns=", that means every element reference you make to elements that 
+	are not prefixed with another namespace prefix (e.g. <title>) needs to be 
+	qualified with the default namespace URI; something like this:
 	/[http://www.w3.org/1999/02/22-rdf-syntax-ns#]RDF/[http://purl.org/rss/1.0/]channel
 	
 	instead of what you were probably trying:
 	/[http://www.w3.org/1999/02/22-rdf-syntax-ns#]RDF/channel
+	
+	This is because <channel> has an implied namespace of the value defined with
+	"xmlns" up in the doc header. 
 
 * I have my rule setup correctly but I never get a parse value from the parser!
 I have double-checked everything, why?!
 
 	This has hit me a few times while writing test-cases when I was getting
-	copy-paste happy... what you've probably done is changed the Type of the
-	rule from ATTRIBUTE to CATEGORY (or visa versa) and forgotten to implement
-	the OTHER handleXXX method so the default no-op method in DefaultRule is 
-	getting called.
+	copy-paste happy... what you've probably done is copied some IRule handler 
+	code and changed the Type of the rule from ATTRIBUTE to CATEGORY (or visa 
+	versa) and forgotten to implement the OTHER handleXXX method so the default 
+	no-op method in DefaultRule is getting called every time the rule matches.
+
+* Since Version 2.0 of SJXP I have a lot of generic warnings around my code like
+"XMLParser is a raw type. References to generic type XMLParser<T> should be 
+parameterized" and "DefaultRule is a raw type. References to generic type 
+DefaultRule<T> should be parameterized", why? How do I fix this?
+
+	This is because a new generified type "T" was defined on the XMLParser and
+	IRule class to allow generic typing of the optional userObject that can be
+	passed-through from the parser to the IRule handler now.
+	
+	The userObject is a design paradigm used to make it easy for you to get 
+	access to some custom object, like a DAO, inside of your handler code without
+	needing to implement your own custom IRule that gets a reference to your
+	object through it's constructor. This design allows you to use the 
+	DefaultRule implementation and get all the functionality you need. 
+	
+	If your code doesn't need to make use of the userObject, that means your
+	references to plain XMLParser and IRule will generate warnings about "raw 
+	types". To suppress these, you can use the following annotation on the line, method
+	or entire class that you want to quiet down:
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	
+	If you don't like suppressing warnings, then you can just parameterize the
+	classes with Object, like so:
+	
+	XMLParser<Object> parser = new XMLParser<Object>();
 		 
 
 Reference

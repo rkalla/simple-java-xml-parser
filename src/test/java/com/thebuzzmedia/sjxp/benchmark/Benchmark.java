@@ -10,16 +10,19 @@ import com.thebuzzmedia.sjxp.rule.DefaultRule;
 import com.thebuzzmedia.sjxp.rule.IRule;
 import com.thebuzzmedia.sjxp.rule.IRule.Type;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class Benchmark {
 	public static final IRule[] HACKERNEWS_RULES = new IRule[] {
 			new DefaultRule(Type.CHARACTER, "/rss/channel/item/title") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			}, new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			} };
@@ -28,13 +31,15 @@ public class Benchmark {
 			new DefaultRule(Type.ATTRIBUTE, "/bugzilla/bug/long_desc/who",
 					"name") {
 				@Override
-				public void handleParsedAttribute(XMLParser parser, int index, String value) {
+				public void handleParsedAttribute(XMLParser parser, int index,
+						String value, Object userObject) {
 					count++;
 				}
 			},
 			new DefaultRule(Type.CHARACTER, "/bugzilla/bug/long_desc/thetext") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			} };
@@ -45,7 +50,8 @@ public class Benchmark {
 					"/[http://www.w3.org/1999/02/22-rdf-syntax-ns#]RDF/[http://purl.org/rss/1.0/]item",
 					"[http://www.w3.org/1999/02/22-rdf-syntax-ns#]about") {
 				@Override
-				public void handleParsedAttribute(XMLParser parser, int index, String value) {
+				public void handleParsedAttribute(XMLParser parser, int index,
+						String value, Object userObject) {
 					count++;
 				}
 			},
@@ -53,7 +59,8 @@ public class Benchmark {
 					Type.CHARACTER,
 					"/[http://www.w3.org/1999/02/22-rdf-syntax-ns#]RDF/[http://purl.org/rss/1.0/]item/[http://purl.org/rss/1.0/]description") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			} };
@@ -61,12 +68,14 @@ public class Benchmark {
 	public static final IRule[] TECHCRUNCH_RULES = new IRule[] {
 			new DefaultRule(Type.CHARACTER, "/rss/channel/item/title") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			}, new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			} };
@@ -74,18 +83,22 @@ public class Benchmark {
 	public static final IRule[] SAMSUNG_RULES = new IRule[] {
 			new DefaultRule(Type.CHARACTER, "/rss/channel/item/title") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
-			}, new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
+			},
+			new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			},
 			new DefaultRule(Type.CHARACTER, "/rss/channel/item/description") {
 				@Override
-				public void handleParsedCharacters(XMLParser parser, String text) {
+				public void handleParsedCharacters(XMLParser parser,
+						String text, Object userObject) {
 					count++;
 				}
 			} };
@@ -94,7 +107,8 @@ public class Benchmark {
 			Type.CHARACTER,
 			"/motorcarrierfreightdetails/motorcarrierfreightdetail/additionallineitems/additionallineitem/quantityandweight") {
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			count++;
 		}
 	} };
@@ -102,7 +116,8 @@ public class Benchmark {
 	public static final IRule[] DICTIONARY_RULES = new IRule[] { new DefaultRule(
 			Type.CHARACTER, "/dictionary/e/ss/s/qp/q/w") {
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			count++;
 		}
 	} };

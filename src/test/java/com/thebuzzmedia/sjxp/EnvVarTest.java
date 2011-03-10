@@ -12,6 +12,7 @@ import static junit.framework.Assert.*;
  * properties set when the XMLParser class is instantiated. That is why it is
  * not part of {@link AllTests}.
  */
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class EnvVarTest {
 	@Test
 	public void testEnvVars() {

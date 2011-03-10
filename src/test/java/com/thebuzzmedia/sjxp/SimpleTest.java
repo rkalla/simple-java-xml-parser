@@ -21,6 +21,7 @@ import com.thebuzzmedia.sjxp.rule.DefaultRule;
 
 import static junit.framework.Assert.*;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class SimpleTest extends AbstractTest {
 	public static final String[] CATEGORIES = new String[] { "Action", "Comedy" };
 	public static final int[] MOVIES = new int[] { 1234, 5678 };
@@ -60,7 +61,8 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(XMLParser parser, int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index,
+				String value, Object userObject) {
 			assertEquals(CATEGORIES[count], value);
 			OK_CATEGORIES[count] = true;
 		}
@@ -72,7 +74,8 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(XMLParser parser, int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index,
+				String value, Object userObject) {
 			assertEquals(MOVIES[count], Integer.parseInt(value));
 			OK_MOVIES[count] = true;
 		}
@@ -84,7 +87,8 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(NAMES[count], text);
 			OK_NAMES[count] = true;
 		}
@@ -96,7 +100,8 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(YEARS[count], Integer.parseInt(text));
 			OK_YEARS[count++] = true;
 		}
@@ -109,7 +114,8 @@ public class SimpleTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(XMLParser parser, int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index,
+				String value, Object userObject) {
 			switch (index) {
 			case 0:
 				assertEquals(CAST_REAL[charCount], value);

@@ -21,6 +21,7 @@ import com.thebuzzmedia.sjxp.rule.DefaultRule;
 
 import static junit.framework.Assert.*;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class StopTest extends AbstractTest {
 	public static final String[] CATEGORIES = new String[] { "Action", "Comedy" };
 	public static final int[] MOVIES = new int[] { 1234, 5678 };
@@ -63,7 +64,7 @@ public class StopTest extends AbstractTest {
 
 		@Override
 		public void handleParsedAttribute(XMLParser parser, int index,
-				String value) {
+				String value, Object userObject) {
 			// As soon as we parse the first category, stop the parser.
 			if (count >= 1)
 				parser.stop();
@@ -80,7 +81,7 @@ public class StopTest extends AbstractTest {
 
 		@Override
 		public void handleParsedAttribute(XMLParser parser, int index,
-				String value) {
+				String value, Object userObject) {
 			// We should have stopped in the previous Rule, we should never get
 			// here.
 			if (count >= 1)
@@ -97,7 +98,8 @@ public class StopTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(NAMES[count], text);
 			OK_NAMES[count] = true;
 		}
@@ -109,7 +111,8 @@ public class StopTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(YEARS[count], Integer.parseInt(text));
 			OK_YEARS[count++] = true;
 		}
@@ -123,7 +126,7 @@ public class StopTest extends AbstractTest {
 
 		@Override
 		public void handleParsedAttribute(XMLParser parser, int index,
-				String value) {
+				String value, Object userObject) {
 			switch (index) {
 			case 0:
 				assertEquals(CAST_REAL[charCount], value);

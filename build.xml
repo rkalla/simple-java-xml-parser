@@ -1,4 +1,3 @@
-<!--Provide multiple build targets, one that builds a normal package and one that builds an Android one without XPP3 -->
 <project name="Simple Java XML Parser" default="dist">
 	<property name="dir.src" value="src/main/java" />
 	<property name="dir.bin" value="bin" />
@@ -11,8 +10,8 @@
 		<pathelement path="${dir.lib}/xpp3-1.1.4c.jar" />
 	</path>
 
-	<property name="version.major" value="1" />
-	<property name="version.minor" value="1" />
+	<property name="version.major" value="2" />
+	<property name="version.minor" value="0" />
 
 	<property name="name.file" value="sjxp" />
 	<property name="name.file.javadoc" value="${name.file}-${version.major}.${version.minor}-javadoc.jar" />

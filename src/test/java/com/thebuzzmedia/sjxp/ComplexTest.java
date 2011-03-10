@@ -21,6 +21,7 @@ import com.thebuzzmedia.sjxp.rule.DefaultRule;
 
 import static junit.framework.Assert.*;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ComplexTest extends AbstractTest {
 	public static final String[] ABOUTS = new String[] {
 			"http://news.slashdot.org/story/11/02/21/2210212/Anonymous-Denies-Targeting-Westboro-Baptist-Church?from=rss",
@@ -62,7 +63,8 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedAttribute(XMLParser parser, int index, String value) {
+		public void handleParsedAttribute(XMLParser parser, int index,
+				String value, Object userObject) {
 			assertEquals(ABOUTS[count], value);
 			OK_ABOUTS[count] = true;
 		}
@@ -76,7 +78,8 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(TITLES[count], text);
 			OK_TITLES[count] = true;
 		}
@@ -90,7 +93,8 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(SUBJECTS[count], text);
 			OK_SUBJECTS[count] = true;
 		}
@@ -104,7 +108,8 @@ public class ComplexTest extends AbstractTest {
 		}
 
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text,
+				Object userObject) {
 			assertEquals(DEPTS[count], text);
 			OK_DEPTS[count++] = true;
 		}

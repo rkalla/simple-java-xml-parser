@@ -22,6 +22,7 @@ import org.junit.Test;
 import com.thebuzzmedia.sjxp.rule.DefaultRule;
 import com.thebuzzmedia.sjxp.rule.IRule.Type;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class EmptyTest extends AbstractTest {
 	@Test
 	public void emptyTest() {
