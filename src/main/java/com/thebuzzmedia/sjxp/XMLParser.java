@@ -783,18 +783,17 @@ public class XMLParser<T> {
 		List<IRule<T>> tagRuleList = tagRuleMap.get(location.toString());
 
 		// If there are no rules for the current path, then we are done.
-		if (tagRuleList == null || tagRuleList.isEmpty())
-			return;
-
-		if (DEBUG)
-			log("\t%d TAG rules found for END_TAG...", tagRuleList.size());
-
-		// Process the TAG rules
-		for (IRule<T> rule : tagRuleList) {
+		if (tagRuleList != null && !tagRuleList.isEmpty()) {
 			if (DEBUG)
-				log("\t\tRunning TAG Rule: %s", rule);
+				log("\t%d TAG rules found for END_TAG...", tagRuleList.size());
 
-			rule.handleTag(this, true, userObject);
+			// Process the TAG rules
+			for (IRule<T> rule : tagRuleList) {
+				if (DEBUG)
+					log("\t\tRunning TAG Rule: %s", rule);
+
+				rule.handleTag(this, true, userObject);
+			}
 		}
 
 		// Update parser location
