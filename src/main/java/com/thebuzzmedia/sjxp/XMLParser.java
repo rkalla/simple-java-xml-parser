@@ -197,9 +197,9 @@ public class XMLParser<T> {
 	private Location location;
 	private XmlPullParser xpp;
 
-	private Map<String, List<IRule<T>>> tagRuleMap;
-	private Map<String, List<IRule<T>>> attrRuleMap;
-	private Map<String, List<IRule<T>>> charRuleMap;
+	private Map<Integer, List<IRule<T>>> tagRuleMap;
+	private Map<Integer, List<IRule<T>>> attrRuleMap;
+	private Map<Integer, List<IRule<T>>> charRuleMap;
 
 	/**
 	 * Create a new parser that uses the given {@link IRule}s when parsing any
@@ -479,9 +479,13 @@ public class XMLParser<T> {
 		int optSize = (rules.length > 64 ? rules.length * 2 : 64);
 
 		// init the rule maps
-		tagRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
-		attrRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
-		charRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
+		// tagRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
+		// attrRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
+		// charRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
+
+		tagRuleMap = new HashMap<Integer, List<IRule<T>>>(optSize);
+		attrRuleMap = new HashMap<Integer, List<IRule<T>>>(optSize);
+		charRuleMap = new HashMap<Integer, List<IRule<T>>>(optSize);
 
 		// init the rules
 		List<IRule<T>> ruleList = null;
@@ -495,7 +499,7 @@ public class XMLParser<T> {
 				// If there wasn't already a rule list, create and add it
 				if (ruleList == null) {
 					ruleList = new ArrayList<IRule<T>>(3);
-					tagRuleMap.put(rule.getLocationPath(), ruleList);
+					tagRuleMap.put(rule.getLocationPath().hashCode(), ruleList);
 				}
 				break;
 
@@ -506,7 +510,8 @@ public class XMLParser<T> {
 				// If there wasn't already a rule list, create and add it
 				if (ruleList == null) {
 					ruleList = new ArrayList<IRule<T>>(3);
-					attrRuleMap.put(rule.getLocationPath(), ruleList);
+					attrRuleMap
+							.put(rule.getLocationPath().hashCode(), ruleList);
 				}
 				break;
 
@@ -517,7 +522,8 @@ public class XMLParser<T> {
 				// If there wasn't already a rule list, create and add it
 				if (ruleList == null) {
 					ruleList = new ArrayList<IRule<T>>(3);
-					charRuleMap.put(rule.getLocationPath(), ruleList);
+					charRuleMap
+							.put(rule.getLocationPath().hashCode(), ruleList);
 				}
 				break;
 			}
@@ -630,8 +636,10 @@ public class XMLParser<T> {
 			log("START_TAG: %s", location);
 
 		// Get the rules for the current path
-		List<IRule<T>> tagRuleList = tagRuleMap.get(location.toString());
-		List<IRule<T>> attrRuleList = attrRuleMap.get(location.toString());
+		List<IRule<T>> tagRuleList = tagRuleMap.get(location
+				.getCachedHashCode());
+		List<IRule<T>> attrRuleList = attrRuleMap.get(location
+				.getCachedHashCode());
 
 		// If there are no rules for the current path, then we are done.
 		if ((tagRuleList == null || tagRuleList.isEmpty())
@@ -746,7 +754,7 @@ public class XMLParser<T> {
 			log("TEXT: %s", location);
 
 		// Get the rules for the current path
-		List<IRule<T>> ruleList = charRuleMap.get(location.toString());
+		List<IRule<T>> ruleList = charRuleMap.get(location.getCachedHashCode());
 
 		// If there are no rules for the current path, then we are done.
 		if (ruleList == null || ruleList.isEmpty())
@@ -780,7 +788,8 @@ public class XMLParser<T> {
 	 */
 	protected void doEndTag(T userObject) {
 		// Get the rules for the current path
-		List<IRule<T>> tagRuleList = tagRuleMap.get(location.toString());
+		List<IRule<T>> tagRuleList = tagRuleMap.get(location
+				.getCachedHashCode());
 
 		// If there are no rules for the current path, then we are done.
 		if (tagRuleList != null && !tagRuleList.isEmpty()) {
@@ -832,22 +841,20 @@ public class XMLParser<T> {
 	 * Performance is optimized by using a {@link StringBuilder} who's length is
 	 * chopped (which just adjusts an <code>int</code> value) to simulate a
 	 * "pop" off the top.
+	 * <h3>Performance</h3>
+	 * As of SJXP 2.0 String object creation and char[] duplication (e.g.
+	 * {@link System#arraycopy(Object, int, Object, int, int)}) has been
+	 * completely removed and replaced with using simple integer hash codes.
 	 * <p/>
-	 * The only object-creation step in SJXP that couldn't be optimized out (or
-	 * at least not yet) is the creation of the {@link String} representation of
-	 * the {@link StringBuilder} when it needs to be used as a key lookup in the
-	 * rule hashes. A simple attempt at caching of the value (until it changes)
-	 * was made to avoid immediate recalls to return faster which is the
-	 * behavior of the START_TAG and TEXT handlers running back-to-back.
-	 * <p/>
-	 * Fortunately, in the grand-scheme of life and XML parsing, the
-	 * <code>toString</code> call is a very small price to pay as path lengths
-	 * are typically small, usually less than 64 chars.
+	 * The performance improvement is huge over the original toString-based
+	 * method of matching {@link IRule}'s <code>locationPath</code>s against the
+	 * parser's current location.
 	 * 
 	 * @author Riyad Kalla (software@thebuzzmedia.com)
 	 */
 	class Location {
-		private String toStringCache;
+		private int hashCode;
+		private Integer[] hashCodeCache;
 
 		private StringBuilder path;
 		private List<Integer> lengthList;
@@ -856,27 +863,106 @@ public class XMLParser<T> {
 		 * Creates a new empty location.
 		 */
 		public Location() {
+			hashCode = 0;
+			hashCodeCache = new Integer[512];
+
 			path = new StringBuilder(256);
 			lengthList = new ArrayList<Integer>(16);
 		}
 
 		/**
-		 * Overridden to return the value of {@link StringBuilder#toString()}.
+		 * Overridden to calculate the hash code of this location using the
+		 * exact same hash code calculation that {@link String#hashCode()} uses.
+		 * This allows us to say a <code>String</code> with the content
+		 * "/library/book/title" is equal to an instance of this class
+		 * representing the same location when doing lookups in a {@link Map}.
+		 * <p/>
+		 * This method calculates the hash code and then caches it, followup
+		 * calls to {@link #push(String, String)} or {@link #pop()} invalidate
+		 * the cached hash code allowing it to be recalculated again on the next
+		 * call.
 		 */
 		@Override
-		public synchronized String toString() {
-			if (toStringCache == null) {
-				toStringCache = path.toString();
+		public int hashCode() {
+			/*
+			 * If the hash code is already 0 and our path is empty, there is
+			 * nothing to compute so the hash code stays 0. Otherwise we drop
+			 * into the for-loop and calculate the String-equivalent hash code.
+			 */
+			if (hashCode == 0 && path.length() > 0) {
+				for (int i = 0, length = path.length(); i < length; i++) {
+					hashCode = 31 * hashCode + path.charAt(i);
+				}
 			}
 
-			return toStringCache;
+			return hashCode;
+		}
+
+		/**
+		 * Used to get a cached {@link Integer} version of the <code>int</code>
+		 * {@link #hashCode()} return value.
+		 * <p/>
+		 * To avoid unnecessary {@link Integer} allocations, this method caches
+		 * up to a certain number of {@link Integer} instances, re-using them
+		 * every time the same hash code value comes back up and creating new
+		 * instances when it doesn't.
+		 * <p/>
+		 * If a larger number of {@link Integer} instances are created than the
+		 * underlying cache can hold, then a new instance will be created and
+		 * returned like normal.
+		 * <h3>Design</h3>
+		 * The reason this works so well for parsing XML is because of the
+		 * nested, tag-matching structure of XML. When considering unique paths
+		 * inside of an XML doc (e.g. "/library", "/library/book", etc.) there
+		 * are typically not that many; maybe 20, 50 or less than a 100 in most
+		 * cases.
+		 * <p/>
+		 * Once the hash code {@link Integer} values for these unique paths is
+		 * created and cached, once we re-encounter that path again and again,
+		 * we don't need to recreate that hash code {@link Integer}, we can just
+		 * use the one from the previous occurrence.
+		 * 
+		 * @return a cached {@link Integer} version of the <code>int</code>
+		 *         {@link #hashCode()} return value.
+		 */
+		public Integer getCachedHashCode() {
+			// Recalculate the hash code
+			hashCode();
+
+			// Figure out the index, in our cache, where this value WOULD be.
+			int index = hashCode % hashCodeCache.length;
+
+			// Absolute value only
+			if (index < 0)
+				index = -index;
+
+			// Get the Integer we think represents our value.
+			Integer value = hashCodeCache[index];
+
+			// If we haven't created an Integer for this value yet, do it now.
+			if (value == null)
+				hashCodeCache[index] = (value = Integer.valueOf(hashCode));
+			/*
+			 * If a collision has occurred and we have filled up our cache
+			 * already and the Integer we grabbed doesn't represent our int
+			 * value, forget the cache and just create a new Integer the old
+			 * fashion way and return it.
+			 * 
+			 * The hope is that the cache is always large enough that we only
+			 * ever hit it and have no misses like this.
+			 */
+			else if (hashCode != value.intValue())
+				value = Integer.valueOf(hashCode);
+
+			return value;
 		}
 
 		/**
 		 * Used to clear all the internal state of the location.
 		 */
 		public void clear() {
-			toStringCache = null;
+			hashCode = 0;
+
 			path.setLength(0);
 			lengthList.clear();
 		}
@@ -893,8 +979,8 @@ public class XMLParser<T> {
 		 *            tag.
 		 */
 		public void push(String localName, String namespaceURI) {
-			// Clear the cache first to be safe.
-			toStringCache = null;
+			// Clear the hash code cache first to be safe.
+			hashCode = 0;
 
 			// Remember the length before we inserted this last entry
 			lengthList.add(path.length());
@@ -915,14 +1001,16 @@ public class XMLParser<T> {
 		 * the {@link StringBuilder}'s length to what it was before the last
 		 * element was appended.
 		 * <p/>
-		 * This effectively cops the last element off the path without doing a
+		 * This effectively chops the last element off the path without doing a
 		 * more costly {@link StringBuilder#delete(int, int)} operation that
 		 * would incur a call to
-		 * {@link System#arraycopy(Object, int, Object, int, int)}.
+		 * {@link System#arraycopy(Object, int, Object, int, int)} by simply
+		 * adjusting a single <code>int</code> counter inside of
+		 * {@link StringBuilder}.
 		 */
 		public void pop() {
-			// Clear the cache first to be safe.
-			toStringCache = null;
+			// Clear the hash code cache first to be safe.
+			hashCode = 0;
 
 			// Get the length before the last insertion
 			Integer lastLength = lengthList.remove(lengthList.size() - 1);

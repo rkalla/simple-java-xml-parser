@@ -5,6 +5,23 @@ http://www.thebuzzmedia.com/software/simple-java-xml-parser-sjxp/
 Changelog
 ---------
 2.0
+	* MAJOR PERFORMANCE IMPROVEMENT
+	
+	In previous versions of SJXP, the design to match the parser's current 
+	location to any registered IRule's was done by comparing their String path
+	values. It was a straight forward and simple design, unfortunately under the
+	microscope of HPROF, it was revealed that running the "Benchmark" class in
+	it's entirety, was leading to something like 85mb of garbage String and char[]
+	objects being created as well as taking up 60% of CPU time.
+	
+	The internal mechanism used to compare locations to IRules was rewritten to
+	use integer hash codes and the memory and CPU reduction has been unbelievable.
+	
+	Memory usage and performance are increased drastically in this release on all
+	platforms (especially good for Android).
+	
+	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/4
+
 	* New IRule.Type.TAG type is defined which allows rules to be called when
 	START and END tag events occur without the overhead of parsing data from the
 	underlying XML stream. This is valuable when you want to examine (e.g. count
@@ -158,7 +175,7 @@ Here is an in-line example used to parse links from an RSS2 feed:
 
 	new DefaultRule(Type.CHARACTER, "/rss/channel/item/link") {
 		@Override
-		public void handleParsedCharacters(XMLParser parser, String text) {
+		public void handleParsedCharacters(XMLParser parser, String text, Object userObject) {
 			// Do something with the link
 		}
 	}
@@ -174,15 +191,18 @@ How it Works
 ------------
 As the underlying XML Pull Parser is parsing the stream of XML content you
 gave it, it keeps track of where it is within the doc by pushing and popping
-the element names (and namespace URIs if available) to a String representation.
+the element names (and namespace URIs if available) to a path representation of
+the parser's current location.
 
-NOTE: No Strings are actually instantiated, it is a very optimized process that
-creates no objects.
+NOTE: Individual String objects are not created during this process, it is a
+very tight loop that avoids object creation.
 
-As the parser runs through the file, at every START_TAG and TEXT event, it 
-queries internal Maps of the IRule instances you gave it to see if any IRule'
-s have locationPaths that match its current location. If it does, the List of 
+As the parser runs through the file, at every START_TAG, END_TAG and TEXT event, 
+it queries internal Maps of the IRule instances you gave it to see if any IRule's 
+have locationPaths that match its current location. If it does, the List of 
 matching rules are pulled out and processed.
+
+Lookups are immediate, using hash codes of the locations to do the comparisons.
 
 If no rules are matched, the parser moves on, having done no additional parsing
 work at that currently location (e.g. it doesn't even bother to try and pull out
@@ -203,11 +223,12 @@ StringBuilder.setLength() is used to simply adjust the internal length int as
 opposed to causing a System.arraycopy call by using StringBuilder.delete
 
 2. At every START_TAG and TEXT even, an O(1) Map lookup is done for a matching
-path.
+path using a hash code of the current location.
 
 3. Memory overhead for the parser's path (typically 128 bytes) and every IRule
-instance that defines a rule for the parser. You are probably looking at 1K or
-less of memory overhead added.
+instance that defines a rule for the parser. You are looking at only a few K
+of overhead if you want to include the ClassLoader holding the classes in memory,
+but that is just being pedantic.
 
 
 Runtime Requirements
@@ -281,6 +302,29 @@ I have double-checked everything, why?!
 	code and changed the Type of the rule from ATTRIBUTE to CATEGORY (or visa 
 	versa) and forgotten to implement the OTHER handleXXX method so the default 
 	no-op method in DefaultRule is getting called every time the rule matches.
+	
+* I don't understand the "userObject", what is it suppose to do?
+
+	The "userObject" is not black magic, it is just a brain-dead pass-through
+	mechanism that makes accessing an important class from inside of custom
+	handler code easier.
+	
+	You call XMLParser.parse, and in addition to the stream you want parsed, you
+	pass another object that you want the parser to give back to you when it finds
+	something interesting... maybe like a DAO or cache instance to store the values
+	with.
+	
+	As soon as the XMLParser matches a rule, it calls the handler, and in addition
+	to the parsed values, also hands you the "userObject" you gave IT way back
+	when you started the parse operation.
+	
+	This way your handler code can stay simple without you needing to create
+	custom IRule implementations that take your special class as a constructor
+	argument or something like that.
+	
+	This "pass-through" design of the userObject was chosen because most of the
+	time when you are parsing XML values, after you get the value, you typically
+	want to do something with it, like store it or process it in some way.
 
 * Since Version 2.0 of SJXP I have a lot of generic warnings around my code like
 "XMLParser is a raw type. References to generic type XMLParser<T> should be 
