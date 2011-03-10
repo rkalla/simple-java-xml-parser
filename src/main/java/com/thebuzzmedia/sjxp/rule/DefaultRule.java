@@ -44,7 +44,7 @@ import com.thebuzzmedia.sjxp.XMLParser;
  * <pre>
  * new DefaultRule(Type.CHARACTER, &quot;/library/book/title&quot;) {
  * 	&#064;Override
- * 	public void handleParsedCharacters(XMLParser parser, String text) {
+ * 	public void handleParsedCharacters(XMLParser parser, String text, T userObject) {
  * 		// Handle the title text
  * 	}
  * };

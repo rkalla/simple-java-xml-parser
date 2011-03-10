@@ -31,21 +31,13 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import com.thebuzzmedia.sjxp.rule.IRule;
 import com.thebuzzmedia.sjxp.rule.IRule.Type;
 
-/*
- * TODO: Consider making this class thread-safe, or atleast behave itself better
- * when multiple threads call it.
- * 
- * Either synchronize the methods or keep track of the currently-executing thread
- * and if another thread calls parse, throw an exception with a reminder to the
- * caller that this class is not thread-safe?
- */
-
 /**
  * Class used to define a parser that makes parsing using the performance of an
  * XML Pull Parser with the ease of XPath-like expressions possible.
  * 
  * <h3>Thread Safety</h3> This class is not thread-safe, however instances of
- * {@link XMLParser} can safely be re-used to parse multiple files back-to-back.
+ * {@link XMLParser} can safely be re-used to parse multiple files once the
+ * previous parse operation is done.
  * 
  * @param <T>
  *            The class type of any user-supplied object that the caller wishes
