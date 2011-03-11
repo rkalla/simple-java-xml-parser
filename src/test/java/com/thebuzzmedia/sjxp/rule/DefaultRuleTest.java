@@ -21,6 +21,7 @@ import com.thebuzzmedia.sjxp.rule.IRule.Type;
 
 import static junit.framework.Assert.*;
 
+@SuppressWarnings("rawtypes")
 public class DefaultRuleTest {
 	public static final String PATH_EMPTY = "";
 	public static final String PATH_SIMPLE = "/library/book";

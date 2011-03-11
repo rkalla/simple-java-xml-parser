@@ -471,10 +471,6 @@ public class XMLParser<T> {
 		int optSize = (rules.length > 64 ? rules.length * 2 : 64);
 
 		// init the rule maps
-		// tagRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
-		// attrRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
-		// charRuleMap = new HashMap<String, List<IRule<T>>>(optSize);
-
 		tagRuleMap = new HashMap<Integer, List<IRule<T>>>(optSize);
 		attrRuleMap = new HashMap<Integer, List<IRule<T>>>(optSize);
 		charRuleMap = new HashMap<Integer, List<IRule<T>>>(optSize);
@@ -482,7 +478,9 @@ public class XMLParser<T> {
 		// init the rules
 		List<IRule<T>> ruleList = null;
 
-		for (IRule<T> rule : rules) {
+		for (int i = 0, length = rules.length; i < length; i++) {
+			IRule<T> rule = rules[i];
+
 			switch (rule.getType()) {
 			case TAG:
 				// Get the rule list for this path
@@ -645,7 +643,9 @@ public class XMLParser<T> {
 
 		// Process the TAG rules
 		if (tagRuleList != null) {
-			for (IRule<T> rule : tagRuleList) {
+			for (int i = 0, size = tagRuleList.size(); i < size; i++) {
+				IRule<T> rule = tagRuleList.get(i);
+
 				if (DEBUG)
 					log("\t\tRunning TAG Rule: %s", rule);
 
@@ -655,7 +655,9 @@ public class XMLParser<T> {
 
 		// Process the ATTR rules
 		if (attrRuleList != null) {
-			for (IRule<T> rule : attrRuleList) {
+			for (int i = 0, size = attrRuleList.size(); i < size; i++) {
+				IRule<T> rule = attrRuleList.get(i);
+
 				if (DEBUG)
 					log("\t\tRunning ATTR Rule: %s", rule);
 
@@ -678,8 +680,8 @@ public class XMLParser<T> {
 				 * other approach would have been magnitudes more expensive both
 				 * in memory and CPU requirements than doing a simple substring.
 				 */
-				for (int i = 0; i < attrNames.length; i++) {
-					String attrName = attrNames[i];
+				for (int j = 0; j < attrNames.length; j++) {
+					String attrName = attrNames[j];
 					String localName = null;
 					String namespaceURI = null;
 
@@ -718,7 +720,7 @@ public class XMLParser<T> {
 							attrName.length());
 
 					// Give the parsed attribute value to the matching rule
-					rule.handleParsedAttribute(this, i,
+					rule.handleParsedAttribute(this, j,
 							xpp.getAttributeValue(namespaceURI, localName),
 							userObject);
 				}
@@ -758,7 +760,9 @@ public class XMLParser<T> {
 		String text = xpp.getText();
 
 		// Give the parsed text to all matching IRules for this path
-		for (IRule<T> rule : ruleList) {
+		for (int i = 0, size = ruleList.size(); i < size; i++) {
+			IRule<T> rule = ruleList.get(i);
+
 			if (DEBUG)
 				log("\t\tRunning Rule: %s", rule);
 
@@ -789,11 +793,13 @@ public class XMLParser<T> {
 				log("\t%d TAG rules found for END_TAG...", tagRuleList.size());
 
 			// Process the TAG rules
-			for (IRule<T> rule : tagRuleList) {
+			for (int i = 0, size = tagRuleList.size(); i < size; i++) {
+				IRule<T> rule = tagRuleList.get(i);
+
 				if (DEBUG)
 					log("\t\tRunning TAG Rule: %s", rule);
 
-				rule.handleTag(this, true, userObject);
+				rule.handleTag(this, false, userObject);
 			}
 		}
 
