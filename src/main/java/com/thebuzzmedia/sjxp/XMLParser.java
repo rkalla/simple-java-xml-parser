@@ -851,6 +851,8 @@ public class XMLParser<T> {
 	 * @author Riyad Kalla (software@thebuzzmedia.com)
 	 */
 	class Location {
+		private static final int HASH_CODE_CACHE_SIZE = 512;
+
 		private int hashCode;
 		private Integer[] hashCodeCache;
 
@@ -862,7 +864,7 @@ public class XMLParser<T> {
 		 */
 		public Location() {
 			hashCode = 0;
-			hashCodeCache = new Integer[512];
+			hashCodeCache = new Integer[HASH_CODE_CACHE_SIZE];
 
 			path = new StringBuilder(256);
 			lengthList = new ArrayList<Integer>(16);
@@ -960,6 +962,7 @@ public class XMLParser<T> {
 		 */
 		public void clear() {
 			hashCode = 0;
+			hashCodeCache = new Integer[HASH_CODE_CACHE_SIZE];
 
 			path.setLength(0);
 			lengthList.clear();
