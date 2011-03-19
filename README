@@ -4,6 +4,15 @@ http://www.thebuzzmedia.com/software/simple-java-xml-parser-sjxp/
 
 Changelog
 ---------
+2.2
+	* Fixed potential performance issue where internal XMLParser.Location.clear()
+	method wasn't clearing the Integer hashCodeCache instance between parse() 
+	calls. This had the potential to degrade parsing performance if a lot of
+	different kinds of XML were parsed, leading to many different unique paths
+	and many different unique Integer hashCode's representing each path filling
+	up the cache and never getting cleared.
+	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/7
+
 2.1
 	* Fixed bug where isStartTag was always true for TAG type rules
 	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/6
