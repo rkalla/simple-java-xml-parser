@@ -1,6 +1,4 @@
 Simple Java XML Parser (SJXP) for any Java Platform including Android.
-http://www.thebuzzmedia.com/software/simple-java-xml-parser-sjxp/
-
 
 Changelog
 ---------
@@ -11,15 +9,15 @@ Changelog
 	different kinds of XML were parsed, leading to many different unique paths
 	and many different unique Integer hashCode's representing each path filling
 	up the cache and never getting cleared.
-	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/7
+	https://github.com/rkalla/simple-java-xml-parser/issues/closed#issue/7
 
 2.1
 	* Fixed bug where isStartTag was always true for TAG type rules
-	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/6
+	https://github.com/rkalla/simple-java-xml-parser/issues/closed#issue/6
 	
 	* Removed use of enhanced for-loop in code base because it caused a large
 	number of AbstractList$Itr classes to be created for no great reason.
-	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/5
+	https://github.com/rkalla/simple-java-xml-parser/issues/closed#issue/5
 
 2.0
 	* MAJOR PERFORMANCE IMPROVEMENT
@@ -36,13 +34,13 @@ Changelog
 	
 	Memory usage and performance are increased drastically in this release on all
 	platforms (especially good for Android).
-	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/4
+	https://github.com/rkalla/simple-java-xml-parser/issues/4
 
 	* New IRule.Type.TAG type is defined which allows rules to be called when
 	START and END tag events occur without the overhead of parsing data from the
 	underlying XML stream. This is valuable when you want to examine (e.g. count
 	elements) the XML content without actually parsing data out of it.
-	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/3
+	https://github.com/rkalla/simple-java-xml-parser/issues/closed#issue/3
 	
 	* Support for passing through a user-object from XMLParser to the IRule 
 	handlers was added. Given that in almost every parsing case *something* needs
@@ -58,7 +56,7 @@ Changelog
 	Then in the IRule handler code your "user object" object is the passed-through
 	store object that you can use to store the parsed value. This is just an
 	example, it can be anything.
-	https://github.com/thebuzzmedia/simple-java-xml-parser/issues/closed#issue/1
+	https://github.com/rkalla/simple-java-xml-parser/issues/closed#issue/1
 
 1.1
 	* Initial public release.
@@ -374,9 +372,3 @@ XML Pull Parsing - http://www.xmlpull.org/
 XML Pull Parsing @ Indiana U - http://www.extreme.indiana.edu/xmlpull-website/
 XPP3 - http://www.extreme.indiana.edu/xgws/xsoap/xpp/mxp1/index.html
 Android XML Pull Parsing - http://developer.android.com/reference/org/xmlpull/v1/package-summary.html
-
-
-Contact
--------
-If you have questions, comments or bug reports for this software please contact
-us at: software@thebuzzmedia.com
